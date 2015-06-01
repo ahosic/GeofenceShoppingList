@@ -117,34 +117,164 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddAppBarButton.Label" xml:space="preserve">
+  <data name="Address.Header" xml:space="preserve">
+    <value>Address</value>
+    <comment>Address of the Shop (View: AddShop)</comment>
+  </data>
+  <data name="AddShopPageTitle.Text" xml:space="preserve">
+    <value>add a shop</value>
+    <comment>Page Title (View: AddShop)</comment>
+  </data>
+  <data name="AppBarButtonAdd.Label" xml:space="preserve">
     <value>add</value>
+    <comment>Primary AppBarButton for Adding Shopping Lists (View: MainPage)</comment>
   </data>
-  <data name="Header.Text" xml:space="preserve">
-    <value>MY APPLICATION</value>
+  <data name="AppBarButtonAddFlyoutList.Text" xml:space="preserve">
+    <value>Add a Shopping List</value>
+    <comment>MenuFlyoutItem for Add-AppBarButton (View: MainPage)</comment>
   </data>
-  <data name="NavigationFailedExceptionMessage" xml:space="preserve">
-    <value>Navigation failed.</value>
+  <data name="AppBarButtonAddFlyoutShop.Text" xml:space="preserve">
+    <value>Add a Shop</value>
+    <comment>MenuFlyoutItem for Add-AppBarButton (View: MainPage)</comment>
   </data>
-  <data name="NewItemDescription" xml:space="preserve">
-    <value>Item Description: Pellentesque porta, mauris quis interdum vehicula, urna sapien ultrices velit, nec venenatis dui odio in augue. Cras posuere, enim a cursus convallis, neque turpis malesuada erat, ut adipiscing neque tortor ac erat.</value>
+  <data name="AppBarButtonCancel.Label" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Primary AppBarButton for canceling the creation of a shop (View: AddShop)</comment>
   </data>
-  <data name="NewItemTitle" xml:space="preserve">
-    <value>Item Title: {0}</value>
+  <data name="AppBarButtonDone.Label" xml:space="preserve">
+    <value>Done</value>
+    <comment>Primary AppBarButton for creating a shop (View: AddShop)</comment>
   </data>
-  <data name="Pivot.Title" xml:space="preserve">
-    <value>MY APPLICATION</value>
+  <data name="AppBarButtonFind.Label" xml:space="preserve">
+    <value>find</value>
+    <comment>Primary AppBarButton for Finding Shopping Lists (View: MainPage)</comment>
   </data>
-  <data name="PivotItem1.Header" xml:space="preserve">
-    <value>first</value>
+  <data name="AppBarButtonSettings.Label" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Seconday AppBarButton for Settings (View: MainPage)</comment>
   </data>
-  <data name="PivotItem2.Header" xml:space="preserve">
-    <value>second</value>
+  <data name="ApplicationTitle.Text" xml:space="preserve">
+    <value>SHOPPING LIST</value>
+    <comment>Application Title</comment>
   </data>
-  <data name="SecondaryButton1.Label" xml:space="preserve">
-    <value>secondary command 1</value>
+  <data name="PivotItemLists.Header" xml:space="preserve">
+    <value>lists</value>
+    <comment>Header of the Lists-PivotItem (View: MainPage)</comment>
   </data>
-  <data name="SecondaryButton2.Label" xml:space="preserve">
-    <value>secondary command 2</value>
+  <data name="PivotItemMap.Header" xml:space="preserve">
+    <value>map</value>
+    <comment>Header of the Maps-PivotItem (View: MainPage)</comment>
+  </data>
+  <data name="PivotItemShops.Header" xml:space="preserve">
+    <value>shops</value>
+    <comment>Header of the Shops-PivotItem (View: MainPage)</comment>
+  </data>
+  <data name="PivotMain.Title" xml:space="preserve">
+    <value>SHOPPING LIST</value>
+    <comment>Title of the Application (View: MainPage)</comment>
+  </data>
+  <data name="ShopName.Header" xml:space="preserve">
+    <value>Name</value>
+    <comment>Name of Shop (View: AddShop)</comment>
+  </data>
+  <data name="GeoFenceShopRadius.Header" xml:space="preserve">
+    <value>Radius of notification</value>
+    <comment>Header of Radius Slider (View: AddShop)</comment>
+  </data>
+  <data name="GeoFenceShopRadiusMaximum" xml:space="preserve">
+    <value>1</value>
+    <comment>Maximum Radius for the Geofence of a shop (View: AddShop)</comment>
+  </data>
+  <data name="GeoFenceShopRadiusMinimum" xml:space="preserve">
+    <value>0.05</value>
+    <comment>Minimum Radius for the Geofence of a shop (View: AddShop)</comment>
+  </data>
+  <data name="GeoFenceShopRadiusStep" xml:space="preserve">
+    <value>0.05</value>
+    <comment>Steps for the slider that is used for setting the radius of the Geofence of a shop (View: AddShop)</comment>
+  </data>
+  <data name="GeoFenceShopRadiusTickFrequency" xml:space="preserve">
+    <value>0.2</value>
+    <comment>Tick frequency for radius slider (View: AddShop)</comment>
+  </data>
+  <data name="GeoFenceShopRadiusUnit" xml:space="preserve">
+    <value>km</value>
+    <comment>Unit for the Radius for the Geofence of a shop (View: AddShop)</comment>
+  </data>
+  <data name="StatusBarGettingLocationText" xml:space="preserve">
+    <value>Getting location...</value>
+    <comment>Text that is displayed in the Statusbar while trying to get the location of the device</comment>
+  </data>
+  <data name="AddShopCancelDialogButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Cancel-Button for the Cancel-Dialog (View: AddShop)</comment>
+  </data>
+  <data name="AddShopCancelDialogButtonProceed" xml:space="preserve">
+    <value>Proceed</value>
+    <comment>Proceed-Button for the Cancel-Dialog (View: AddShop)</comment>
+  </data>
+  <data name="AddShopCancelDialogText" xml:space="preserve">
+    <value>You have unsaved data. If you proceed, all input data will be lost. Proceed?</value>
+    <comment>Text that is displayed in a dialog, when the user clicks on "Cancel". (View: AddShop)</comment>
+  </data>
+  <data name="AddShopCancelDialogTitle" xml:space="preserve">
+    <value>Warning</value>
+    <comment>Title for Cancel-Dialog (View: AddShop)</comment>
+  </data>
+  <data name="AddShopFindAddressDialogNotFoundText" xml:space="preserve">
+    <value>Maybe the address is wrong or invalid?</value>
+    <comment>Text of a dialog that is displayed, when an address can't be found (View: AddShop)</comment>
+  </data>
+  <data name="AddShopFindAddressDialogNotFoundTitle" xml:space="preserve">
+    <value>No results found!</value>
+    <comment>Title of a dialog that is displayed, when an address can't be found (View: AddShop)</comment>
+  </data>
+  <data name="AppBarAddShopFlyoutButtonCancel.Content" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Cancel-Button of Find-Address-Flyout (View: AddShop)</comment>
+  </data>
+  <data name="AppBarAddShopFlyoutButtonFind.Content" xml:space="preserve">
+    <value>Find</value>
+    <comment>Find-Button of Find-Address-Flyout (View: AddShop)</comment>
+  </data>
+  <data name="AppBarAddShopFlyoutHeader.Text" xml:space="preserve">
+    <value>Find Address</value>
+    <comment>Header of Find-Address-Flyout (View: AddShop)</comment>
+  </data>
+  <data name="AppBarAddShopFlyoutTextBoxAddress.Header" xml:space="preserve">
+    <value>Address</value>
+    <comment>Header of TextBox of Find-Address-Flyout (View: AddShop)</comment>
+  </data>
+  <data name="AppBarButtonAddShopFindMe.Label" xml:space="preserve">
+    <value>Find me on the Map</value>
+    <comment>Secondary Appbar-Button for locating device on map using GPS (View: AddShop)</comment>
+  </data>
+  <data name="AppBarButtonFindAddress.Label" xml:space="preserve">
+    <value>Find Address</value>
+    <comment>Secondary Appbar-Button for finding addresses on the map (View: AddShop)</comment>
+  </data>
+  <data name="AppBarButtonFindMe.Label" xml:space="preserve">
+    <value>find me</value>
+    <comment>Appbar-Button for locating device on map using GPS (View: MainPage)</comment>
+  </data>
+  <data name="MainPageMenuFlyOutItemShopDelete.Text" xml:space="preserve">
+    <value>Delete</value>
+    <comment>Text for the MenuFlyoutItem that is displayed while holding a shop (View: MainPage)</comment>
+  </data>
+  <data name="MainPageMenuFlyOutItemShopDetails.Text" xml:space="preserve">
+    <value>Details</value>
+    <comment>Text for the MenuFlyoutItem that is displayed while holding a shop (View: MainPage)</comment>
+  </data>
+  <data name="MainPageMenuFlyOutItemShopEdit.Text" xml:space="preserve">
+    <value>Edit</value>
+    <comment>Text for the MenuFlyoutItem that is displayed while holding a shop (View: MainPage)</comment>
+  </data>
+  <data name="ShopListRadius.Text" xml:space="preserve">
+    <value>RADIUS</value>
+    <comment>Radius-Label for the Shops-List (View: MainPage)</comment>
+  </data>
+  <data name="StatusBarSearchingAddress" xml:space="preserve">
+    <value>Finding Address...</value>
+    <comment>Text that is displayed in the Statusbar while trying to find an address of the device (View: AddShop)</comment>
   </data>
 </root>

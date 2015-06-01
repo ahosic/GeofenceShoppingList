@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -102,6 +104,10 @@ namespace ShoppingListWPApp
 
             // Ensure the current window is active.
             Window.Current.Activate();
+
+            // Setting the style for the Statusbar
+            StatusBar.GetForCurrentView().BackgroundColor = Color.FromArgb(255, 27, 161, 226);
+            StatusBar.GetForCurrentView().BackgroundOpacity = 1;
         }
 
         /// <summary>
@@ -126,6 +132,20 @@ namespace ShoppingListWPApp
             var deferral = e.SuspendingOperation.GetDeferral();
             await SuspensionManager.SaveAsync();
             deferral.Complete();
+        }
+
+        public static async void ToggleProgressBar(bool toggle, string message = "")
+        {
+            StatusBarProgressIndicator progressbar = StatusBar.GetForCurrentView().ProgressIndicator;
+            if (toggle)
+            {
+                progressbar.Text = message;
+                await progressbar.ShowAsync();
+            }
+            else
+            {
+                await progressbar.HideAsync();
+            }
         }
     }
 }

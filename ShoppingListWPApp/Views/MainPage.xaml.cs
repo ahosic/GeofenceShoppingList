@@ -1,4 +1,7 @@
 ﻿using System;
+using Windows.ApplicationModel.Resources;
+using Windows.Devices.Geolocation;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using ShoppingListWPApp.Common;
@@ -71,5 +74,45 @@ namespace ShoppingListWPApp.Views
         }
 
         #endregion
+
+        private async void GetMyLocation()
+        {
+            try
+            {
+                App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarGettingLocationText"));
+
+                Geolocator locator = new Geolocator();
+                Geoposition position = await locator.GetGeopositionAsync();
+
+                App.ToggleProgressBar(false, null);
+
+                Map.Center = position.Coordinate.Point;
+                Map.DesiredPitch = 0;
+
+                await Map.TrySetViewAsync(position.Coordinate.Point, 15);
+            }
+            catch (Exception ex)
+            {
+                App.ToggleProgressBar(false, null);
+            }
+        }
+
+        private void PvMain_PivotItemLoaded(Pivot sender, PivotItemEventArgs args)
+        {
+            if (args.Item.Equals(PviMap))
+            {
+                AbtnFindMe.Visibility = Visibility.Visible;
+                GetMyLocation();
+            }
+            else
+            {
+                AbtnFindMe.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void AbtnFindMe_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            GetMyLocation();
+        }
     }
 }

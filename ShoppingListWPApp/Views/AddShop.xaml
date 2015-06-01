@@ -1,0 +1,87 @@
+﻿<Page
+    x:Class="ShoppingListWPApp.Views.AddShop"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ShoppingListWPApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    mc:Ignorable="d"
+    DataContext="{Binding Source={StaticResource Locator}, Path=AddShop}"
+    RequestedTheme="Light"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer>
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Title Panel (Application Title and Page Title) -->
+            <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="24,17,24,28">
+                <TextBlock x:Uid="ApplicationTitle" x:Name="ApplicationTitle" Style="{ThemeResource TitleTextBlockStyle}"/>
+                <TextBlock x:Uid="AddShopPageTitle" x:Name="PageTitle" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            </StackPanel>
+
+            <!-- Content Panel -->
+            <Grid x:Name="ContentPanel" Grid.Row="1" Margin="24,0,24,28">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0">
+                    <TextBox x:Uid="ShopName" x:Name="TbxShopName" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" InputScope="AlphanumericFullWidth"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Slider x:Uid="GeoFenceShopRadius" x:Name="sldFenceRadius" Grid.Column="0" Value="{Binding Radius, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="{Binding MinimumRadius, Mode=OneWay}" Maximum="{Binding MaximumRadius, Mode=OneWay}" StepFrequency="{Binding RadiusStepValue, Mode=OneWay}" TickFrequency="{Binding TickFrequency, Mode=OneWay}"  Margin="0,0,12,0" VerticalAlignment="Center"/>
+                        <TextBlock x:Uid="GeoFenceShopRadiusDisplay" x:Name="TblRadius" Grid.Column="1" Text="{Binding Value, ElementName=sldFenceRadius, Mode=OneWay, Converter={StaticResource RadiusToRadiusWithUnitConverter}}" Style="{ThemeResource SubheaderTextBlockStyle}" TextAlignment="Right" Margin="12,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="115"/>
+                    </Grid>
+                </StackPanel>
+                <maps:MapControl x:Name="Map" Grid.Row="1" Grid.RowSpan="3" MinHeight="200px" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MapServiceToken="2EIRkyYHCeT2mdDv28xr4g" MapTapped="Map_MapTapped"/>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+
+    <Page.BottomAppBar>
+        <CommandBar Background="{StaticResource MainAppColor}" Foreground="White">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Uid="AppBarButtonDone" x:Name="AbtnDone" Icon="Accept" Command="{Binding DoneCommand}"/>
+                <AppBarButton x:Uid="AppBarButtonCancel" x:Name="AbtnCancel" Icon="Cancel" Command="{Binding CancelCommand}"/>
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Uid="AppBarButtonAddShopFindMe" x:Name="AbtnFindMe" Icon="Map" Click="AbtnFindMe_Click"/>
+                <AppBarButton x:Uid="AppBarButtonFindAddress" x:Name="AbtnFind" Icon="Find">
+                    <AppBarButton.Flyout>
+                        <Flyout>
+                            <StackPanel Background="{ThemeResource MainAppColor}">
+                                <TextBlock x:Uid="AppBarAddShopFlyoutHeader" Style="{ThemeResource MessageDialogTitleStyle}" Foreground="White" Margin="24,17,24,12"/>
+                                <TextBox x:Uid="AppBarAddShopFlyoutTextBoxAddress" x:Name="TbxAddress" InputScope="Search" RequestedTheme="Dark" Margin="24,0,24,12" KeyDown="TbxAddress_KeyDown"/>
+                                <Grid HorizontalAlignment="Stretch" Margin="24,0,24,12" RequestedTheme="Dark">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button x:Uid="AppBarAddShopFlyoutButtonFind" x:Name="BtnFind" Grid.Column="0" Margin="0,0,12,0" HorizontalAlignment="Stretch" Click="BtnFind_Click" />
+                                    <Button x:Uid="AppBarAddShopFlyoutButtonCancel" x:Name="BtnCancel" Grid.Column="1" Margin="12,0,0,0" HorizontalAlignment="Stretch" Click="BtnCancel_Click" />
+                                </Grid>
+                            </StackPanel>
+                        </Flyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
+</Page>

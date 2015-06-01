@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest">
   <Identity Name="67c4a89d-14dd-4963-a3b7-ad3b7313abf7" Publisher="CN=Almin" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="67c4a89d-14dd-4963-a3b7-ad3b7313abf7" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <mp:PhoneIdentity PhoneProductId="35135de4-5b36-4c9f-8adb-19bd9f6902ad" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>ShoppingListWPApp</DisplayName>
     <PublisherDisplayName>Almin</PublisherDisplayName>
@@ -25,5 +25,6 @@
   </Applications>
   <Capabilities>
     <Capability Name="internetClientServer" />
+    <DeviceCapability Name="location" />
   </Capabilities>
 </Package>

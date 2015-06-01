@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight.Ioc;
+﻿using Windows.Devices.Geolocation;
+using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 using ShoppingListWPApp.ViewModels;
@@ -18,6 +19,11 @@ namespace ShoppingListWPApp.Common
             get { return ServiceLocator.Current.GetInstance<MainPageViewModel>(); }
         }
 
+        public AddShopViewModel AddShop
+        {
+            get { return ServiceLocator.Current.GetInstance<AddShopViewModel>(); }
+        }
+
         #endregion
 
         static ViewModelLocator()
@@ -28,11 +34,16 @@ namespace ShoppingListWPApp.Common
             // Setup a Navigation service
             NavigationService navigationService = new NavigationService();
             navigationService.Configure("main", typeof(MainPage));
+            navigationService.Configure("addShop", typeof(AddShop));
 
-            // Register navigation service and viewmodels
+            // Register services
             SimpleIoc.Default.Register<INavigationService>(() => navigationService);
             SimpleIoc.Default.Register<IDialogService>(() => new DialogService());
+            SimpleIoc.Default.Register<Geolocator>();
+
+            // Register ViewModels
             SimpleIoc.Default.Register<MainPageViewModel>();
+            SimpleIoc.Default.Register<AddShopViewModel>();
         }
     }
 }
