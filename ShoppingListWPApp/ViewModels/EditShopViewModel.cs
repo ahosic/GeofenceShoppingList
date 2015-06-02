@@ -14,12 +14,13 @@ using ShoppingListWPApp.Models;
 
 namespace ShoppingListWPApp.ViewModels
 {
-    class AddShopViewModel : ViewModelBase
+    class EditShopViewModel : ViewModelBase
     {
         #region *** Private Members ***
 
         private INavigationService navigationService;
         private IDialogService dialogService;
+        private Shop oldShop;
 
         #endregion
 
@@ -40,21 +41,29 @@ namespace ShoppingListWPApp.ViewModels
 
         #endregion
 
-        public AddShopViewModel(INavigationService navigationService, IDialogService dialogService)
+        public EditShopViewModel(INavigationService navigationService, IDialogService dialogService)
         {
             // Services
             this.navigationService = navigationService;
             this.dialogService = new DialogService();
 
-            InitializeFields();
-
-            DoneCommand = new DependentRelayCommand(CreateShop, IsDataValid, this, () => Name, () => Location);
+            DoneCommand = new DependentRelayCommand(EditShop, IsDataValid, this, () => Name, () => Location);
             CancelCommand = new RelayCommand(Cancel);
 
             MinimumRadius = double.Parse(ResourceLoader.GetForCurrentView().GetString("GeoFenceShopRadiusMinimum"));
             MaximumRadius = double.Parse(ResourceLoader.GetForCurrentView().GetString("GeoFenceShopRadiusMaximum"));
             RadiusStepValue = double.Parse(ResourceLoader.GetForCurrentView().GetString("GeoFenceShopRadiusStep"));
             TickFrequency = double.Parse(ResourceLoader.GetForCurrentView().GetString("GeoFenceShopRadiusTickFrequency"));
+        }
+
+        public void SetShopForEditting(Shop oldShop)
+        {
+            this.oldShop = oldShop;
+
+            Name = oldShop.Name;
+            Address = oldShop.Address;
+            Radius = oldShop.Radius;
+            Location = oldShop.Location;
         }
 
         public async void MapTapped(MapControl sender, MapInputEventArgs args)
@@ -87,42 +96,28 @@ namespace ShoppingListWPApp.ViewModels
             return true;
         }
 
-        private void CreateShop()
+        private void EditShop()
         {
-            Shop shop = new Shop(Name.Trim(), Address, Radius, Location);
-            ServiceLocator.Current.GetInstance<MainPageViewModel>().AddShop(shop);
+            Shop newShop = new Shop(Name.Trim(), Address, Radius, Location);
+            ServiceLocator.Current.GetInstance<MainPageViewModel>().EditShop(oldShop, newShop);
 
-            // Reinitialize all properties and go back to the overview
-            InitializeFields();
+            // Go back to the overview
             navigationService.GoBack();
         }
 
         private async void Cancel()
         {
-            bool result = true;
-
-            if (!Name.Trim().Equals(string.Empty) || Location != null)
-            {
-                // Show a dialog
-                result = await dialogService.ShowMessage(ResourceLoader.GetForCurrentView().GetString("AddShopCancelDialogText"),
+            // Show a dialog
+            bool result = await dialogService.ShowMessage(ResourceLoader.GetForCurrentView().GetString("AddShopCancelDialogText"),
                     ResourceLoader.GetForCurrentView().GetString("AddShopCancelDialogTitle"),
                     ResourceLoader.GetForCurrentView().GetString("AddShopCancelDialogButtonProceed"),
                     ResourceLoader.GetForCurrentView().GetString("AddShopCancelDialogButtonCancel"),
                     null);
-            }
 
             if (result)
             {
-                InitializeFields();
                 navigationService.GoBack();
             }
-        }
-
-        private void InitializeFields()
-        {
-            Name = string.Empty;
-            Address = string.Empty;
-            Location = null;
         }
     }
 }

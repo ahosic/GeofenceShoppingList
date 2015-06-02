@@ -44,11 +44,11 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <Slider x:Uid="GeoFenceShopRadius" x:Name="sldFenceRadius" Grid.Column="0" Value="{Binding Radius, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="{Binding MinimumRadius, Mode=OneWay}" Maximum="{Binding MaximumRadius, Mode=OneWay}" StepFrequency="{Binding RadiusStepValue, Mode=OneWay}" TickFrequency="{Binding TickFrequency, Mode=OneWay}"  Margin="0,0,12,0" VerticalAlignment="Center"/>
-                        <TextBlock x:Uid="GeoFenceShopRadiusDisplay" x:Name="TblRadius" Grid.Column="1" Text="{Binding Value, ElementName=sldFenceRadius, Mode=OneWay, Converter={StaticResource RadiusToRadiusWithUnitConverter}}" Style="{ThemeResource SubheaderTextBlockStyle}" TextAlignment="Right" Margin="12,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="115"/>
+                        <Slider x:Uid="GeoFenceShopRadius" x:Name="SldFenceRadius" Grid.Column="0" Value="{Binding Radius, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Minimum="{Binding MinimumRadius, Mode=OneWay}" Maximum="{Binding MaximumRadius, Mode=OneWay}" StepFrequency="{Binding RadiusStepValue, Mode=OneWay}" TickFrequency="{Binding TickFrequency, Mode=OneWay}"  Margin="0,0,12,0" VerticalAlignment="Center"/>
+                        <TextBlock x:Uid="GeoFenceShopRadiusDisplay" x:Name="TblRadius" Grid.Column="1" Text="{Binding Value, ElementName=SldFenceRadius, Mode=OneWay, Converter={StaticResource RadiusToRadiusWithUnitConverter}}" Style="{ThemeResource SubheaderTextBlockStyle}" TextAlignment="Right" Margin="12,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="115"/>
                     </Grid>
                 </StackPanel>
-                <maps:MapControl x:Name="Map" Grid.Row="1" Grid.RowSpan="3" MinHeight="200px" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MapServiceToken="2EIRkyYHCeT2mdDv28xr4g" MapTapped="Map_MapTapped"/>
+                <maps:MapControl x:Name="Map" Grid.Row="1" Grid.RowSpan="3" MinHeight="200" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MapServiceToken="2EIRkyYHCeT2mdDv28xr4g" MapTapped="Map_MapTapped"/>
             </Grid>
         </Grid>
     </ScrollViewer>
@@ -60,21 +60,21 @@
                 <AppBarButton x:Uid="AppBarButtonCancel" x:Name="AbtnCancel" Icon="Cancel" Command="{Binding CancelCommand}"/>
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Uid="AppBarButtonAddShopFindMe" x:Name="AbtnFindMe" Icon="Map" Click="AbtnFindMe_Click"/>
+                <AppBarButton x:Uid="AppBarButtonSecondaryFindMe" x:Name="AbtnFindMe" Icon="Map" Click="AbtnFindMe_Click"/>
                 <AppBarButton x:Uid="AppBarButtonFindAddress" x:Name="AbtnFind" Icon="Find">
                     <AppBarButton.Flyout>
                         <Flyout>
                             <StackPanel Background="{ThemeResource MainAppColor}">
-                                <TextBlock x:Uid="AppBarAddShopFlyoutHeader" Style="{ThemeResource MessageDialogTitleStyle}" Foreground="White" Margin="24,17,24,12"/>
-                                <TextBox x:Uid="AppBarAddShopFlyoutTextBoxAddress" x:Name="TbxAddress" InputScope="Search" RequestedTheme="Dark" Margin="24,0,24,12" KeyDown="TbxAddress_KeyDown"/>
+                                <TextBlock x:Uid="AppBarFlyoutFindAddressHeader" Style="{ThemeResource MessageDialogTitleStyle}" Foreground="White" Margin="24,17,24,12"/>
+                                <TextBox x:Uid="AppBarFlyoutFindAddressTextBoxAddress" x:Name="TbxAddress" InputScope="Search" RequestedTheme="Dark" Margin="24,0,24,12" KeyDown="TbxAddress_KeyDown"/>
                                 <Grid HorizontalAlignment="Stretch" Margin="24,0,24,12" RequestedTheme="Dark">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Button x:Uid="AppBarAddShopFlyoutButtonFind" x:Name="BtnFind" Grid.Column="0" Margin="0,0,12,0" HorizontalAlignment="Stretch" Click="BtnFind_Click" />
-                                    <Button x:Uid="AppBarAddShopFlyoutButtonCancel" x:Name="BtnCancel" Grid.Column="1" Margin="12,0,0,0" HorizontalAlignment="Stretch" Click="BtnCancel_Click" />
+                                    <Button x:Uid="AppBarFlyoutButtonFind" x:Name="BtnFind" Grid.Column="0" Margin="0,0,12,0" HorizontalAlignment="Stretch" Click="BtnFind_Click" />
+                                    <Button x:Uid="AppBarFlyoutButtonCancel" x:Name="BtnCancel" Grid.Column="1" Margin="12,0,0,0" HorizontalAlignment="Stretch" Click="BtnCancel_Click" />
                                 </Grid>
                             </StackPanel>
                         </Flyout>

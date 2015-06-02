@@ -229,23 +229,23 @@
     <value>No results found!</value>
     <comment>Title of a dialog that is displayed, when an address can't be found (View: AddShop)</comment>
   </data>
-  <data name="AppBarAddShopFlyoutButtonCancel.Content" xml:space="preserve">
+  <data name="AppBarFlyoutButtonCancel.Content" xml:space="preserve">
     <value>Cancel</value>
     <comment>Cancel-Button of Find-Address-Flyout (View: AddShop)</comment>
   </data>
-  <data name="AppBarAddShopFlyoutButtonFind.Content" xml:space="preserve">
+  <data name="AppBarFlyoutButtonFind.Content" xml:space="preserve">
     <value>Find</value>
     <comment>Find-Button of Find-Address-Flyout (View: AddShop)</comment>
   </data>
-  <data name="AppBarAddShopFlyoutHeader.Text" xml:space="preserve">
+  <data name="AppBarFlyoutFindAddressHeader.Text" xml:space="preserve">
     <value>Find Address</value>
     <comment>Header of Find-Address-Flyout (View: AddShop)</comment>
   </data>
-  <data name="AppBarAddShopFlyoutTextBoxAddress.Header" xml:space="preserve">
+  <data name="AppBarFlyoutFindAddressTextBoxAddress.Header" xml:space="preserve">
     <value>Address</value>
     <comment>Header of TextBox of Find-Address-Flyout (View: AddShop)</comment>
   </data>
-  <data name="AppBarButtonAddShopFindMe.Label" xml:space="preserve">
+  <data name="AppBarButtonSecondaryFindMe.Label" xml:space="preserve">
     <value>Find me on the Map</value>
     <comment>Secondary Appbar-Button for locating device on map using GPS (View: AddShop)</comment>
   </data>
@@ -276,5 +276,25 @@
   <data name="StatusBarSearchingAddress" xml:space="preserve">
     <value>Finding Address...</value>
     <comment>Text that is displayed in the Statusbar while trying to find an address of the device (View: AddShop)</comment>
+  </data>
+  <data name="DeleteShopDialogButtonNo" xml:space="preserve">
+    <value>No</value>
+    <comment>No-Button of DeleteShopDialog (View: MainPage)</comment>
+  </data>
+  <data name="DeleteShopDialogButtonYes" xml:space="preserve">
+    <value>Yes</value>
+    <comment>Yes-Button of DeleteShopDialog (View: MainPage)</comment>
+  </data>
+  <data name="DeleteShopDialogContent" xml:space="preserve">
+    <value>Are you sure you want to delete this shop?</value>
+    <comment>Text that is displayed when someone wants to delete a shop (View: MainPage)</comment>
+  </data>
+  <data name="DeleteShopDialogTitle" xml:space="preserve">
+    <value>Delete Shop</value>
+    <comment>Title that is displayed when someone wants to delete a shop (View: MainPage)</comment>
+  </data>
+  <data name="EditShopPageTitle.Text" xml:space="preserve">
+    <value>edit shop</value>
+    <comment>Page Title (View: EditShop)</comment>
   </data>
 </root>
