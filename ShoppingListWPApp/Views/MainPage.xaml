@@ -1,0 +1,123 @@
+﻿<Page
+    x:Class="ShoppingListWPApp.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ShoppingListWPApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:common="using:ShoppingListWPApp.Common"
+    mc:Ignorable="d"
+    DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}"
+    RequestedTheme="Light"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <CommonNavigationTransitionInfo IsStaggeringEnabled="True"/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <Grid>
+        <Pivot x:Uid="PivotMain" x:Name="PvMain" CommonNavigationTransitionInfo.IsStaggerElement="True" PivotItemLoaded="PvMain_PivotItemLoaded">
+            <!--Pivot item lists -->
+            <PivotItem
+                x:Uid="PivotItemLists"
+                Margin="24,14.5,24,24"
+                CommonNavigationTransitionInfo.IsStaggerElement="True">
+            </PivotItem>
+
+            <!--Pivot item map -->
+            <PivotItem
+                x:Uid="PivotItemMap"
+                x:Name="PviMap"
+                Margin="24,14.5,24,24"
+                CommonNavigationTransitionInfo.IsStaggerElement="True">
+                <maps:MapControl x:Name="Map" MapServiceToken="2EIRkyYHCeT2mdDv28xr4g"/>
+            </PivotItem>
+
+            <!--Pivot item shops -->
+            <PivotItem
+                x:Uid="PivotItemShops"
+                Margin="24,14.5,24,24"
+                CommonNavigationTransitionInfo.IsStaggerElement="True">
+
+                <ListView x:Name="ShopList" ItemsSource="{Binding Shops, Mode=OneWay}">
+                    <!-- Stretch list items to fit the device width -->
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Holding">
+                                        <common:OpenMenuFlyoutAction />
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center" Margin="0,0,0,6">
+                                    <TextBlock Text="{Binding Name}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding Address}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="6,0,0,0">
+                                    <TextBlock x:Uid="ShopListRadius" Foreground="{StaticResource MainAppColor}" FontSize="{ThemeResource TextStyleLargeFontSize}" />
+                                    <TextBlock Text="{Binding Radius, Converter={StaticResource RadiusToRadiusWithUnitConverter}}" Foreground="{StaticResource MainAppColor}" FontSize="{ThemeResource TextStyleLargeFontSize}"/>
+                                </StackPanel>
+                                <FlyoutBase.AttachedFlyout>
+                                    <MenuFlyout>
+                                        <MenuFlyout.Items>
+                                            <MenuFlyoutItem x:Uid="MainPageMenuFlyOutItemShopDetails" Text="Details" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding DetailsShopCommand}"/>
+                                            <MenuFlyoutItem x:Uid="MainPageMenuFlyOutItemShopEdit" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding EditShopCommand}"/>
+                                            <MenuFlyoutItem x:Uid="MainPageMenuFlyOutItemShopDelete" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding DeleteShopCommand}"/>
+                                        </MenuFlyout.Items>
+                                        <MenuFlyout.MenuFlyoutPresenterStyle>
+                                            <Style TargetType="MenuFlyoutPresenter">
+                                                <Setter Property="Background" Value="{StaticResource MainAppColor}"></Setter>
+                                                <Setter Property="Foreground" Value="White"></Setter>
+                                            </Style>
+                                        </MenuFlyout.MenuFlyoutPresenterStyle>
+                                    </MenuFlyout>
+                                </FlyoutBase.AttachedFlyout>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </PivotItem>
+        </Pivot>
+    </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar Background="{StaticResource MainAppColor}" Foreground="White">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Uid="AppBarButtonAdd" x:Name="AbtnAdd" Icon="Add">
+                    <AppBarButton.Flyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem x:Uid="AppBarButtonAddFlyoutShop" x:Name="MfoShop" Command="{Binding AddShopCommand}"/>
+                            <MenuFlyoutItem x:Uid="AppBarButtonAddFlyoutList" x:Name="MfoList"/>
+                        </MenuFlyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
+                <AppBarButton x:Uid="AppBarButtonFind" x:Name="AbtnFind" Icon="Find"/>
+                <AppBarButton x:Uid="AppBarButtonFindMe" x:Name="AbtnFindMe" Icon="Map" Visibility="Collapsed" Click="AbtnFindMe_Click"/>
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Uid="AppBarButtonSettings" x:Name="AbtnSetting" Icon="Setting"/>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

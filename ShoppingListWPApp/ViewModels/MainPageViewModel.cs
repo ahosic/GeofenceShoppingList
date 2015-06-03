@@ -49,6 +49,7 @@ namespace ShoppingListWPApp.ViewModels
             AddShopCommand = new RelayCommand(GoToAddShopPage);
             EditShopCommand = new RelayCommand(GoToEditShopPage);
             DeleteShopCommand = new RelayCommand(GoToDeleteShop);
+            DetailsShopCommand = new RelayCommand(GoToDetailsShop);
         }
 
         public void AddShop(Shop shop)
@@ -93,6 +94,11 @@ namespace ShoppingListWPApp.ViewModels
                 DeleteShop(SelectedShop);
                 SelectedShop = null;
             }
+        }
+
+        private void GoToDetailsShop()
+        {
+            
         }
     }
 }
