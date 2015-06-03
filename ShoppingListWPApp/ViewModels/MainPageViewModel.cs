@@ -35,6 +35,7 @@ namespace ShoppingListWPApp.ViewModels
         public ICommand DetailsShopCommand { get; set; }
         public ICommand EditShopCommand { get; set; }
         public ICommand DeleteShopCommand { get; set; }
+        public ICommand AddShoppingListCommand { get; set; }
 
         #endregion
 
@@ -50,6 +51,7 @@ namespace ShoppingListWPApp.ViewModels
             EditShopCommand = new RelayCommand(GoToEditShopPage);
             DeleteShopCommand = new RelayCommand(GoToDeleteShop);
             DetailsShopCommand = new RelayCommand(GoToDetailsShop);
+            AddShoppingListCommand = new RelayCommand(GoToAddShoppingListPage);
         }
 
         public void AddShop(Shop shop)
@@ -99,6 +101,11 @@ namespace ShoppingListWPApp.ViewModels
         private void GoToDetailsShop()
         {
             
+        }
+
+        private void GoToAddShoppingListPage()
+        {
+            navigationService.NavigateTo("addShoppingList");
         }
     }
 }

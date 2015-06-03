@@ -297,4 +297,12 @@
     <value>edit shop</value>
     <comment>Page Title (View: EditShop)</comment>
   </data>
+  <data name="AddShoppingListPageTitle.Text" xml:space="preserve">
+    <value>add a shoppinglist</value>
+    <comment>Page Title (View: AddShoppingList)</comment>
+  </data>
+  <data name="ShoppingListName.Header" xml:space="preserve">
+    <value>Name</value>
+    <comment>Name of ShoppingList (View AddShoppingList)</comment>
+  </data>
 </root>

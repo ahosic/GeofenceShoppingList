@@ -85,6 +85,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AddShoppingList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EditShop.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -106,12 +110,17 @@
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="Common\ViewModelLocator.cs" />
     <Compile Include="Models\Shop.cs" />
+    <Compile Include="Models\ShoppingList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AddShoppingListViewModel.cs" />
     <Compile Include="ViewModels\AddShopViewModel.cs" />
     <Compile Include="ViewModels\EditShopViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Views\AddShop.xaml.cs">
       <DependentUpon>AddShop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddShoppingList.xaml.cs">
+      <DependentUpon>AddShoppingList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EditShop.xaml.cs">
       <DependentUpon>EditShop.xaml</DependentUpon>
