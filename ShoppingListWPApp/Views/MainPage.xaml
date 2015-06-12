@@ -111,7 +111,7 @@
                     <AppBarButton.Flyout>
                         <MenuFlyout>
                             <MenuFlyoutItem x:Uid="AppBarButtonAddFlyoutShop" x:Name="MfoShop" Command="{Binding AddShopCommand}"/>
-                            <MenuFlyoutItem x:Uid="AppBarButtonAddFlyoutList" x:Name="MfoList"/>
+                            <MenuFlyoutItem x:Uid="AppBarButtonAddFlyoutList" x:Name="MfoList" Command="{Binding AddShoppingListCommand}"/>
                         </MenuFlyout>
                     </AppBarButton.Flyout>
                 </AppBarButton>

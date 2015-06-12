@@ -60,6 +60,7 @@ namespace ShoppingListWPApp.ViewModels
         /// Gets or Sets the Command that is issued by the user, in order to delete a previously selected Shop.
         /// </summary>
         public ICommand DeleteShopCommand { get; set; }
+        public ICommand AddShoppingListCommand { get; set; }
 
         #endregion
 
@@ -78,6 +79,7 @@ namespace ShoppingListWPApp.ViewModels
             EditShopCommand = new RelayCommand(GoToEditShopPage);
             DeleteShopCommand = new RelayCommand(GoToDeleteShop);
             DetailsShopCommand = new RelayCommand(GoToDetailsShop);
+            AddShoppingListCommand = new RelayCommand(GoToAddShoppingListPage);
         }
 
         #region *** Shop ***
@@ -184,7 +186,12 @@ namespace ShoppingListWPApp.ViewModels
         {
             navigationService.NavigateTo("detailsShop", this.IndexOfShop(SelectedShop));
         }
+            
+        }
 
-        #endregion
+        private void GoToAddShoppingListPage()
+        {
+            navigationService.NavigateTo("addShoppingList");
+        }
     }
 }
