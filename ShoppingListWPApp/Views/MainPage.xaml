@@ -62,6 +62,9 @@
                                     <core:EventTriggerBehavior EventName="Holding">
                                         <common:OpenMenuFlyoutAction />
                                     </core:EventTriggerBehavior>
+                                    <core:EventTriggerBehavior EventName="Tapped">
+                                        <common:GoToShopDetailsAction />
+                                    </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
 
                                 <Grid.ColumnDefinitions>
@@ -113,7 +116,7 @@
                     </AppBarButton.Flyout>
                 </AppBarButton>
                 <AppBarButton x:Uid="AppBarButtonFind" x:Name="AbtnFind" Icon="Find"/>
-                <AppBarButton x:Uid="AppBarButtonFindMe" x:Name="AbtnFindMe" Icon="Map" Visibility="Collapsed" Click="AbtnFindMe_Click"/>
+                <AppBarButton x:Uid="AppBarButtonFindMe" x:Name="AbtnFindMe" Icon="Target" Visibility="Collapsed" Click="AbtnFindMe_Click"/>
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Uid="AppBarButtonSettings" x:Name="AbtnSetting" Icon="Setting"/>

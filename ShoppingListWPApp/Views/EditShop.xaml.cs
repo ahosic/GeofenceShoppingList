@@ -18,8 +18,14 @@ using ShoppingListWPApp.ViewModels;
 
 namespace ShoppingListWPApp.Views
 {
+    /// <summary>
+    /// This is the corresponding View of the EditShopViewModel.
+    /// </summary>
     public sealed partial class EditShop : Page
     {
+        /// <summary>
+        /// NavigationHelper aids in navigation between pages.
+        /// </summary>
         private NavigationHelper navigationHelper;
 
         public EditShop()
@@ -30,6 +36,7 @@ namespace ShoppingListWPApp.Views
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
 
+            // Append MapTapped method of EditShopViewModel to MapTapped event of the MapControl
             Map.MapTapped += ServiceLocator.Current.GetInstance<EditShopViewModel>().MapTapped;
         }
 
@@ -54,7 +61,8 @@ namespace ShoppingListWPApp.Views
         /// session.  The state will be null the first time a page is visited.</param>
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            ServiceLocator.Current.GetInstance<EditShopViewModel>().SetShopForEditting((Shop)e.NavigationParameter);
+            // Set selected shop (selected on the MainPage) in the EditShopViewModel
+            ServiceLocator.Current.GetInstance<EditShopViewModel>().SetShop((Shop)e.NavigationParameter);
         }
 
         /// <summary>
@@ -89,17 +97,17 @@ namespace ShoppingListWPApp.Views
             this.navigationHelper.OnNavigatedTo(e);
             try
             {
+                // Clear all MapIcons of the MapControl
                 Map.MapElements.Clear();
 
-                MapIcon icon = new MapIcon();
+                // Add a MapIcon with the location of the selected Shop (selected on the MainPage) to the MapControl
                 Geopoint point = new Geopoint((BasicGeoposition)ServiceLocator.Current.GetInstance<EditShopViewModel>().Location);
-                icon.Location = point;
-
+                MapIcon icon = new MapIcon { Location = point };
                 Map.MapElements.Add(icon);
 
+                // Center the selected location on the MapControl
                 Map.Center = point;
                 Map.DesiredPitch = 0;
-
                 await Map.TrySetViewAsync(point, 15);
             }
             catch (Exception ex) { }
@@ -112,20 +120,100 @@ namespace ShoppingListWPApp.Views
 
         #endregion
 
+        #region *** Event methods ***
+
+        /// <summary>
+        /// Adds a <c>MapIcon</c> to the <c>MapControl</c>, when the user taps on the MapControl.
+        /// </summary>
+        /// <param name="sender">The <c>MapControl</c> that has been tapped by the user.</param>
+        /// <param name="args">Contains the geographical position of the point, where the User tapped on the <c>MapControl</c>.</param>
+        private void Map_MapTapped(MapControl sender, MapInputEventArgs args)
+        {
+            try
+            {
+                // Clear all MapIcons of the MapControl
+                Map.MapElements.Clear();
+
+                // Add MappIcon with the tapped location to the MapControl
+                MapIcon icon = new MapIcon { Location = args.Location };
+                Map.MapElements.Add(icon);
+            }
+            catch (Exception ex) { }
+        }
+
+        /// <summary>
+        /// This event gets fired, when the <c>AppbarButton</c> for device location gets tapped.
+        /// 
+        /// This event gets the current geographical position of the device and centers this position in the <c>MapControl</c>.
+        /// </summary>
+        /// <param name="sender">The <c>AppbarButton</c> that has been tapped by the user.</param>
+        /// <param name="e">Event arguments</param>
+        /// <seealso cref="GetMyLocation()"/>
+        private void AbtnFindMe_Click(object sender, RoutedEventArgs e)
+        {
+            GetMyLocation();
+        }
+
+        /// <summary>
+        /// This event gets fired, when the Find-<c>Button</c>  in the Flyout for finding addresses gets tapped. 
+        /// This event executes the <c>FindAddress</c> method.
+        /// </summary>
+        /// <param name="sender">The <c>Button</c> that has been tapped by the user.</param>
+        /// <param name="e">Event arguments</param>
+        /// <seealso cref="FindAddress(string)"/>
+        private void BtnFind_Click(object sender, RoutedEventArgs e)
+        {
+            FindAddress(TbxAddress.Text);
+            AbtnFind.Flyout.Hide();
+        }
+
+        /// <summary>
+        /// This event gets fired, when the Cancel-<c>Button</c>  in the Flyout for finding addresses gets tapped.
+        /// This event hides the Flyout for finding addresses.
+        /// </summary>
+        /// <param name="sender">The <c>Button</c> that has been tapped by the user.</param>
+        /// <param name="e">Event arguments</param>
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            AbtnFind.Flyout.Hide();
+        }
+
+        /// <summary>
+        /// This method hides the soft-keyboard after pressing the Enter-Button in the sof-keyboard and executes the <c>FindAddress</c> method.
+        /// </summary>
+        /// <param name="sender">The sender of the <c>KeyDown</c> event.</param>
+        /// <param name="e">Contains the key that has been pressed by the user.</param>
+        /// <seealso cref="FindAddress(string)"/>
+        private void TbxAddress_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            // Check, if the Enter-Button has been pressed
+            if (e.Key.Equals(VirtualKey.Enter))
+            {
+                FindAddress(TbxAddress.Text);
+                InputPane.GetForCurrentView().TryHide();
+                AbtnFind.Flyout.Hide();
+            }
+        }
+
+        #endregion
+
+        #region *** Private methods ***
+
+        /// <summary>
+        /// Gets the current location of the device and centers the current position on the <c>MapControl</c>.
+        /// </summary>
         private async void GetMyLocation()
         {
             try
             {
+                // Get the current position of device
                 App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarGettingLocationText"));
-
-                Geolocator locator = new Geolocator();
-                Geoposition position = await locator.GetGeopositionAsync();
-
+                Geoposition position = await ServiceLocator.Current.GetInstance<Geolocator>().GetGeopositionAsync();
                 App.ToggleProgressBar(false, null);
 
+                // Center current position in the MapControl
                 Map.Center = position.Coordinate.Point;
                 Map.DesiredPitch = 0;
-
                 await Map.TrySetViewAsync(position.Coordinate.Point, 15);
             }
             catch (Exception ex)
@@ -134,23 +222,32 @@ namespace ShoppingListWPApp.Views
             }
         }
 
-        private async void FindAddress()
+        /// <summary>
+        /// This method tries to find the geographical position of a given address.
+        /// </summary>
+        /// <param name="address">Address for which the geographical position should be found.</param>
+        private async void FindAddress(string address)
         {
             try
             {
+                // Getting current location of device
                 App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarGettingLocationText"));
                 Geoposition position = await ServiceLocator.Current.GetInstance<Geolocator>().GetGeopositionAsync();
                 App.ToggleProgressBar(false, null);
 
+                // Finding geographical position of a given address
                 App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarSearchingAddress"));
-                MapLocationFinderResult FinderResult = await MapLocationFinder.FindLocationsAsync(TbxAddress.Text, position.Coordinate.Point);
+                MapLocationFinderResult FinderResult = await MapLocationFinder.FindLocationsAsync(address, position.Coordinate.Point);
                 App.ToggleProgressBar(false, null);
 
+                // Check, if any positions have been found
                 if (FinderResult.Status == MapLocationFinderStatus.Success && FinderResult.Locations.Count > 0)
                 {
+                    // Set found position as selected Location in the EditShopViewModel
                     ServiceLocator.Current.GetInstance<EditShopViewModel>().Location =
                         FinderResult.Locations.First().Point.Position;
 
+                    // Get exact address of the found location and set it as the address of the selected location in the EditShopViewModel
                     var selectedLocation = FinderResult.Locations.First();
                     string format = "{0} {1}, {2} {3}, {4}";
 
@@ -161,15 +258,16 @@ namespace ShoppingListWPApp.Views
                         selectedLocation.Address.Town,
                         selectedLocation.Address.CountryCode);
 
+                    // Clear all MapIcons of the MapControl
                     Map.MapElements.Clear();
 
+                    // Add MapIcon with the found location to the MapControl
                     MapIcon icon = new MapIcon { Location = FinderResult.Locations.First().Point };
-
                     Map.MapElements.Add(icon);
 
+                    // Center found location on the MapControl
                     Map.Center = FinderResult.Locations.First().Point;
                     Map.DesiredPitch = 0;
-
                     await Map.TrySetViewAsync(FinderResult.Locations.First().Point, 15);
                 }
                 else
@@ -182,44 +280,6 @@ namespace ShoppingListWPApp.Views
             catch (Exception ex) { }
         }
 
-        private void Map_MapTapped(MapControl sender, MapInputEventArgs args)
-        {
-            try
-            {
-                Map.MapElements.Clear();
-
-                MapIcon icon = new MapIcon();
-                icon.Location = args.Location;
-
-                Map.MapElements.Add(icon);
-            }
-            catch (Exception ex) { }
-        }
-
-        private void AbtnFindMe_Click(object sender, RoutedEventArgs e)
-        {
-            GetMyLocation();
-        }
-
-        private void BtnFind_Click(object sender, RoutedEventArgs e)
-        {
-            FindAddress();
-            AbtnFind.Flyout.Hide();
-        }
-
-        private void BtnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            AbtnFind.Flyout.Hide();
-        }
-
-        private void TbxAddress_KeyDown(object sender, KeyRoutedEventArgs e)
-        {
-            if (e.Key.Equals(VirtualKey.Enter))
-            {
-                FindAddress();
-                InputPane.GetForCurrentView().TryHide();
-                AbtnFind.Flyout.Hide();
-            }
-        }
+        #endregion
     }
 }
