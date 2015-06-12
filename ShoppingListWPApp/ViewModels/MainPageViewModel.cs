@@ -186,12 +186,12 @@ namespace ShoppingListWPApp.ViewModels
         {
             navigationService.NavigateTo("detailsShop", this.IndexOfShop(SelectedShop));
         }
-            
-        }
 
         private void GoToAddShoppingListPage()
         {
             navigationService.NavigateTo("addShoppingList");
         }
+
+        #endregion
     }
 }

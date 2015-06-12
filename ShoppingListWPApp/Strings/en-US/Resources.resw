@@ -254,7 +254,7 @@
     <comment>Secondary Appbar-Button for finding addresses on the map (View: AddShop)</comment>
   </data>
   <data name="AppBarButtonFindMe.Label" xml:space="preserve">
-    <value>find me</value>
+    <value>me</value>
     <comment>Appbar-Button for locating device on map using GPS (View: MainPage)</comment>
   </data>
   <data name="MainPageMenuFlyOutItemShopDelete.Text" xml:space="preserve">
