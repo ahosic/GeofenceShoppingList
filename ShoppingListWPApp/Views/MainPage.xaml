@@ -9,10 +9,16 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:common="using:ShoppingListWPApp.Common"
+    xmlns:converters="using:ShoppingListWPApp.Converter"
     mc:Ignorable="d"
     DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}"
     RequestedTheme="Light"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+    <Page.Resources>
+        <converters:ItemClickToShoppingListConverter x:Key="ItemClickToShoppingListConverter" />
+    </Page.Resources>
 
     <Page.Transitions>
         <TransitionCollection>
@@ -31,6 +37,22 @@
                 x:Uid="PivotItemLists"
                 Margin="24,14.5,24,24"
                 CommonNavigationTransitionInfo.IsStaggerElement="True">
+                <ListView x:Name="ShoppingList" ItemsSource="{Binding ShoppingLists, Mode=OneWay}" IsItemClickEnabled="True">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="ItemClick">
+                            <core:InvokeCommandAction Command="{Binding AddShoppingListItemCommand}"
+                                                  InputConverter="{StaticResource ItemClickToShoppingListConverter}" />
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="{Binding ListName}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding ShopName}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </PivotItem>
 
             <!--Pivot item map -->

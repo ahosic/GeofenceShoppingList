@@ -5,11 +5,16 @@
     xmlns:local="using:ShoppingListWPApp.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:ShoppingListWPApp.Converter" 
     mc:Ignorable="d"
     DataContext="{Binding Source={StaticResource Locator}, Path=AddShoppingList}"
     RequestedTheme="Light"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+        <converters:ShopToNameConverter x:Key="ShopToNameConverter" />
+    </Page.Resources>
+    
     <Grid x:Name="LayoutRoot">
 
         <Grid.ChildrenTransitions>
@@ -34,20 +39,13 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="0">
-                <TextBox x:Uid="ShoppingListName" x:Name="txbShoppingListName"  InputScope="AlphanumericFullWidth"/>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    
-                </Grid>
+                <TextBox x:Uid="ShoppingListName" x:Name="txbShoppingListName" Text="{Binding ListName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  InputScope="AlphanumericFullWidth"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <ComboBox Header="Choose a Shop" x:Name="cmbShop" ItemsSource="{Binding Shops, Converter={StaticResource ShopToNameConverter}}" SelectedItem="{Binding ShopName, Mode=TwoWay}" BorderBrush="LightGray" Background="LightGray" Margin="0,0,-0.333,0"  />
             </StackPanel>
         </Grid>
     </Grid>
@@ -55,31 +53,9 @@
     <Page.BottomAppBar>
         <CommandBar Background="{StaticResource MainAppColor}" Foreground="White">
             <CommandBar.PrimaryCommands>
-                <AppBarButton Icon="Accept"/>
-                <AppBarButton x:Uid="AppBarButtonCancel" x:Name="AbtnCancel" Icon="Cancel" Command="{Binding CancelCommand}"/>
+                <AppBarButton x:Uid="AppBarButtonDone" x:Name="AbtnDoneShList" Icon="Accept" Command="{Binding AcceptCommand}"/>
+                <AppBarButton x:Uid="AppBarButtonCancel" x:Name="AbtnCancelShList" Icon="Cancel" Command="{Binding CancelCommand}"/>
             </CommandBar.PrimaryCommands>
-            <CommandBar.SecondaryCommands>
-                <AppBarButton Icon="Map"/>
-                <AppBarButton Icon="Find">
-                    <AppBarButton.Flyout>
-                        <Flyout>
-                            <StackPanel Background="{ThemeResource MainAppColor}">
-                                <TextBlock Text="banana banana" Style="{ThemeResource MessageDialogTitleStyle}" Foreground="White" Margin="24,17,24,12"/>
-                                <TextBox InputScope="Search" RequestedTheme="Dark" Margin="24,0,24,12" />
-                                <Grid HorizontalAlignment="Stretch" Margin="24,0,24,12" RequestedTheme="Dark">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Button x:Uid="AppBarFlyoutButtonFind" x:Name="BtnFind" Grid.Column="0" Margin="0,0,12,0" HorizontalAlignment="Stretch"  />
-                                    <Button x:Uid="AppBarFlyoutButtonCancel" x:Name="BtnCancel" Grid.Column="1" Margin="12,0,0,0" HorizontalAlignment="Stretch" />
-                                </Grid>
-                            </StackPanel>
-                        </Flyout>
-                    </AppBarButton.Flyout>
-                </AppBarButton>
-            </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
 </Page>

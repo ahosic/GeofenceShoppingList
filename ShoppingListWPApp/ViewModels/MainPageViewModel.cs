@@ -4,8 +4,8 @@ using Windows.ApplicationModel.Resources;
 using Windows.Devices.Geolocation;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Views;
+using GalaSoft.MvvmLight.Command;
 using Microsoft.Practices.ServiceLocation;
-using ShoppingListWPApp.Common;
 using ShoppingListWPApp.Models;
 
 namespace ShoppingListWPApp.ViewModels
@@ -25,6 +25,8 @@ namespace ShoppingListWPApp.ViewModels
 
         public ObservableCollection<Shop> Shops { get; set; }
 
+        public ObservableCollection<ShoppingList> ShoppingLists { get; set; }
+
         public Shop SelectedShop
         {
             get { return selectedShop; }
@@ -36,6 +38,7 @@ namespace ShoppingListWPApp.ViewModels
         public ICommand EditShopCommand { get; set; }
         public ICommand DeleteShopCommand { get; set; }
         public ICommand AddShoppingListCommand { get; set; }
+        public ICommand AddShoppingListItemCommand { get; set; }
 
         #endregion
 
@@ -47,11 +50,14 @@ namespace ShoppingListWPApp.ViewModels
             this.locator = locator;
 
             Shops = new ObservableCollection<Shop>();
+            ShoppingLists = new ObservableCollection<ShoppingList>();
+
             AddShopCommand = new RelayCommand(GoToAddShopPage);
             EditShopCommand = new RelayCommand(GoToEditShopPage);
             DeleteShopCommand = new RelayCommand(GoToDeleteShop);
             DetailsShopCommand = new RelayCommand(GoToDetailsShop);
             AddShoppingListCommand = new RelayCommand(GoToAddShoppingListPage);
+            AddShoppingListItemCommand = new RelayCommand<ShoppingList>(GoToShoppingListItem);
         }
 
         public void AddShop(Shop shop)
@@ -70,6 +76,11 @@ namespace ShoppingListWPApp.ViewModels
         public void DeleteShop(Shop shop)
         {
             Shops.Remove(shop);
+        }
+
+        public void AddShoppingList(ShoppingList shList)
+        {
+            ShoppingLists.Add(shList);
         }
 
         private void GoToAddShopPage()
@@ -106,6 +117,11 @@ namespace ShoppingListWPApp.ViewModels
         private void GoToAddShoppingListPage()
         {
             navigationService.NavigateTo("addShoppingList");
+        }
+
+        private void GoToShoppingListItem(ShoppingList shList)
+        {
+            navigationService.NavigateTo("addShoppingListItem", shList);
         }
     }
 }
