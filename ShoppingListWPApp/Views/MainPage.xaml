@@ -9,16 +9,11 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     xmlns:common="using:ShoppingListWPApp.Common"
-    xmlns:converters="using:ShoppingListWPApp.Converter"
     mc:Ignorable="d"
     DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}"
     RequestedTheme="Light"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-
-    <Page.Resources>
-        <converters:ItemClickToShoppingListConverter x:Key="ItemClickToShoppingListConverter" />
-    </Page.Resources>
 
     <Page.Transitions>
         <TransitionCollection>
@@ -37,19 +32,26 @@
                 x:Uid="PivotItemLists"
                 Margin="24,14.5,24,24"
                 CommonNavigationTransitionInfo.IsStaggerElement="True">
-                <ListView x:Name="ShoppingList" ItemsSource="{Binding ShoppingLists, Mode=OneWay}" IsItemClickEnabled="True">
-                    <interactivity:Interaction.Behaviors>
-                        <core:EventTriggerBehavior EventName="ItemClick">
-                            <core:InvokeCommandAction Command="{Binding AddShoppingListItemCommand}"
-                                                  InputConverter="{StaticResource ItemClickToShoppingListConverter}" />
-                        </core:EventTriggerBehavior>
-                    </interactivity:Interaction.Behaviors>
+                <ListView x:Name="ShoppingList" ItemsSource="{Binding ShoppingLists, Mode=OneWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding ListName}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                                <TextBlock Text="{Binding ShopName}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                            </StackPanel>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Tapped">
+                                        <common:GoToShoppingListItemAction />
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+
+
+                                <StackPanel>
+                                    <TextBlock Text="{Binding ListName}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding Shop, Converter={StaticResource ShopToNameConverter}}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
@@ -83,6 +85,9 @@
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Holding">
                                         <common:OpenMenuFlyoutAction />
+                                    </core:EventTriggerBehavior>
+                                    <core:EventTriggerBehavior EventName="Tapped">
+                                        <common:GoToShopDetailsAction />
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
 
@@ -135,7 +140,7 @@
                     </AppBarButton.Flyout>
                 </AppBarButton>
                 <AppBarButton x:Uid="AppBarButtonFind" x:Name="AbtnFind" Icon="Find"/>
-                <AppBarButton x:Uid="AppBarButtonFindMe" x:Name="AbtnFindMe" Icon="Map" Visibility="Collapsed" Click="AbtnFindMe_Click"/>
+                <AppBarButton x:Uid="AppBarButtonFindMe" x:Name="AbtnFindMe" Icon="Target" Visibility="Collapsed" Click="AbtnFindMe_Click"/>
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Uid="AppBarButtonSettings" x:Name="AbtnSetting" Icon="Setting"/>

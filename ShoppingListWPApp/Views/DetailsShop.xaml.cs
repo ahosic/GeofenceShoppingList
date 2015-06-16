@@ -1,31 +1,39 @@
 ﻿using System;
-using Windows.ApplicationModel.Resources;
 using Windows.Devices.Geolocation;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Practices.ServiceLocation;
 using ShoppingListWPApp.Common;
+using ShoppingListWPApp.ViewModels;
 
 namespace ShoppingListWPApp.Views
 {
     /// <summary>
-    /// This is the corresponding View of the MainPageViewModel.
+    /// This is the corresponding View of the DetailsShopViewModel.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class DetailsShop : Page
     {
         /// <summary>
         /// NavigationHelper aids in navigation between pages.
         /// </summary>
         private NavigationHelper navigationHelper;
 
-        public MainPage()
+        public DetailsShop()
         {
             this.InitializeComponent();
 
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+        }
+
+        /// <summary>
+        /// Gets the <see cref="NavigationHelper"/> associated with this <see cref="Page"/>.
+        /// </summary>
+        public NavigationHelper NavigationHelper
+        {
+            get { return this.navigationHelper; }
         }
 
         /// <summary>
@@ -41,6 +49,8 @@ namespace ShoppingListWPApp.Views
         /// session.  The state will be null the first time a page is visited.</param>
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            // Set selected shop (selected on the MainPage) in the DetailsShopViewModel
+            ServiceLocator.Current.GetInstance<DetailsShopViewModel>().SetShop((int)e.NavigationParameter);
         }
 
         /// <summary>
@@ -70,77 +80,30 @@ namespace ShoppingListWPApp.Views
         /// </summary>
         /// <param name="e">Provides data for navigation methods and event
         /// handlers that cannot cancel the navigation request.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.navigationHelper.OnNavigatedTo(e);
+            try
+            {
+                // Clear all MapIcons of the MapControl
+                Map.MapElements.Clear();
+
+                // Add a MapIcon with the location of the selected Shop (selected on the MainPage) to the MapControl
+                Geopoint point = new Geopoint((BasicGeoposition)ServiceLocator.Current.GetInstance<DetailsShopViewModel>().Location);
+                MapIcon icon = new MapIcon { Location = point };
+
+                // Center the selected location on the MapControl
+                Map.MapElements.Add(icon);
+                Map.Center = point;
+                Map.DesiredPitch = 0;
+                await Map.TrySetViewAsync(point, 15);
+            }
+            catch (Exception ex) { }
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             this.navigationHelper.OnNavigatedFrom(e);
-        }
-
-        #endregion
-
-        #region *** Event methods ***
-
-        /// <summary>
-        /// Sets the Visibiity of the AppbarButtons that are specific for a <c>PivotItem</c>.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        private void PvMain_PivotItemLoaded(Pivot sender, PivotItemEventArgs args)
-        {
-            // Check, if the Map-PivoItem is loaded
-            if (args.Item.Equals(PviMap))
-            {
-                AbtnFindMe.Visibility = Visibility.Visible;
-                GetMyLocation();
-            }
-            else
-            {
-                AbtnFindMe.Visibility = Visibility.Collapsed;
-            }
-        }
-
-        /// <summary>
-        /// This event gets fired, when the <c>AppbarButton</c> for device location gets tapped.
-        /// 
-        /// This event gets the current geographical position of the device and centers this position in the <c>MapControl</c>.
-        /// </summary>
-        /// <param name="sender">The <c>AppbarButton</c> that has been tapped by the user.</param>
-        /// <param name="e">Event arguments</param>
-        /// <seealso cref="GetMyLocation()"/>
-        private void AbtnFindMe_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            GetMyLocation();
-        }
-
-        #endregion
-
-        #region *** Private methods ***
-
-        /// <summary>
-        /// Gets the current location of the device and centers the current position on the <c>MapControl</c>.
-        /// </summary>
-        private async void GetMyLocation()
-        {
-            try
-            {
-                // Getting current position of the device
-                App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarGettingLocationText"));
-                Geoposition position = await ServiceLocator.Current.GetInstance<Geolocator>().GetGeopositionAsync();
-                App.ToggleProgressBar(false, null);
-
-                // Center current position of the device on the MapControl
-                Map.Center = position.Coordinate.Point;
-                Map.DesiredPitch = 0;
-                await Map.TrySetViewAsync(position.Coordinate.Point, 15);
-            }
-            catch (Exception ex)
-            {
-                App.ToggleProgressBar(false, null);
-            }
         }
 
         #endregion

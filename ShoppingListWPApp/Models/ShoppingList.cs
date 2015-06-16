@@ -10,16 +10,16 @@ namespace ShoppingListWPApp.Models
     class ShoppingList
     {
         public string ListName { get; set; }
-        public string ShopName { get; set; }
+        public Shop Shop { get; set; }
 
         public ObservableCollection<ShoppingListItem> Items { get; set; }
 
         public ShoppingList() { }
 
-        public ShoppingList(string _name, string _shopName)
+        public ShoppingList(string _name, Shop _shop)
         {
             ListName = _name;
-            ShopName = _shopName;
+            Shop = _shop;
             Items = new ObservableCollection<ShoppingListItem>();
         }
 

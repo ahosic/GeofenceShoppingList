@@ -1,0 +1,62 @@
+﻿<Page
+    x:Class="ShoppingListWPApp.Views.DetailsShop"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ShoppingListWPApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    mc:Ignorable="d"
+    DataContext="{Binding Source={StaticResource Locator}, Path=DetailsShop}"
+    RequestedTheme="Light"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer>
+        <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Title Panel (Application Title and Page Title) -->
+            <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="24,17,24,28">
+                <TextBlock x:Uid="ApplicationTitle" x:Name="ApplicationTitle" Style="{ThemeResource TitleTextBlockStyle}"/>
+                <TextBlock x:Name="PageTitle" Text="{Binding Name}" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            </StackPanel>
+
+            <Grid x:Name="ContentPanel" Grid.Row="1" Margin="24,0,24,28">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0">
+                    <TextBlock x:Uid="DetailsShopHeaderAddress" x:Name="HeaderAddress" Foreground="{ThemeResource TextBoxDisabledHeaderForegroundThemeBrush}" Style="{ThemeResource TitleTextBlockStyle}"/>
+                    <TextBlock x:Name="Address" Text="{Binding Address}" TextWrapping="WrapWholeWords" FontSize="{ThemeResource TextStyleExtraLargePlusFontSize}" Margin="0,0,0,12" />
+
+                    <TextBlock x:Uid="DetailsShopHeaderRadius" x:Name="HeaderRadius" Foreground="{ThemeResource TextBoxDisabledHeaderForegroundThemeBrush}" Style="{ThemeResource TitleTextBlockStyle}"/>
+                    <TextBlock x:Name="Radius" Text="{Binding Radius, Converter={StaticResource RadiusToRadiusWithUnitConverter}}" FontSize="{ThemeResource TextStyleExtraLargePlusFontSize}" Margin="0,0,0,12" />
+
+                    <TextBlock x:Uid="DetailsShopHeaderShoppingLists" x:Name="HeaderShoppingLists" Foreground="{ThemeResource TextBoxDisabledHeaderForegroundThemeBrush}" Style="{ThemeResource TitleTextBlockStyle}"/>
+                    <ListView x:Name="ShoppingLists" Margin="0,0,0,12">
+                    </ListView>
+                </StackPanel>
+                <maps:MapControl x:Name="Map" Grid.Row="1" Grid.RowSpan="3" MinHeight="200" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MapServiceToken="2EIRkyYHCeT2mdDv28xr4g"/>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+
+    <Page.BottomAppBar>
+        <CommandBar Background="{StaticResource MainAppColor}" Foreground="White">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Uid="DetailsShopEdit" x:Name="ShopEdit" Command="{Binding EditCommand}" Icon="Edit" />
+                <AppBarButton x:Uid="DetailsShopDelete" x:Name="ShopDelete" Command="{Binding DeleteCommand}" Icon="Delete" />
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

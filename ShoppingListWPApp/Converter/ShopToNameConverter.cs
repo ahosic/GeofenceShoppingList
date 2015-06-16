@@ -13,15 +13,8 @@ namespace ShoppingListWPApp.Converter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            var args = value as ObservableCollection<Shop>;
-            List<string> list = new List<string>();
-            if (args == null) return null;
-            foreach(Shop s in args)
-            {
-                list.Add(s.Name);
-            }
-
-            return list;
+            Shop shop = (Shop) value;
+            return shop.Name + ", " + shop.Address;
             
         }
 

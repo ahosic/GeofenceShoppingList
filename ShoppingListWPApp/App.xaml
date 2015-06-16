@@ -10,5 +10,6 @@
         <viewModels:ViewModelLocator x:Key="Locator" />
         <SolidColorBrush x:Key="MainAppColor" Color="#FF1BA1E2"/>
         <converters:RadiusToRadiusWithUnitConverter x:Key="RadiusToRadiusWithUnitConverter"/>
+        <converters:ShopToNameConverter x:Key="ShopToNameConverter" />
     </Application.Resources>
 </Application>

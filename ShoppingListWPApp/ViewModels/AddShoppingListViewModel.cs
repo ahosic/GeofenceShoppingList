@@ -24,7 +24,7 @@ namespace ShoppingListWPApp.ViewModels
 
         public string ListName { get; set; }
 
-        public string ShopName { get; set; }
+        public Shop SelectedShop { get; set; }
 
         public ObservableCollection<Shop> Shops { get; set; }
 
@@ -47,7 +47,7 @@ namespace ShoppingListWPApp.ViewModels
 
         public void Accept()
         {
-            ShoppingList shList = new ShoppingList(ListName,ShopName);
+            ShoppingList shList = new ShoppingList(ListName,SelectedShop);
             ServiceLocator.Current.GetInstance<MainPageViewModel>().AddShoppingList(shList);
             ListName = string.Empty;
             navigationService.GoBack();

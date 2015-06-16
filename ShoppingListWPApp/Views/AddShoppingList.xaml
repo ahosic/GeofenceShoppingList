@@ -14,7 +14,7 @@
     <Page.Resources>
         <converters:ShopToNameConverter x:Key="ShopToNameConverter" />
     </Page.Resources>
-    
+
     <Grid x:Name="LayoutRoot">
 
         <Grid.ChildrenTransitions>
@@ -45,7 +45,18 @@
                 <TextBox x:Uid="ShoppingListName" x:Name="txbShoppingListName" Text="{Binding ListName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  InputScope="AlphanumericFullWidth"/>
             </StackPanel>
             <StackPanel Grid.Row="1">
-                <ComboBox Header="Choose a Shop" x:Name="cmbShop" ItemsSource="{Binding Shops, Converter={StaticResource ShopToNameConverter}}" SelectedItem="{Binding ShopName, Mode=TwoWay}" BorderBrush="LightGray" Background="LightGray" Margin="0,0,-0.333,0"  />
+                <!--<ComboBox Header="Choose a Shop" x:Name="cmbShop" ItemsSource="{Binding Shops}" SelectedItem="{Binding , Mode=TwoWay}" BorderBrush="LightGray" Background="LightGray" Margin="0,0,-0.333,0"  />-->
+                <ComboBox x:Name="Shops" Header="Choose a Shop" ItemsSource="{Binding Shops}" SelectedItem="{Binding SelectedShop, Mode=TwoWay}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <TextBlock x:Name="TblShopName" Text="{Binding Name}"/>
+                                <TextBlock x:Name="Address" Text="{Binding Address}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
             </StackPanel>
         </Grid>
     </Grid>

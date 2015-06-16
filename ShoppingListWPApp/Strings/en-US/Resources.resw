@@ -178,7 +178,7 @@
     <comment>Name of Shop (View: AddShop)</comment>
   </data>
   <data name="GeoFenceShopRadius.Header" xml:space="preserve">
-    <value>Radius of notification</value>
+    <value>Radius of Notification</value>
     <comment>Header of Radius Slider (View: AddShop)</comment>
   </data>
   <data name="GeoFenceShopRadiusMaximum" xml:space="preserve">
@@ -254,7 +254,7 @@
     <comment>Secondary Appbar-Button for finding addresses on the map (View: AddShop)</comment>
   </data>
   <data name="AppBarButtonFindMe.Label" xml:space="preserve">
-    <value>find me</value>
+    <value>me</value>
     <comment>Appbar-Button for locating device on map using GPS (View: MainPage)</comment>
   </data>
   <data name="MainPageMenuFlyOutItemShopDelete.Text" xml:space="preserve">
@@ -296,6 +296,26 @@
   <data name="EditShopPageTitle.Text" xml:space="preserve">
     <value>edit shop</value>
     <comment>Page Title (View: EditShop)</comment>
+  </data>
+  <data name="DetailsShopDelete.Label" xml:space="preserve">
+    <value>delete shop</value>
+    <comment>Delete Shop-Label (View: DetailsShop)</comment>
+  </data>
+  <data name="DetailsShopEdit.Label" xml:space="preserve">
+    <value>edit shop</value>
+    <comment>Edit Shop-Label (View: DetailsShop)</comment>
+  </data>
+  <data name="DetailsShopHeaderAddress.Text" xml:space="preserve">
+    <value>Address</value>
+    <comment>Header of Address-Field (View: DetailsShop)</comment>
+  </data>
+  <data name="DetailsShopHeaderRadius.Text" xml:space="preserve">
+    <value>Radius of Notification</value>
+    <comment>Header of Radius-Field (View: DetailsShop)</comment>
+  </data>
+  <data name="DetailsShopHeaderShoppingLists.Text" xml:space="preserve">
+    <value>Shopping Lists</value>
+    <comment>Header of Shopping Lists-ListView (View: DetailsShop)</comment>
   </data>
   <data name="AddShoppingListPageTitle.Text" xml:space="preserve">
     <value>add a shoppinglist</value>
