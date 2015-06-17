@@ -23,8 +23,7 @@ namespace ShoppingListWPApp.ViewModels
 
         public ShoppingList ShoppingList { get; set; }
         public string Name { get; set; }
-        public double Amount { get; set; }
-        public string Measure { get; set; }
+        public string AmountAndMeasure { get; set; }
         public ObservableCollection<ShoppingListItem> Items { get; set; }
         public ICommand AddItemCommand { get; set; }
 
@@ -35,18 +34,18 @@ namespace ShoppingListWPApp.ViewModels
             this.navigationService = navigationService;
 
             Name = string.Empty;
-            Amount = 1;
+            AmountAndMeasure = string.Empty;
 
             AddItemCommand = new RelayCommand(CreateItem);
 
         }
         public void CreateItem()
         {
-            ShoppingListItem item = new ShoppingListItem(Name, Amount, Measure);
+            ShoppingListItem item = new ShoppingListItem(Name, AmountAndMeasure);
             AddItemToShoppingList(item);
 
             Name = string.Empty;
-            Amount = 1;
+            AmountAndMeasure = string.Empty;
             
         }
 

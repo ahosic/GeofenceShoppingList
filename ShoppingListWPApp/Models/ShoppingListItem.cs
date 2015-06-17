@@ -9,16 +9,14 @@ namespace ShoppingListWPApp.Models
     class ShoppingListItem
     {
         public string Name { get; set; }
-        public double Amount { get; set; }
-        public string Measure { get; set; }
+        public string AmountAndMeasure { get; set; }
 
         public ShoppingListItem() { }
 
-        public ShoppingListItem(string _name, double _amount, string _measure)
+        public ShoppingListItem(string _name, string _amountAndMeasure)
         {
             Name = _name;
-            Amount = _amount;
-            Measure = _measure;
+            AmountAndMeasure = _amountAndMeasure;
         }
     }
 }

@@ -33,7 +33,6 @@
         <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <ListView ItemsSource="{Binding Items}">
@@ -42,50 +41,46 @@
                             <StackPanel>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Text="{Binding Amount}" Grid.Column="0" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                                    <TextBlock Text="{Binding Measure}" Grid.Column="1" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                                    <TextBlock Text="{Binding Name}" Grid.Column="2" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                    <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center" Margin="0,0,0,6">
+                                        <TextBlock Text="{Binding Name}" Grid.Column="0" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="6,0,0,0">
+                                        <TextBlock Text="{Binding AmountAndMeasure}" Grid.Column="1" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Foreground="{StaticResource MainAppColor}"  Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1"/>
+                                    </StackPanel>
                                 </Grid>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
-            <StackPanel Grid.Row="1">
-                <Button Content="Add">
-                    <Button.Flyout>
+        </Grid>
+    </Grid>
+
+    <Page.BottomAppBar>
+        <CommandBar Background="{StaticResource MainAppColor}" Foreground="White">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Uid="AppBarButtonDone" x:Name="AbtnDoneShListItem" Icon="Accept">
+                    <AppBarButton.Flyout>
                         <Flyout>
                             <StackPanel Background="{ThemeResource MainAppColor}">
-                                <TextBox Header="Name" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RequestedTheme="Dark" Width="343"></TextBox>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Slider Header="Amount" x:Name="SldAmount" Grid.Column="0" Value="{Binding Amount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RequestedTheme="Dark" Minimum="1" Maximum="25" StepFrequency="1" TickFrequency="1"  Margin="28,0,12.333,0" VerticalAlignment="Center"/>
-                                    <TextBlock x:Name="TblAmount" Grid.Column="1" Text="{Binding Value, ElementName=SldAmount, Mode=OneWay}" Style="{ThemeResource SubheaderTextBlockStyle}" RequestedTheme="Dark" TextAlignment="Center" Margin="12,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="115"/>
-                                </Grid>
-                                <Grid RequestedTheme="Dark">
+                                <TextBox Header="Name" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RequestedTheme="Dark" Width="348"></TextBox>
+                                <TextBox Header="Amount and Measure" Text="{Binding AmountAndMeasure, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RequestedTheme="Dark" Width="348"></TextBox>
+                                <Grid Margin="24,0,24,12" RequestedTheme="Dark">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <ComboBox Header="Measure" x:Name="cmbMeasure" SelectedItem="{Binding Measure, Mode=TwoWay}" Grid.Column="0" BorderThickness="0" Background="LightGray" Margin="25,0,0,0">
-                                        <x:String>Item 1</x:String>
-                                        <x:String>Item 2</x:String>
-                                        <x:String>Item 3</x:String>
-                                    </ComboBox>
-                                    <Button Content="Add" Command="{Binding AddItemCommand}" Grid.ColumnSpan="2" Margin="252,17,0,1"/>
+                                    <Button Content="Add" Command="{Binding AddItemCommand}" Grid.Column="0" HorizontalAlignment="Left"/>
+                                    <Button Content="Cancel" Grid.Column="1" HorizontalAlignment="Right"/>
                                 </Grid>
                             </StackPanel>
                         </Flyout>
-                    </Button.Flyout>
-                </Button>
-            </StackPanel>
-        </Grid>
-    </Grid>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>

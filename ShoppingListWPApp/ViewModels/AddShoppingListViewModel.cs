@@ -17,7 +17,14 @@ namespace ShoppingListWPApp.ViewModels
     class AddShoppingListViewModel : ViewModelBase
     {
         #region *** private Members ***
+        /// <summary>
+        /// This <c>INavigationService</c>-Object is used for navigating between pages.
+        /// </summary>
         private INavigationService navigationService;
+        /// <summary>
+        /// This <c>IDialogService</c>-Object is used for displaying Dialogs on the Device-Screen.
+        /// </summary>
+        private IDialogService dialogService;
         #endregion
 
         #region *** Properties ***
@@ -33,16 +40,19 @@ namespace ShoppingListWPApp.ViewModels
 
         #endregion
 
-        public AddShoppingListViewModel(INavigationService navigationService)
+        public AddShoppingListViewModel(INavigationService navigationService, IDialogService dialogService)
         {
             this.navigationService = navigationService;
+            this.dialogService = dialogService;
 
             ListName = string.Empty;
             Shops = ServiceLocator.Current.GetInstance<MainPageViewModel>().Shops;
 
-            AcceptCommand = new DependentRelayCommand(Accept, isDataValid, this, () => ListName);
+            AcceptCommand = new DependentRelayCommand(Accept, isDataValid, this, () => ListName, () => SelectedShop);
             CancelCommand = new RelayCommand(Cancel);
 
+            
+            showDialogShop();
         }
 
         public void Accept()
@@ -58,7 +68,31 @@ namespace ShoppingListWPApp.ViewModels
         }
         public bool isDataValid()
         {
-            return !string.IsNullOrWhiteSpace(ListName);
+            return !string.IsNullOrWhiteSpace(ListName) && SelectedShop != null;
+        }
+
+        public async void showDialogShop()
+        {
+            if (Shops.Count == 0)
+            {
+                bool result = true;
+
+                // Show dialog
+                result = await dialogService.ShowMessage("You need to add a Shop",
+                    "Add Shop",
+                    "OK",
+                    "Cancel",
+                    null);
+
+                // Check, if user pressed the "Proceed-Button"
+                if (result)
+                {   
+                    navigationService.NavigateTo("addShop");
+                }else
+                {
+                    navigationService.NavigateTo("main");
+                }
+            }
         }
 
 
