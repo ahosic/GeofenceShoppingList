@@ -42,7 +42,6 @@ namespace ShoppingListWPApp.ViewModels
         /// Holds all <c>ShoppingList</c>-Objects and notifies Views through Data Binding when Changes occur.
         /// </summary>
         public ObservableCollection<ShoppingList> ShoppingLists { get; set; }
-
         /// <summary>
         /// The currently selected <c>Shop</c>-Object in the Shops-<c>ListView</c> of the <c>MainPage</c>-View.
         /// </summary>
@@ -51,7 +50,6 @@ namespace ShoppingListWPApp.ViewModels
         /// The currently selected <c>ShoppingList</c>-Object in the ShoppingLists-<c>ListView</c> of the <c>MainPage</c>-View.
         /// </summary>
         public ShoppingList SelectedShoppingList { get; set; }
-        
         /// <summary>
         /// Gets or Sets the Command that is issued by the user, in order to add a new Shop.
         /// </summary>
@@ -242,10 +240,10 @@ namespace ShoppingListWPApp.ViewModels
         {
             // Show dialog
             bool result = await dialogService.ShowMessage(
-                "Text",
-                "Title",
-                ResourceLoader.GetForCurrentView().GetString("DeleteShopDialogButtonYes"),
-                ResourceLoader.GetForCurrentView().GetString("DeleteShopDialogButtonNo"),                
+                ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListDialogContent"),
+                ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListDialogTitle"),
+                ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListDialogButtonYes"),
+                ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListDialogButtonNo"),                
                 null);
 
             // Check, if user pressed the "Proceed-Button"

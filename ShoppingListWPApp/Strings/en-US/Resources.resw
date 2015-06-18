@@ -325,4 +325,58 @@
     <value>Name</value>
     <comment>Name of ShoppingList (View AddShoppingList)</comment>
   </data>
+  <data name="AddShoppingListItemPageTitle.Text" xml:space="preserve">
+    <value>overview items</value>
+    <comment>Page Title (View:AddShoppingListItem)</comment>
+  </data>
+  <data name="AppBarFlyoutAddItemAmountAndMeasure.Header" xml:space="preserve">
+    <value>Amount and Measure</value>
+  </data>
+  <data name="AppBarFlyoutAddItemHeader.Text" xml:space="preserve">
+    <value>Add Item</value>
+    <comment>Header of Flyout AddItem</comment>
+  </data>
+  <data name="AppBarFlyoutAddItemName.Header" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="AppBarFlyoutButtonAdd.Content" xml:space="preserve">
+    <value>add</value>
+    <comment>Add-Button of Add-Item-Flyout (View: AddShoppingListItem)</comment>
+  </data>
+  <data name="DeleteShoppingListDialogButtonNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="DeleteShoppingListDialogButtonYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="DeleteShoppingListDialogContent" xml:space="preserve">
+    <value>Are you sure you want to delete this shoppinglist?</value>
+  </data>
+  <data name="DeleteShoppingListDialogTitle" xml:space="preserve">
+    <value>Delete Shoppinglist</value>
+  </data>
+  <data name="AddShopDialogButtonNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="AddShopDialogButtonYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="AddShopDialogContent" xml:space="preserve">
+    <value>Add a shop to continue!</value>
+  </data>
+  <data name="AddShopDialogTitle" xml:space="preserve">
+    <value>Add a Shop</value>
+  </data>
+  <data name="DeleteShoppingListItemDialogButtonNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="DeleteShoppingListItemDialogButtonYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="DeleteShoppingListItemDialogContent" xml:space="preserve">
+    <value>Are you sure you want to delete this shoppinglistitem?</value>
+  </data>
+  <data name="DeleteShoppingListItemDialogTitle" xml:space="preserve">
+    <value>Delete Shoppinglistitem</value>
+  </data>
 </root>

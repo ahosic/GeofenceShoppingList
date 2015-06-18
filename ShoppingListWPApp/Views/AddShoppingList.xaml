@@ -45,12 +45,12 @@
                 <TextBox x:Uid="ShoppingListName" x:Name="txbShoppingListName" Text="{Binding ListName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  InputScope="AlphanumericFullWidth"/>
             </StackPanel>
             <StackPanel Grid.Row="1">
-                <ComboBox x:Name="Shops" Header="Choose a Shop" ItemsSource="{Binding Shops}" SelectedItem="{Binding SelectedShop, Mode=TwoWay}">
+                <ComboBox x:Name="Shops" Header="Choose a Shop" ItemsSource="{Binding Shops}" SelectedItem="{Binding SelectedShop, Mode=TwoWay}" Background="LightGray" BorderBrush="LightGray">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel>
-                                <TextBlock x:Name="TblShopName" Text="{Binding Name}"/>
-                                <TextBlock x:Name="Address" Text="{Binding Address}"/>
+                                <TextBlock x:Name="TblShopName" Text="{Binding Name}" FontSize="20"/>
+                                <TextBlock x:Name="Address" Text="{Binding Address}" FontSize="15"/>
                             </StackPanel>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
@@ -61,7 +61,7 @@
     <Page.BottomAppBar>
         <CommandBar Background="{StaticResource MainAppColor}" Foreground="White">
             <CommandBar.PrimaryCommands>
-                <AppBarButton x:Uid="AppBarButtonDone" x:Name="AbtnDoneShList" Icon="Accept" Command="{Binding AcceptCommand}"/>
+                <AppBarButton x:Uid="AppBarButtonDone" x:Name="AbtnDoneShList" Icon="Accept" Command="{Binding CreateShoppingListCommand}"/>
                 <AppBarButton x:Uid="AppBarButtonCancel" x:Name="AbtnCancelShList" Icon="Cancel" Command="{Binding CancelCommand}"/>
             </CommandBar.PrimaryCommands>
         </CommandBar>

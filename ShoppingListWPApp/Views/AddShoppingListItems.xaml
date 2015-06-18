@@ -5,6 +5,9 @@
     xmlns:local="using:ShoppingListWPApp.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:common="using:ShoppingListWPApp.Common"
     mc:Ignorable="d"
     RequestedTheme="Light"
     DataContext="{Binding Source={StaticResource Locator}, Path=AddShoppingListItem}"
@@ -24,57 +27,66 @@
         </Grid.RowDefinitions>
 
         <!-- Title Panel -->
-        <StackPanel Grid.Row="0" Margin="19,0,0,0">
-            <TextBlock Text="MY APPLICATION" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
-            <TextBlock Text="add item" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="24,17,24,28">
+            <TextBlock x:Uid="ApplicationTitle" x:Name="ApplicationTitle" Style="{ThemeResource TitleTextBlockStyle}"/>
+            <TextBlock x:Uid="AddShoppingListItemPageTitle" x:Name="PageTitle" Style="{ThemeResource HeaderTextBlockStyle}" FontSize="50"/>
         </StackPanel>
 
         <!-- Content Panel-->
         <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <ListView ItemsSource="{Binding Items}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="auto"/>
-                                    </Grid.ColumnDefinitions>
-                                    <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center" Margin="0,0,0,6">
-                                        <TextBlock Text="{Binding Name}" Grid.Column="0" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1"/>
-                                    </StackPanel>
-                                    <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="6,0,0,0">
-                                        <TextBlock Text="{Binding AmountAndMeasure}" Grid.Column="1" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Foreground="{StaticResource MainAppColor}"  Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1"/>
-                                    </StackPanel>
-                                </Grid>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Grid>
+            <ListView ItemsSource="{Binding Items}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <interactivity:Interaction.Behaviors>
+                                <core:EventTriggerBehavior EventName="Holding">
+                                    <common:OpenMenuFlyoutAction />
+                                </core:EventTriggerBehavior>
+                            </interactivity:Interaction.Behaviors>
+                            
+                            <TextBlock x:Name="TxbNameItemsList" Text="{Binding Name}" Grid.Column="0" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="TxbAmountAndMeasureItemsList" Text="{Binding AmountAndMeasure}" Grid.Column="1" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Foreground="{StaticResource MainAppColor}"  Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1" HorizontalAlignment="Right" VerticalAlignment="Center" />
+                            <FlyoutBase.AttachedFlyout>
+                                <MenuFlyout>
+                                    <MenuFlyout.Items>
+                                        <MenuFlyoutItem Text="Delete" DataContext="{Binding Source={StaticResource Locator}, Path=AddShoppingListItem}" Command="{Binding DeleteItemCommand}"/>
+                                    </MenuFlyout.Items>
+                                    <MenuFlyout.MenuFlyoutPresenterStyle>
+                                        <Style TargetType="MenuFlyoutPresenter">
+                                            <Setter Property="Background" Value="{StaticResource MainAppColor}"></Setter>
+                                            <Setter Property="Foreground" Value="White"></Setter>
+                                        </Style>
+                                    </MenuFlyout.MenuFlyoutPresenterStyle>
+                                </MenuFlyout>
+                            </FlyoutBase.AttachedFlyout>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
     </Grid>
 
     <Page.BottomAppBar>
         <CommandBar Background="{StaticResource MainAppColor}" Foreground="White">
             <CommandBar.PrimaryCommands>
-                <AppBarButton x:Uid="AppBarButtonDone" x:Name="AbtnDoneShListItem" Icon="Accept">
+                <AppBarButton x:Uid="AppBarButtonAdd" x:Name="AbtnAddShListItem" Icon="Add">
                     <AppBarButton.Flyout>
                         <Flyout>
                             <StackPanel Background="{ThemeResource MainAppColor}">
-                                <TextBox Header="Name" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RequestedTheme="Dark" Width="348"></TextBox>
-                                <TextBox Header="Amount and Measure" Text="{Binding AmountAndMeasure, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RequestedTheme="Dark" Width="348"></TextBox>
-                                <Grid Margin="24,0,24,12" RequestedTheme="Dark">
+                                <TextBlock x:Uid="AppBarFlyoutAddItemHeader" Style="{ThemeResource MessageDialogTitleStyle}" Foreground="White" Width="348"/>
+                                <TextBox x:Uid="AppBarFlyoutAddItemName" x:Name="TbxNameAppBarFlyout" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RequestedTheme="Dark" Width="348"></TextBox>
+                                <TextBox x:Uid="AppBarFlyoutAddItemAmountAndMeasure" x:Name="TbxAmountAndMeasureAppBarFlyout" Text="{Binding AmountAndMeasure, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" RequestedTheme="Dark" Width="348"></TextBox>
+                                <Grid Margin="25,0,25,11" RequestedTheme="Dark">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <Button Content="Add" Command="{Binding AddItemCommand}" Grid.Column="0" HorizontalAlignment="Left"/>
-                                    <Button Content="Cancel" Grid.Column="1" HorizontalAlignment="Right"/>
+                                    <Button x:Uid="AppBarFlyoutButtonAdd" x:Name="BtnAdd" Command="{Binding AddItemCommand}" Grid.Column="0" HorizontalAlignment="Left"/>
+                                    <Button x:Uid="AppBarFlyoutButtonCancel" x:Name="BtnCancel" Grid.Column="1" HorizontalAlignment="Right"/>
                                 </Grid>
                             </StackPanel>
                         </Flyout>

@@ -55,7 +55,7 @@
                                 <FlyoutBase.AttachedFlyout>
                                     <MenuFlyout>
                                         <MenuFlyout.Items>
-                                            <!--<MenuFlyoutItem x:Uid="MainPageMenuFlyOutItemShopEdit" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding EditShopCommand}"/>-->
+                                            <MenuFlyoutItem Text="Edit" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}"/>
                                             <MenuFlyoutItem Text="Delete" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding DeleteShoppingListCommand}"/>
                                         </MenuFlyout.Items>
                                         <MenuFlyout.MenuFlyoutPresenterStyle>
@@ -67,8 +67,7 @@
                                     </MenuFlyout>
                                 </FlyoutBase.AttachedFlyout>
                             </Grid>
-                        </DataTemplate>
-                        
+                        </DataTemplate> 
                     </ListView.ItemTemplate>
                 </ListView>
             </PivotItem>

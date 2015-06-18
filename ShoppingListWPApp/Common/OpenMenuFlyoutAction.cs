@@ -29,11 +29,16 @@ namespace ShoppingListWPApp.Common
             {
                 // Set the in the ListView currently selected Shop in the MainViewModel
                 ServiceLocator.Current.GetInstance<MainPageViewModel>().SelectedShop = (Shop)senderElement.DataContext;
-            }else
+            }
+            else if (senderElement.DataContext.GetType() == typeof(ShoppingList))
             {
                 // Set the in the ListView currently selected ShoppingList in the MainViewModel
                 ServiceLocator.Current.GetInstance<MainPageViewModel>().SelectedShoppingList = (ShoppingList)senderElement.DataContext;
 
+            }
+            else if (senderElement.DataContext.GetType() == typeof(ShoppingListItem))
+            {
+                ServiceLocator.Current.GetInstance<AddShoppingListItemViewModel>().ShoppingListItem = (ShoppingListItem)senderElement.DataContext;
             }
 
             // Show the MenuFlyout
