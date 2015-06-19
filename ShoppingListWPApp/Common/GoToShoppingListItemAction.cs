@@ -3,6 +3,7 @@ using Microsoft.Practices.ServiceLocation;
 using Microsoft.Xaml.Interactivity;
 using ShoppingListWPApp.Models;
 using ShoppingListWPApp.ViewModels;
+using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml;
 namespace ShoppingListWPApp.Common
 {

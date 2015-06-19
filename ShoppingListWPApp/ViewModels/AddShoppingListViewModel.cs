@@ -71,7 +71,6 @@ namespace ShoppingListWPApp.ViewModels
             // Gets the Shops-Collection from the MainPageViewModel
             Shops = ServiceLocator.Current.GetInstance<MainPageViewModel>().Shops;
 
-            showDialogShop();
         }
 
         #region *** command methods ***
@@ -120,35 +119,8 @@ namespace ShoppingListWPApp.ViewModels
         /// <returns>Returns <c>true</c> if all inputted values are valid, <c>false</c> if the provided data is invalid.</returns>
         public bool isDataValid()
         {
+
             return !string.IsNullOrWhiteSpace(ListName) && SelectedShop != null;
-        }
-
-        /// <summary>
-        /// Checks, if Shops-Collection has items
-        /// </summary>
-        public async void showDialogShop()
-        {
-            if (Shops.Count == 0)
-            {
-                bool result = true;
-
-                // Show dialog
-                result = await dialogService.ShowMessage(
-                    ResourceLoader.GetForCurrentView().GetString("AddShopDialogContent"),
-                    ResourceLoader.GetForCurrentView().GetString("AddShopDialogTitle"),
-                    ResourceLoader.GetForCurrentView().GetString("AddShopDialogButtonYes"),
-                    ResourceLoader.GetForCurrentView().GetString("AddShopDialogButtonNo"),
-                    null);
-
-                // Check, if user pressed the "Yes-Button"
-                if (result)
-                {   
-                    navigationService.NavigateTo("addShop");
-                }else
-                {
-                    navigationService.NavigateTo("main");
-                }
-            }
         }
 
         #endregion

@@ -7,6 +7,8 @@ using GalaSoft.MvvmLight.Views;
 using ShoppingListWPApp.Common;
 using ShoppingListWPApp.Models;
 using GalaSoft.MvvmLight;
+using Windows.UI.Xaml.Controls;
+using Microsoft.Practices.ServiceLocation;
 
 namespace ShoppingListWPApp.ViewModels
 {
@@ -78,6 +80,8 @@ namespace ShoppingListWPApp.ViewModels
         /// Gets or Sets the Command that is issued by the user, in order to delete a previously selected ShoppingList.
         /// </summary>
         public ICommand DeleteShoppingListCommand { get; set; }
+
+        public ICommand EditShoppingListCommand { get; set; }
 
         #endregion
 
@@ -176,6 +180,11 @@ namespace ShoppingListWPApp.ViewModels
         {
             ShoppingLists.Remove(shoppingList);
         }
+
+        public void EditShoppingList()
+        {
+            
+        }
         #endregion
 
         #region *** Command methods ***
@@ -230,6 +239,7 @@ namespace ShoppingListWPApp.ViewModels
         /// </summary>
         private void GoToAddShoppingListPage()
         {
+            ShowDialogShop();
             navigationService.NavigateTo("addShoppingList");
         }
 
@@ -253,6 +263,34 @@ namespace ShoppingListWPApp.ViewModels
                 DeleteShoppingList(SelectedShoppingList);
                 SelectedShoppingList = null;
             }
+        }
+
+        /// <summary>
+        /// Checks, if Shops-Collection has items
+        /// </summary>
+        public async void ShowDialogShop()
+        {
+            if (ServiceLocator.Current.GetInstance<AddShoppingListViewModel>().Shops.Count == 0)
+            {
+                bool result = true;
+                result = await dialogService.ShowMessage(
+                    ResourceLoader.GetForCurrentView().GetString("AddShopDialogContent"),
+                    ResourceLoader.GetForCurrentView().GetString("AddShopDialogTitle"),
+                    ResourceLoader.GetForCurrentView().GetString("AddShopDialogButtonYes"),
+                    ResourceLoader.GetForCurrentView().GetString("AddShopDialogButtonNo"),
+                    null);
+
+                // Check, if user pressed the "Yes-Button"
+                if (result)
+                {
+                    navigationService.NavigateTo("addShop");
+                }
+                else
+                {
+                    navigationService.NavigateTo("main");
+                }
+            }
+
         }
         #endregion
     }
