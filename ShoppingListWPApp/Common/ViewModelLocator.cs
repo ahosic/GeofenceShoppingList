@@ -67,6 +67,7 @@ namespace ShoppingListWPApp.Common
             SimpleIoc.Default.Register<INavigationService>(() => navigationService);
             SimpleIoc.Default.Register<IDialogService>(() => new DialogService());
             SimpleIoc.Default.Register<Geolocator>();
+            SimpleIoc.Default.Register<GeoHelper>();
 
             // Register ViewModels
             SimpleIoc.Default.Register<MainPageViewModel>();

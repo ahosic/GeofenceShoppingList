@@ -1,12 +1,17 @@
-﻿using Windows.Devices.Geolocation;
+﻿using System;
+using Windows.Devices.Geolocation;
 
 namespace ShoppingListWPApp.Models
 {
     /// <summary>
     /// An object which holds information about a Shop.
     /// </summary>
-    class Shop
+    public class Shop
     {
+        /// <summary>
+        /// Gets the ID of a Shop.
+        /// </summary>
+        public string ID { get; private set; }
         /// <summary>
         /// Gets or Sets the Name of a Shop.
         /// </summary>
@@ -26,6 +31,7 @@ namespace ShoppingListWPApp.Models
 
         public Shop(string name, string address, double radius, BasicGeoposition? location)
         {
+            ID = Guid.NewGuid().ToString();
             Name = name;
             Address = address;
             Radius = radius;

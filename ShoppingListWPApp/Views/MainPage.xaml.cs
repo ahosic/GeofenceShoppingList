@@ -1,9 +1,11 @@
 ﻿using System;
+using Windows.ApplicationModel.Background;
 using Windows.ApplicationModel.Resources;
 using Windows.Devices.Geolocation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 using ShoppingListWPApp.Common;
 
@@ -111,7 +113,7 @@ namespace ShoppingListWPApp.Views
         /// <param name="sender">The <c>AppbarButton</c> that has been tapped by the user.</param>
         /// <param name="e">Event arguments</param>
         /// <seealso cref="GetMyLocation()"/>
-        private void AbtnFindMe_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void AbtnFindMe_Click(object sender, RoutedEventArgs e)
         {
             GetMyLocation();
         }

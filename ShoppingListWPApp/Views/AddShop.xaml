@@ -48,7 +48,8 @@
                         <TextBlock x:Uid="GeoFenceShopRadiusDisplay" x:Name="TblRadius" Grid.Column="1" Text="{Binding Value, ElementName=SldFenceRadius, Mode=OneWay, Converter={StaticResource RadiusToRadiusWithUnitConverter}}" Style="{ThemeResource SubheaderTextBlockStyle}" TextAlignment="Right" Margin="12,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="115"/>
                     </Grid>
                 </StackPanel>
-                <maps:MapControl x:Name="Map" Grid.Row="1" Grid.RowSpan="3" MinHeight="200" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MapServiceToken="2EIRkyYHCeT2mdDv28xr4g" MapTapped="Map_MapTapped"/>
+                <maps:MapControl x:Name="Map" Grid.Row="1" Grid.RowSpan="3" MinHeight="200" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MapServiceToken="2EIRkyYHCeT2mdDv28xr4g" MapTapped="Map_MapTapped">
+                </maps:MapControl>
             </Grid>
         </Grid>
     </ScrollViewer>

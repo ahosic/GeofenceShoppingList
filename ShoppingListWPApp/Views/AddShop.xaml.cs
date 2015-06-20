@@ -6,8 +6,10 @@ using Windows.Services.Maps;
 using Windows.System;
 using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Practices.ServiceLocation;
 using ShoppingListWPApp.Common;
@@ -109,7 +111,7 @@ namespace ShoppingListWPApp.Views
         /// </summary>
         /// <param name="sender">The <c>MapControl</c> that has been tapped by the user.</param>
         /// <param name="args">Contains the geographical position of the point, where the User tapped on the <c>MapControl</c>.</param>
-        private async void Map_MapTapped(MapControl sender, MapInputEventArgs args)
+        private void Map_MapTapped(MapControl sender, MapInputEventArgs args)
         {
             try
             {
@@ -132,7 +134,7 @@ namespace ShoppingListWPApp.Views
         /// <param name="sender">The <c>AppbarButton</c> that has been tapped by the user.</param>
         /// <param name="e">Event arguments</param>
         /// <seealso cref="GetMyLocation()"/>
-        private void AbtnFindMe_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void AbtnFindMe_Click(object sender, RoutedEventArgs e)
         {
             GetMyLocation();
         }
@@ -144,7 +146,7 @@ namespace ShoppingListWPApp.Views
         /// <param name="sender">The <c>Button</c> that has been tapped by the user.</param>
         /// <param name="e">Event arguments</param>
         /// <seealso cref="FindAddress(string)"/>
-        private async void BtnFind_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void BtnFind_Click(object sender, RoutedEventArgs e)
         {
 
             FindAddress(TbxAddress.Text);
@@ -157,7 +159,7 @@ namespace ShoppingListWPApp.Views
         /// </summary>
         /// <param name="sender">The <c>Button</c> that has been tapped by the user.</param>
         /// <param name="e">Event arguments</param>
-        private void BtnCancel_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
             AbtnFind.Flyout.Hide();
         }
@@ -168,7 +170,7 @@ namespace ShoppingListWPApp.Views
         /// <param name="sender">The sender of the <c>KeyDown</c> event.</param>
         /// <param name="e">Contains the key that has been pressed by the user.</param>
         /// <seealso cref="FindAddress(string)"/>
-        private void TbxAddress_KeyDown(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        private void TbxAddress_KeyDown(object sender, KeyRoutedEventArgs e)
         {
             // Check, if the Enter-Button has been pressed
             if (e.Key.Equals(VirtualKey.Enter))

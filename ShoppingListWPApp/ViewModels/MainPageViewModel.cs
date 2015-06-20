@@ -1,10 +1,15 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using Windows.ApplicationModel.Resources;
 using Windows.Devices.Geolocation;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Views;
+using Microsoft.Practices.ServiceLocation;
+using Newtonsoft.Json;
 using ShoppingListWPApp.Common;
 using ShoppingListWPApp.Models;
 
@@ -29,6 +34,8 @@ namespace ShoppingListWPApp.ViewModels
         /// This <c>Geolocator</c>-Object is used for retrieving the geographical position of the device using GPS.
         /// </summary>
         private Geolocator locator;
+
+        private string shopsFilename;
 
         #endregion
 
@@ -68,11 +75,11 @@ namespace ShoppingListWPApp.ViewModels
         {
             // Services
             this.navigationService = navigationService;
-            this.dialogService = new DialogService();
+            this.dialogService = dialogService;
             this.locator = locator;
 
             // Initialize Observable Collections
-            Shops = new ObservableCollection<Shop>();
+            //Shops = new ObservableCollection<Shop>();
 
             // Commands
             AddShopCommand = new RelayCommand(GoToAddShopPage);
@@ -80,6 +87,10 @@ namespace ShoppingListWPApp.ViewModels
             DeleteShopCommand = new RelayCommand(GoToDeleteShop);
             DetailsShopCommand = new RelayCommand(GoToDetailsShop);
             AddShoppingListCommand = new RelayCommand(GoToAddShoppingListPage);
+
+            // Load data
+            shopsFilename = "shops.json";
+            LoadShops();
         }
 
         #region *** Shop ***
@@ -90,7 +101,17 @@ namespace ShoppingListWPApp.ViewModels
         /// <param name="shop">The <c>Shop</c>-Object that should added to the <c>Shops</c>-Collection.</param>
         public void AddShop(Shop shop)
         {
+            // Add Shop to collection
             Shops.Add(shop);
+
+            // Save shops to isolated storage
+            SaveShops();
+
+            // Notify for change
+            this.RaisePropertyChanged(() => Shops);
+
+            // Create new Geofence
+            ServiceLocator.Current.GetInstance<GeoHelper>().AddGeofence(shop);
         }
 
         /// <summary>
@@ -106,6 +127,12 @@ namespace ShoppingListWPApp.ViewModels
             // Remove old object and insert new object at the same position as the old one
             Shops.Remove(oldShop);
             Shops.Insert(idx, newShop);
+
+            // Save shops to isolated storage
+            SaveShops();
+
+            // Replace old Geofence with new one
+            ServiceLocator.Current.GetInstance<GeoHelper>().ModifyGeofence(oldShop.ID, newShop);
         }
 
         /// <summary>
@@ -115,6 +142,11 @@ namespace ShoppingListWPApp.ViewModels
         public void DeleteShop(Shop shop)
         {
             Shops.Remove(shop);
+
+            // Save shops to isolated storage
+            SaveShops();
+
+            ServiceLocator.Current.GetInstance<GeoHelper>().RemoveGeofence(shop.ID);
         }
 
         /// <summary>
@@ -190,6 +222,56 @@ namespace ShoppingListWPApp.ViewModels
         private void GoToAddShoppingListPage()
         {
             navigationService.NavigateTo("addShoppingList");
+        }
+
+        #endregion
+
+        #region *** Input/Output ***
+
+        /// <summary>
+        /// Saves all created shops in the isolated storage of the device as JSON data.
+        /// </summary>
+        private async void SaveShops()
+        {
+            try
+            {
+                // Get App's folder and create file
+                var folder = ApplicationData.Current.LocalFolder;
+                var file = await folder.CreateFileAsync(shopsFilename, CreationCollisionOption.ReplaceExisting);
+
+                // Write Shops to file as JSON data
+                await FileIO.WriteTextAsync(file, JsonConvert.SerializeObject(Shops), UnicodeEncoding.Utf8);
+            }
+            catch (Exception ex)
+            {
+                dialogService.ShowMessage("An error occured while saving Shop data.", "Error");
+            }
+        }
+
+        /// <summary>
+        /// Loads all created shops out of the isolated storage of the device.
+        /// </summary>
+        private async void LoadShops()
+        {
+            try
+            {
+                // Get App's folder and create file
+                var folder = ApplicationData.Current.LocalFolder;
+                var file = await folder.GetFileAsync(shopsFilename);
+
+                // Load data out of file
+                string data = await FileIO.ReadTextAsync(file, UnicodeEncoding.Utf8);
+                Shops = JsonConvert.DeserializeObject<ObservableCollection<Shop>>(data) ??
+                        new ObservableCollection<Shop>();
+            }
+            catch (Exception ex)
+            {
+                // Initialize collection
+                Shops = new ObservableCollection<Shop>();
+
+                // Show dialog
+                dialogService.ShowMessage("An error occured while loading Shop data.", "Error");
+            }
         }
 
         #endregion

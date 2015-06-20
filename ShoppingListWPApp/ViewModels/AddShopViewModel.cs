@@ -121,7 +121,7 @@ namespace ShoppingListWPApp.ViewModels
             MapLocationFinderResult FinderResult = await MapLocationFinder.FindLocationsAtAsync(args.Location);
 
             // Check, if any address has been found
-            if (FinderResult.Status == MapLocationFinderStatus.Success)
+            if (FinderResult.Status == MapLocationFinderStatus.Success && FinderResult.Locations.Count > 0)
             {
                 // Format and set address of the selected location
                 var selectedLocation = FinderResult.Locations.First();

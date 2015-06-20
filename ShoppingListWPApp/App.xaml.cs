@@ -8,7 +8,11 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Practices.ServiceLocation;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using ShoppingListWPApp.Common;
+using ShoppingListWPApp.Models;
 using ShoppingListWPApp.Views;
 
 namespace ShoppingListWPApp
@@ -44,8 +48,25 @@ namespace ShoppingListWPApp
                 this.DebugSettings.EnableFrameRateCounter = false;
             }
 #endif
-
             Frame rootFrame = Window.Current.Content as Frame;
+
+            // Get Parameters
+            string launchString = e.Arguments;
+
+            // Check, if launchString is valid
+            if (!string.IsNullOrEmpty(launchString.Trim()))
+            {
+                try
+                {
+                    // Get Parameters of the Toast
+                    JObject toastLaunch = (JObject)JsonConvert.DeserializeObject(launchString);
+                    string t = toastLaunch.GetValue("type").ToObject<string>();
+                    string id = toastLaunch.GetValue("id").ToObject<string>();
+
+                    // TODO: Navigate to Details-Page of the Object
+                }
+                catch (Exception ex) { }
+            }
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active.
