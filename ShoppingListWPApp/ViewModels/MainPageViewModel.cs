@@ -45,12 +45,18 @@ namespace ShoppingListWPApp.ViewModels
         /// Holds all <c>Shop</c>-Objects and notifies Views through Data Binding when Changes occur.
         /// </summary>
         public ObservableCollection<Shop> Shops { get; set; }
-
+        /// <summary>
+        /// Holds all <c>ShoppingList</c>-Objects and notifies Views through Data Binding when Changes occur.
+        /// </summary>
+        public ObservableCollection<ShoppingList> ShoppingLists { get; set; }
         /// <summary>
         /// The currently selected <c>Shop</c>-Object in the Shops-<c>ListView</c> of the <c>MainPage</c>-View.
         /// </summary>
         public Shop SelectedShop { get; set; }
-
+        /// <summary>
+        /// The currently selected <c>ShoppingList</c>-Object in the ShoppingLists-<c>ListView</c> of the <c>MainPage</c>-View.
+        /// </summary>
+        public ShoppingList SelectedShoppingList { get; set; }
         /// <summary>
         /// Gets or Sets the Command that is issued by the user, in order to add a new Shop.
         /// </summary>
@@ -67,7 +73,20 @@ namespace ShoppingListWPApp.ViewModels
         /// Gets or Sets the Command that is issued by the user, in order to delete a previously selected Shop.
         /// </summary>
         public ICommand DeleteShopCommand { get; set; }
+        /// <summary>
+        /// Gets or Sets the Command that is issued by the user, in order to add a new ShoppingList.
+        /// </summary>
         public ICommand AddShoppingListCommand { get; set; }
+        /// <summary>
+        /// Gets or Sets the Command that is issued by the user, in order to add a new ShoppingListItem.
+        /// </summary>
+        public ICommand AddShoppingListItemCommand { get; set; }
+        /// <summary>
+        /// Gets or Sets the Command that is issued by the user, in order to delete a previously selected ShoppingList.
+        /// </summary>
+        public ICommand DeleteShoppingListCommand { get; set; }
+
+        public ICommand EditShoppingListCommand { get; set; }
 
         #endregion
 
@@ -79,7 +98,7 @@ namespace ShoppingListWPApp.ViewModels
             this.locator = locator;
 
             // Initialize Observable Collections
-            //Shops = new ObservableCollection<Shop>();
+            ShoppingLists = new ObservableCollection<ShoppingList>();
 
             // Commands
             AddShopCommand = new RelayCommand(GoToAddShopPage);
@@ -87,6 +106,7 @@ namespace ShoppingListWPApp.ViewModels
             DeleteShopCommand = new RelayCommand(GoToDeleteShop);
             DetailsShopCommand = new RelayCommand(GoToDetailsShop);
             AddShoppingListCommand = new RelayCommand(GoToAddShoppingListPage);
+            DeleteShoppingListCommand = new RelayCommand(GoToDeleteShoppingList);
 
             // Load data
             shopsFilename = "shops.json";
@@ -146,6 +166,7 @@ namespace ShoppingListWPApp.ViewModels
             // Save shops to isolated storage
             SaveShops();
 
+            // Remove Geofence
             ServiceLocator.Current.GetInstance<GeoHelper>().RemoveGeofence(shop.ID);
         }
 
@@ -167,6 +188,33 @@ namespace ShoppingListWPApp.ViewModels
         public Shop GetShopByIndex(int index)
         {
             return Shops.ElementAt(index);
+        }
+
+        #endregion
+
+        #region *** ShoppingList ***
+
+        /// <summary>
+        /// Adds a new <c>ShoppingList</c>-Object to the <c>ShoppingLists</c>-Collection.
+        /// </summary>
+        /// <param name="shoppingList">The <c>ShoppingList</c>-Object that should added to the <c>ShoppingLists</c>-Collection.</param>
+        public void AddShoppingList(ShoppingList shoppingList)
+        {
+            ShoppingLists.Add(shoppingList);
+        }
+
+        /// <summary>
+        /// Removes a <c>ShoppingList</c>-Object from the <c>ShoppingLists</c>-Collection.
+        /// </summary>
+        /// <param name="shoppingList">The <c>ShoppingList</c>-Object that should be removed from the Collection.</param>
+        public void DeleteShoppingList(ShoppingList shoppingList)
+        {
+            ShoppingLists.Remove(shoppingList);
+        }
+
+        public void EditShoppingList()
+        {
+
         }
 
         #endregion
@@ -219,9 +267,63 @@ namespace ShoppingListWPApp.ViewModels
             navigationService.NavigateTo("detailsShop", this.IndexOfShop(SelectedShop));
         }
 
+        /// <summary>
+        /// Navigates the User to the <c>AddShoppingList</c>-View.
+        /// </summary>
         private void GoToAddShoppingListPage()
         {
+            ShowDialogShop();
             navigationService.NavigateTo("addShoppingList");
+        }
+
+        /// <summary>
+        /// After opening a dialog and asking for confirmation it removes the selected <c>ShoppingList</c>-Object out of the <c>ShoppingLists</c>-Collection.
+        /// </summary>
+        private async void GoToDeleteShoppingList()
+        {
+            // Show dialog
+            bool result = await dialogService.ShowMessage(
+                ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListDialogContent"),
+                ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListDialogTitle"),
+                ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListDialogButtonYes"),
+                ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListDialogButtonNo"),
+                null);
+
+            // Check, if user pressed the "Proceed-Button"
+            if (result)
+            {
+                // Delete selected ShoppingList object
+                DeleteShoppingList(SelectedShoppingList);
+                SelectedShoppingList = null;
+            }
+        }
+
+        /// <summary>
+        /// Checks, if Shops-Collection has items
+        /// </summary>
+        public async void ShowDialogShop()
+        {
+            if (ServiceLocator.Current.GetInstance<AddShoppingListViewModel>().Shops.Count == 0)
+            {
+                bool result = true;
+                result = await dialogService.ShowMessage(
+                    ResourceLoader.GetForCurrentView().GetString("AddShopDialogContent"),
+                    ResourceLoader.GetForCurrentView().GetString("AddShopDialogTitle"),
+                    ResourceLoader.GetForCurrentView().GetString("AddShopDialogButtonYes"),
+                    ResourceLoader.GetForCurrentView().GetString("AddShopDialogButtonNo"),
+                    null);
+
+                // Check, if user pressed the "Yes-Button"
+                if (result)
+                {
+                    navigationService.NavigateTo("addShop");
+                }
+                else
+                {
+                    navigationService.NavigateTo("main");
+                }
+            }
+
         }
 
         #endregion
@@ -268,9 +370,6 @@ namespace ShoppingListWPApp.ViewModels
             {
                 // Initialize collection
                 Shops = new ObservableCollection<Shop>();
-
-                // Show dialog
-                dialogService.ShowMessage("An error occured while loading Shop data.", "Error");
             }
         }
 

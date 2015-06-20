@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,13 +9,22 @@ namespace ShoppingListWPApp.Models
 {
     class ShoppingList
     {
-        public string Name { get; set; }
+        public string ListName { get; set; }
+        public Shop Shop { get; set; }
+
+        public ObservableCollection<ShoppingListItem> Items { get; set; }
 
         public ShoppingList() { }
 
-        public ShoppingList(string _name)
+        public ShoppingList(string _name, Shop _shop)
         {
-            Name = _name;
+            ListName = _name;
+            Shop = _shop;
+            Items = new ObservableCollection<ShoppingListItem>();
+        }
+
+        public void AddItem(ShoppingListItem shListItem){
+            Items.Add(shListItem);
         }
     }
 }

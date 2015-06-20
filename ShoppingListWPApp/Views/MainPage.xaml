@@ -13,6 +13,7 @@
     RequestedTheme="Light"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+
     <Page.Transitions>
         <TransitionCollection>
             <NavigationThemeTransition>
@@ -30,6 +31,43 @@
                 x:Uid="PivotItemLists"
                 Margin="24,14.5,24,24"
                 CommonNavigationTransitionInfo.IsStaggerElement="True">
+                <ListView x:Name="ShoppingList" ItemsSource="{Binding ShoppingLists, Mode=OneWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="Holding">
+                                        <common:OpenMenuFlyoutAction />
+                                    </core:EventTriggerBehavior>
+                                    <core:EventTriggerBehavior EventName="Tapped">
+                                        <common:GoToShoppingListItemAction />
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding ListName}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                    <TextBlock Text="{Binding Shop, Converter={StaticResource ShopToNameConverter}}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <FlyoutBase.AttachedFlyout>
+                                    <MenuFlyout>
+                                        <MenuFlyout.Items>
+                                            <MenuFlyoutItem Text="Edit" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}"/>
+                                            <MenuFlyoutItem Text="Delete" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding DeleteShoppingListCommand}"/>
+                                        </MenuFlyout.Items>
+                                        <MenuFlyout.MenuFlyoutPresenterStyle>
+                                            <Style TargetType="MenuFlyoutPresenter">
+                                                <Setter Property="Background" Value="{StaticResource MainAppColor}"></Setter>
+                                                <Setter Property="Foreground" Value="White"></Setter>
+                                            </Style>
+                                        </MenuFlyout.MenuFlyoutPresenterStyle>
+                                    </MenuFlyout>
+                                </FlyoutBase.AttachedFlyout>
+                            </Grid>
+                        </DataTemplate> 
+                    </ListView.ItemTemplate>
+                </ListView>
             </PivotItem>
 
             <!--Pivot item map -->

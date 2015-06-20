@@ -48,6 +48,11 @@ namespace ShoppingListWPApp.Common
             get { return ServiceLocator.Current.GetInstance<AddShoppingListViewModel>(); }
         }
 
+        public AddShoppingListItemViewModel AddShoppingListItem
+        {
+            get { return ServiceLocator.Current.GetInstance<AddShoppingListItemViewModel>(); }
+        }
+
         #endregion
 
         static ViewModelLocator()
@@ -62,6 +67,7 @@ namespace ShoppingListWPApp.Common
             navigationService.Configure("editShop", typeof(EditShop));
             navigationService.Configure("detailsShop", typeof(DetailsShop));
             navigationService.Configure("addShoppingList", typeof(AddShoppingList));
+            navigationService.Configure("addShoppingListItem", typeof(AddShoppingListItems));
 
             // Register Services
             SimpleIoc.Default.Register<INavigationService>(() => navigationService);
@@ -75,6 +81,7 @@ namespace ShoppingListWPApp.Common
             SimpleIoc.Default.Register<EditShopViewModel>();
             SimpleIoc.Default.Register<DetailsShopViewModel>();
             SimpleIoc.Default.Register<AddShoppingListViewModel>();
+            SimpleIoc.Default.Register<AddShoppingListItemViewModel>();
         }
     }
 }

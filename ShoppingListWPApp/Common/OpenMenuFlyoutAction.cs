@@ -25,8 +25,21 @@ namespace ShoppingListWPApp.Common
             // Get sender of the Action
             FrameworkElement senderElement = sender as FrameworkElement;
 
-            // Set the in the ListView currently selected Note in the MainViewModel
-            ServiceLocator.Current.GetInstance<MainPageViewModel>().SelectedShop = (Shop)senderElement.DataContext;
+            if(senderElement.DataContext.GetType() == typeof(Shop))
+            {
+                // Set the in the ListView currently selected Shop in the MainViewModel
+                ServiceLocator.Current.GetInstance<MainPageViewModel>().SelectedShop = (Shop)senderElement.DataContext;
+            }
+            else if (senderElement.DataContext.GetType() == typeof(ShoppingList))
+            {
+                // Set the in the ListView currently selected ShoppingList in the MainViewModel
+                ServiceLocator.Current.GetInstance<MainPageViewModel>().SelectedShoppingList = (ShoppingList)senderElement.DataContext;
+
+            }
+            else if (senderElement.DataContext.GetType() == typeof(ShoppingListItem))
+            {
+                ServiceLocator.Current.GetInstance<AddShoppingListItemViewModel>().ShoppingListItem = (ShoppingListItem)senderElement.DataContext;
+            }
 
             // Show the MenuFlyout
             FlyoutBase flyoutBase = FlyoutBase.GetAttachedFlyout(senderElement);
