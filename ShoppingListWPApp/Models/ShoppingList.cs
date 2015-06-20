@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShoppingListWPApp.Models
 {
     class ShoppingList
     {
+        /// <summary>
+        /// Gets the ID of the Shopping list.
+        /// </summary>
+        public string ID { get; private set; }
         public string ListName { get; set; }
         public Shop Shop { get; set; }
 
@@ -16,14 +16,16 @@ namespace ShoppingListWPApp.Models
 
         public ShoppingList() { }
 
-        public ShoppingList(string _name, Shop _shop)
+        public ShoppingList(string name, Shop shop)
         {
-            ListName = _name;
-            Shop = _shop;
+            ID = Guid.NewGuid().ToString();
+            ListName = name;
+            Shop = shop;
             Items = new ObservableCollection<ShoppingListItem>();
         }
 
-        public void AddItem(ShoppingListItem shListItem){
+        public void AddItem(ShoppingListItem shListItem)
+        {
             Items.Add(shListItem);
         }
     }
