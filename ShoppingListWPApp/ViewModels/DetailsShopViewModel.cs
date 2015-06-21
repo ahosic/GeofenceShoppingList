@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.Generic;
+using System.Windows.Input;
 using Windows.ApplicationModel.Resources;
 using Windows.Devices.Geolocation;
 using GalaSoft.MvvmLight;
@@ -49,6 +50,10 @@ namespace ShoppingListWPApp.ViewModels
         /// Gets or Sets the Geographical Position (Longitude, Latitude, Altitude) of the selected Shop.
         /// </summary>
         public BasicGeoposition? Location { get; set; }
+        /// <summary>
+        /// Gets or Sets the <c>ShoppingList</c> objects which are associated with the selected Shop.
+        /// </summary>
+        public List<ShoppingList> ShoppingLists { get; set; }
 
         /// <summary>
         /// Gets or Sets the Command that is issued by the user, in order to edit the selected Shop.
@@ -81,7 +86,8 @@ namespace ShoppingListWPApp.ViewModels
         public void SetShop(int idx)
         {
             // Set selected Shop (selected on the previous Page)
-            this.shop = ServiceLocator.Current.GetInstance<MainPageViewModel>().GetShopByIndex(idx);
+            shop = ServiceLocator.Current.GetInstance<MainPageViewModel>().GetShopByIndex(idx);
+            ShoppingLists = ServiceLocator.Current.GetInstance<MainPageViewModel>().GetShoppingListsByID(shop.ID);
 
             // Initialize all fields with the values of the selected Shop
             Name = shop.Name;

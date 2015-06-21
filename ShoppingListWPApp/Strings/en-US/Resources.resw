@@ -391,4 +391,8 @@
     <value>Error</value>
     <comment>Error of dialog that is displayed, when an error occures while saving data.</comment>
   </data>
+  <data name="ShoppingListItems.Text" xml:space="preserve">
+    <value>Items</value>
+    <comment>Items-Count Label for the ShoppingList-List (View:MainPage, DetailsShopPage)</comment>
+  </data>
 </root>

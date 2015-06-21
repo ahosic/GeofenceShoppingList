@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
@@ -272,6 +273,21 @@ namespace ShoppingListWPApp.ViewModels
                                  select l).First();
 
             return list;
+        }
+
+        /// <summary>
+        /// Filters out <c>ShoppingList</c> objects, which are associated with a specific Shop.
+        /// </summary>
+        /// <param name="shop"><c>Shop</c> object for which <c>ShoppingList</c> objects should be found.</param>
+        /// <returns>A collection of <c>ShoppingList</c> objects, which are associated with a specific Shop.</returns>
+        public List<ShoppingList> GetShoppingListsByID(string id)
+        {
+            // Get Shopping lists
+            List<ShoppingList> lists = (from list in ShoppingLists
+                                        where list.Shop.ID.Equals(id)
+                                        select list).ToList() ?? new List<ShoppingList>();
+
+            return lists;
         }
 
         #endregion

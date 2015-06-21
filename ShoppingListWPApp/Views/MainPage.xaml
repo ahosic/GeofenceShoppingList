@@ -32,12 +32,20 @@
                 CommonNavigationTransitionInfo.IsStaggerElement="True">
 
                 <ListView x:Name="ShoppingList" ItemsSource="{Binding ShoppingLists, Mode=OneWay}">
+                    <!-- Stretch list items to fit the device width -->
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Grid Margin="0,0,0,12">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
 
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Holding">
@@ -48,9 +56,13 @@
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
 
-                                <StackPanel>
+                                <StackPanel Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,6,0">
                                     <TextBlock Text="{Binding ListName}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
                                     <TextBlock Text="{Binding Shop, Converter={StaticResource ShopToNameConverter}}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="6,0,0,0">
+                                    <TextBlock x:Uid="ShoppingListItems" Foreground="{StaticResource MainAppColor}" FontSize="{ThemeResource TextStyleLargeFontSize}" />
+                                    <TextBlock Text="{Binding Items, Converter={StaticResource ShoppingListItemsToItemsCountConverter}}" Foreground="{StaticResource MainAppColor}" FontSize="{ThemeResource TextStyleLargeFontSize}" HorizontalAlignment="Center"/>
                                 </StackPanel>
                                 <FlyoutBase.AttachedFlyout>
                                     <MenuFlyout>

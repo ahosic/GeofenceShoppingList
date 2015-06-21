@@ -5,6 +5,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:common="using:ShoppingListWPApp.Common"
     mc:Ignorable="d"
     DataContext="{Binding Source={StaticResource Locator}, Path=DetailsShop}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -41,7 +44,34 @@
                     <TextBlock x:Name="Radius" Text="{Binding Radius, Converter={StaticResource RadiusToRadiusWithUnitConverter}}" FontSize="{ThemeResource TextStyleExtraLargePlusFontSize}" Margin="0,0,0,12" />
 
                     <TextBlock x:Uid="DetailsShopHeaderShoppingLists" x:Name="HeaderShoppingLists" Foreground="{ThemeResource TextBoxDisabledHeaderForegroundThemeBrush}" Style="{ThemeResource TitleTextBlockStyle}"/>
-                    <ListView x:Name="ShoppingLists" Margin="0,0,0,12">
+                    <ListView x:Name="ShoppingLists" Margin="0,0,0,12" ItemsSource="{Binding ShoppingLists, Mode=OneWay}">
+                        <!-- Stretch list items to fit the device width -->
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,0,0,12">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="Tapped">
+                                            <common:GoToShoppingListItemAction />
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+                                    <TextBlock Text="{Binding ListName}" Grid.Column="0" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1" Margin="0,0,6,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                    <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="6,0,0,0">
+                                        <TextBlock x:Uid="ShoppingListItems" Foreground="{StaticResource MainAppColor}" FontSize="{ThemeResource TextStyleLargeFontSize}" />
+                                        <TextBlock Text="{Binding Items, Converter={StaticResource ShoppingListItemsToItemsCountConverter}}" Foreground="{StaticResource MainAppColor}" FontSize="{ThemeResource TextStyleLargeFontSize}" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
                     </ListView>
                 </StackPanel>
                 <maps:MapControl x:Name="Map" Grid.Row="1" Grid.RowSpan="3" MinHeight="200" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MapServiceToken="2EIRkyYHCeT2mdDv28xr4g"/>

@@ -13,8 +13,6 @@ namespace ShoppingListWPApp.Models
 
         public ObservableCollection<ShoppingListItem> Items { get; set; }
 
-        //public ShoppingList() { }
-
         public ShoppingList(string id, string name, Shop shop)
         {
             ID = id;

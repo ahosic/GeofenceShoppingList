@@ -2,7 +2,6 @@
     x:Class="ShoppingListWPApp.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ShoppingListWPApp"
     xmlns:viewModels="using:ShoppingListWPApp.Common"
     xmlns:converters="using:ShoppingListWPApp.Converter"
     RequestedTheme="Light">
@@ -14,6 +13,7 @@
         <converters:RadiusToRadiusWithUnitConverter x:Key="RadiusToRadiusWithUnitConverter"/>
         <converters:ShopToNameConverter x:Key="ShopToNameConverter" />
         <converters:ShoppingListToShoppingListNameConverter x:Key="ShoppingListToShoppingListNameConverter" />
+        <converters:ShoppingListItemsToItemsCountConverter x:Key="ShoppingListItemsToItemsCountConverter" />
 
         <Style TargetType="MenuFlyoutPresenter">
             <Setter Property="Background" Value="{StaticResource MainAppColor}"></Setter>
