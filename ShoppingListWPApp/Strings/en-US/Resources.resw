@@ -177,24 +177,8 @@
     <value>Radius of Notification</value>
     <comment>Header of Radius Slider (View: AddShop)</comment>
   </data>
-  <data name="GeoFenceShopRadiusMaximum" xml:space="preserve">
-    <value>1</value>
-    <comment>Maximum Radius for the Geofence of a shop (View: AddShop)</comment>
-  </data>
-  <data name="GeoFenceShopRadiusMinimum" xml:space="preserve">
-    <value>0.05</value>
-    <comment>Minimum Radius for the Geofence of a shop (View: AddShop)</comment>
-  </data>
-  <data name="GeoFenceShopRadiusStep" xml:space="preserve">
-    <value>0.05</value>
-    <comment>Steps for the slider that is used for setting the radius of the Geofence of a shop (View: AddShop)</comment>
-  </data>
-  <data name="GeoFenceShopRadiusTickFrequency" xml:space="preserve">
-    <value>0.2</value>
-    <comment>Tick frequency for radius slider (View: AddShop)</comment>
-  </data>
   <data name="GeoFenceShopRadiusUnit" xml:space="preserve">
-    <value>km</value>
+    <value>mi</value>
     <comment>Unit for the Radius for the Geofence of a shop (View: AddShop)</comment>
   </data>
   <data name="CancelText" xml:space="preserve">

@@ -95,10 +95,10 @@ namespace ShoppingListWPApp.ViewModels
             CancelCommand = new RelayCommand(Cancel);
 
             // Get regional-specific values for the Radius out of the Resource-File
-            MinimumRadius = double.Parse(ResourceLoader.GetForCurrentView().GetString("GeoFenceShopRadiusMinimum"));
-            MaximumRadius = double.Parse(ResourceLoader.GetForCurrentView().GetString("GeoFenceShopRadiusMaximum"));
-            RadiusStepValue = double.Parse(ResourceLoader.GetForCurrentView().GetString("GeoFenceShopRadiusStep"));
-            TickFrequency = double.Parse(ResourceLoader.GetForCurrentView().GetString("GeoFenceShopRadiusTickFrequency"));
+            MinimumRadius = 0.05;
+            MaximumRadius = 1;
+            RadiusStepValue = 0.05;
+            TickFrequency = 0.2;
         }
 
         #region *** Public methods ***

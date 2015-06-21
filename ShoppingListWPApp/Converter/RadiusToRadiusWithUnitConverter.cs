@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml.Data;
 
@@ -20,7 +21,15 @@ namespace ShoppingListWPApp.Converter
         /// <returns>Returns a formatted, regional-specific string representation of <c>value</c>.</returns>
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            return ((double)value).ToString("0.00") + " " + ResourceLoader.GetForCurrentView().GetString("GeoFenceShopRadiusUnit");
+            double radius = (double)value;
+
+            // Check, if imperial system is present
+            if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName.StartsWith("en"))
+            {
+                radius = radius * 0.62137;
+            }
+
+            return radius.ToString("0.00") + " " + ResourceLoader.GetForCurrentView().GetString("GeoFenceShopRadiusUnit");
         }
 
         /// <summary>
