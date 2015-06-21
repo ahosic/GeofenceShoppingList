@@ -2,10 +2,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
-using Windows.ApplicationModel.Core;
 using Windows.Devices.Geolocation;
 using Windows.Devices.Geolocation.Geofencing;
-using Windows.UI.Core;
 using GalaSoft.MvvmLight.Views;
 using ShoppingListWPApp.Models;
 
@@ -42,14 +40,22 @@ namespace ShoppingListWPApp.Common
         {
             // Services
             this.dialogService = dialogService;
-            this.locator = new Geolocator { ReportInterval = 60 };
-
+            this.locator = new Geolocator { ReportInterval = 30 };
             this.locator.PositionChanged += PositionChanged;
 
+            InitPosition();
             InitGeofencing();
         }
 
         #region *** Geolocation ***
+
+        /// <summary>
+        /// Gets the current device's geographical position.
+        /// </summary>
+        public async void InitPosition()
+        {
+            Position = await locator.GetGeopositionAsync();
+        }
 
         /// <summary>
         /// Updates the <c>Position</c> property every time, when the position of the device changes.
@@ -175,7 +181,6 @@ namespace ShoppingListWPApp.Common
             geofenceTaskBuilder.SetTrigger(trigger);
 
             var geofenceTask = geofenceTaskBuilder.Register();
-            geofenceTask.Completed += GeofenceTaskCompleted;
 
             switch (backgroundAccessStatus)
             {
@@ -184,21 +189,6 @@ namespace ShoppingListWPApp.Common
                     await dialogService.ShowMessage("This application is denied of the background task!", "Access denied");
                     break;
             }
-        }
-
-        /// <summary>
-        /// Gets invoked by the <c>BackgroundGeofenceTask</c>, when the App receives a Geofence-Report.
-        /// </summary>
-        /// <param name="sender">The <c>BackgroundGeofenceTask</c> that is registered in this app.</param>
-        /// <param name="args">Event arguments of the BackgroundTask.</param>
-        private async void GeofenceTaskCompleted(BackgroundTaskRegistration sender, BackgroundTaskCompletedEventArgs args)
-        {
-            var dispatcher = CoreApplication.MainView.CoreWindow.Dispatcher;
-            await dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-            {
-                // Add code here
-            });
-
         }
 
         #endregion

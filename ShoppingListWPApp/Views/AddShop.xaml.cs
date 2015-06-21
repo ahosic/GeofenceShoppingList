@@ -193,9 +193,7 @@ namespace ShoppingListWPApp.Views
             try
             {
                 // Get the current position of device
-                App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarGettingLocationText"));
-                Geoposition position = await ServiceLocator.Current.GetInstance<Geolocator>().GetGeopositionAsync();
-                App.ToggleProgressBar(false, null);
+                Geoposition position = ServiceLocator.Current.GetInstance<GeoHelper>().Position;
 
                 // Center current position in the MapControl
                 Map.Center = position.Coordinate.Point;
@@ -204,7 +202,9 @@ namespace ShoppingListWPApp.Views
             }
             catch (Exception ex)
             {
-                App.ToggleProgressBar(false, null);
+                new MessageDialog(
+                    ResourceLoader.GetForCurrentView().GetString("GPSError"),
+                    ResourceLoader.GetForCurrentView().GetString("ErrorTitle")).ShowAsync();
             }
         }
 
@@ -217,13 +217,12 @@ namespace ShoppingListWPApp.Views
             try
             {
                 // Getting current location of device
-                App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarGettingLocationText"));
-                Geoposition position = await ServiceLocator.Current.GetInstance<Geolocator>().GetGeopositionAsync();
-                App.ToggleProgressBar(false, null);
+                Geoposition position = ServiceLocator.Current.GetInstance<GeoHelper>().Position;
 
                 // Finding geographical position of a given address
                 App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarSearchingAddress"));
-                MapLocationFinderResult FinderResult = await MapLocationFinder.FindLocationsAsync(address, position.Coordinate.Point);
+                MapLocationFinderResult FinderResult =
+                    await MapLocationFinder.FindLocationsAsync(address, position.Coordinate.Point);
                 App.ToggleProgressBar(false, null);
 
                 // Check, if any positions have been found
@@ -258,12 +257,20 @@ namespace ShoppingListWPApp.Views
                 }
                 else
                 {
-                    await new MessageDialog(ResourceLoader.GetForCurrentView().GetString("AddShopFindAddressDialogNotFoundText"),
-                        ResourceLoader.GetForCurrentView().GetString("AddShopFindAddressDialogNotFoundTitle")).ShowAsync();
+                    await
+                        new MessageDialog(
+                            ResourceLoader.GetForCurrentView().GetString("AddShopFindAddressDialogNotFoundText"),
+                            ResourceLoader.GetForCurrentView().GetString("AddShopFindAddressDialogNotFoundTitle"))
+                            .ShowAsync();
                 }
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                new MessageDialog(
+                    ResourceLoader.GetForCurrentView().GetString("GetLocationByAddressError"),
+                    ResourceLoader.GetForCurrentView().GetString("ErrorTitle")).ShowAsync();
+            }
         }
 
         #endregion

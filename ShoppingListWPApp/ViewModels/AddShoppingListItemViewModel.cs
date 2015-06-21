@@ -1,18 +1,10 @@
-﻿using GalaSoft.MvvmLight;
+﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
+using Windows.ApplicationModel.Resources;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
-using Microsoft.Practices.ServiceLocation;
 using ShoppingListWPApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Windows.ApplicationModel.Core;
-using Windows.ApplicationModel.Resources;
-using Windows.UI.Core;
 
 namespace ShoppingListWPApp.ViewModels
 {
@@ -67,7 +59,7 @@ namespace ShoppingListWPApp.ViewModels
 
         #endregion
 
-        public AddShoppingListItemViewModel(INavigationService navigationService, IDialogService dialogService) 
+        public AddShoppingListItemViewModel(INavigationService navigationService, IDialogService dialogService)
         {
             // Services
             this.navigationService = navigationService;
@@ -89,14 +81,14 @@ namespace ShoppingListWPApp.ViewModels
         /// </summary>
         public async void CreateItem()
         {
-            if(!string.IsNullOrWhiteSpace(Name) && !string.IsNullOrWhiteSpace(AmountAndMeasure))
+            if (!string.IsNullOrWhiteSpace(Name) && !string.IsNullOrWhiteSpace(AmountAndMeasure))
             {
                 ShoppingListItem item = new ShoppingListItem(Name, AmountAndMeasure);
                 ShoppingList.AddItem(item);
 
                 InitializeFields();
             }
-            
+
         }
 
         /// <summary>
@@ -117,8 +109,8 @@ namespace ShoppingListWPApp.ViewModels
             bool result = await dialogService.ShowMessage(
                 ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListItemDialogContent"),
                 ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListItemDialogTitle"),
-                ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListItemDialogButtonYes"),
-                ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListItemDialogButtonNo"),
+                ResourceLoader.GetForCurrentView().GetString("YesText"),
+                ResourceLoader.GetForCurrentView().GetString("NoText"),
                 null);
 
             // Check, if user pressed the "Proceed-Button"

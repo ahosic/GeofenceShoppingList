@@ -88,7 +88,7 @@ namespace ShoppingListWPApp.ViewModels
             {
                 await dialogService.ShowMessage(
                         ResourceLoader.GetForCurrentView().GetString("AddShoppingListValidationErrorContent"),
-                        ResourceLoader.GetForCurrentView().GetString("AddShoppingListValidationErrorTitle"));
+                        ResourceLoader.GetForCurrentView().GetString("ErrorTitle"));
             }
         }
 
@@ -104,9 +104,9 @@ namespace ShoppingListWPApp.ViewModels
                 // Show dialog
                 result = await dialogService.ShowMessage(
                     ResourceLoader.GetForCurrentView().GetString("AddShopCancelDialogText"),
-                    ResourceLoader.GetForCurrentView().GetString("AddShopCancelDialogTitle"),
+                    ResourceLoader.GetForCurrentView().GetString("WarningTitle"),
                     ResourceLoader.GetForCurrentView().GetString("AddShopCancelDialogButtonProceed"),
-                    ResourceLoader.GetForCurrentView().GetString("AddShopCancelDialogButtonCancel"),
+                    ResourceLoader.GetForCurrentView().GetString("CancelText"),
                     null);
             }
             // Check if user pressed the "Proceed-Button"

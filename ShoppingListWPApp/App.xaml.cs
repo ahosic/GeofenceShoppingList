@@ -51,6 +51,9 @@ namespace ShoppingListWPApp
 #endif
             Frame rootFrame = Window.Current.Content as Frame;
 
+            // Initializing Position
+            ServiceLocator.Current.GetInstance<GeoHelper>().InitPosition();
+
             // Get Parameters
             string launchString = e.Arguments;
 

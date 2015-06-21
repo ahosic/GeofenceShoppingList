@@ -114,25 +114,35 @@ namespace ShoppingListWPApp.ViewModels
         /// <param name="args">Contains the geographical position of the point, where the User tapped on the <c>MapControl</c>.</param>
         public async void MapTapped(MapControl sender, MapInputEventArgs args)
         {
-            // Set tapped Location as selected location
-            Location = args.Location.Position;
-
-            // Find corresponding address of the location
-            MapLocationFinderResult FinderResult = await MapLocationFinder.FindLocationsAtAsync(args.Location);
-
-            // Check, if any address has been found
-            if (FinderResult.Status == MapLocationFinderStatus.Success && FinderResult.Locations.Count > 0)
+            try
             {
-                // Format and set address of the selected location
-                var selectedLocation = FinderResult.Locations.First();
-                string format = "{0} {1}, {2} {3}, {4}";
+                // Set tapped Location as selected location
+                Location = args.Location.Position;
 
-                Address = string.Format(format,
-                    selectedLocation.Address.Street,
-                    selectedLocation.Address.StreetNumber,
-                    selectedLocation.Address.PostCode,
-                    selectedLocation.Address.Town,
-                    selectedLocation.Address.CountryCode);
+                // Find corresponding address of the location
+                MapLocationFinderResult FinderResult = await MapLocationFinder.FindLocationsAtAsync(args.Location);
+
+                // Check, if any address has been found
+                if (FinderResult.Status == MapLocationFinderStatus.Success && FinderResult.Locations.Count > 0)
+                {
+                    // Format and set address of the selected location
+                    var selectedLocation = FinderResult.Locations.First();
+                    string format = "{0} {1}, {2} {3}, {4}";
+
+                    Address = string.Format(format,
+                        selectedLocation.Address.Street,
+                        selectedLocation.Address.StreetNumber,
+                        selectedLocation.Address.PostCode,
+                        selectedLocation.Address.Town,
+                        selectedLocation.Address.CountryCode);
+                }
+            }
+            catch (Exception ex)
+            {
+                Address = string.Empty;
+                dialogService.ShowMessage(
+                    ResourceLoader.GetForCurrentView().GetString("FindAddressError"),
+                    ResourceLoader.GetForCurrentView().GetString("ErrorTitle"));
             }
         }
 
@@ -193,9 +203,9 @@ namespace ShoppingListWPApp.ViewModels
             {
                 // Show dialog
                 result = await dialogService.ShowMessage(ResourceLoader.GetForCurrentView().GetString("AddShopCancelDialogText"),
-                    ResourceLoader.GetForCurrentView().GetString("AddShopCancelDialogTitle"),
+                    ResourceLoader.GetForCurrentView().GetString("WarningTitle"),
                     ResourceLoader.GetForCurrentView().GetString("AddShopCancelDialogButtonProceed"),
-                    ResourceLoader.GetForCurrentView().GetString("AddShopCancelDialogButtonCancel"),
+                    ResourceLoader.GetForCurrentView().GetString("CancelText"),
                     null);
             }
 

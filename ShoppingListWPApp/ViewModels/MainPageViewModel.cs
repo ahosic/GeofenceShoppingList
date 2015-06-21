@@ -319,8 +319,8 @@ namespace ShoppingListWPApp.ViewModels
             bool result = await dialogService.ShowMessage(
                 ResourceLoader.GetForCurrentView().GetString("DeleteShopDialogContent"),
                 ResourceLoader.GetForCurrentView().GetString("DeleteShopDialogTitle"),
-                ResourceLoader.GetForCurrentView().GetString("DeleteShopDialogButtonYes"),
-                ResourceLoader.GetForCurrentView().GetString("DeleteShopDialogButtonNo"),
+                ResourceLoader.GetForCurrentView().GetString("YesText"),
+                ResourceLoader.GetForCurrentView().GetString("NoText"),
                 null);
 
             // Check, if user pressed the "Proceed-Button"
@@ -358,8 +358,8 @@ namespace ShoppingListWPApp.ViewModels
             bool result = await dialogService.ShowMessage(
                 ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListDialogContent"),
                 ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListDialogTitle"),
-                ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListDialogButtonYes"),
-                ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListDialogButtonNo"),
+                ResourceLoader.GetForCurrentView().GetString("YesText"),
+                ResourceLoader.GetForCurrentView().GetString("NoText"),
                 null);
 
             // Check, if user pressed the "Proceed-Button"
@@ -382,8 +382,8 @@ namespace ShoppingListWPApp.ViewModels
                 result = await dialogService.ShowMessage(
                     ResourceLoader.GetForCurrentView().GetString("AddShopDialogContent"),
                     ResourceLoader.GetForCurrentView().GetString("AddShopDialogTitle"),
-                    ResourceLoader.GetForCurrentView().GetString("AddShopDialogButtonYes"),
-                    ResourceLoader.GetForCurrentView().GetString("AddShopDialogButtonNo"),
+                    ResourceLoader.GetForCurrentView().GetString("YesText"),
+                    ResourceLoader.GetForCurrentView().GetString("NoText"),
                     null);
 
                 // Check, if user pressed the "Yes-Button"
@@ -421,7 +421,7 @@ namespace ShoppingListWPApp.ViewModels
             {
                 dialogService.ShowMessage(
                     ResourceLoader.GetForCurrentView().GetString("SavingErrorContent"),
-                    ResourceLoader.GetForCurrentView().GetString("SavingErrorTitle"));
+                    ResourceLoader.GetForCurrentView().GetString("ErrorTitle"));
             }
         }
 
@@ -443,7 +443,7 @@ namespace ShoppingListWPApp.ViewModels
             {
                 dialogService.ShowMessage(
                     ResourceLoader.GetForCurrentView().GetString("SavingErrorContent"),
-                    ResourceLoader.GetForCurrentView().GetString("SavingErrorTitle"));
+                    ResourceLoader.GetForCurrentView().GetString("ErrorTitle"));
             }
         }
 

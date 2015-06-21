@@ -117,8 +117,8 @@ namespace ShoppingListWPApp.ViewModels
             bool result = await dialogService.ShowMessage(
                 ResourceLoader.GetForCurrentView().GetString("DeleteShopDialogContent"),
                 ResourceLoader.GetForCurrentView().GetString("DeleteShopDialogTitle"),
-                ResourceLoader.GetForCurrentView().GetString("DeleteShopDialogButtonYes"),
-                ResourceLoader.GetForCurrentView().GetString("DeleteShopDialogButtonNo"),
+                ResourceLoader.GetForCurrentView().GetString("YesText"),
+                ResourceLoader.GetForCurrentView().GetString("NoText"),
                 null);
 
 

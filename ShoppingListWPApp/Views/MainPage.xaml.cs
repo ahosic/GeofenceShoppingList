@@ -178,9 +178,7 @@ namespace ShoppingListWPApp.Views
             try
             {
                 // Getting current position of the device
-                App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarGettingLocationText"));
-                Geoposition position = await ServiceLocator.Current.GetInstance<Geolocator>().GetGeopositionAsync();
-                App.ToggleProgressBar(false, null);
+                Geoposition position = ServiceLocator.Current.GetInstance<GeoHelper>().Position;
 
                 // Center current position of the device on the MapControl
                 Map.Center = position.Coordinate.Point;
@@ -189,7 +187,9 @@ namespace ShoppingListWPApp.Views
             }
             catch (Exception ex)
             {
-                App.ToggleProgressBar(false, null);
+                new MessageDialog(
+                    ResourceLoader.GetForCurrentView().GetString("GPSError"),
+                    ResourceLoader.GetForCurrentView().GetString("ErrorTitle")).ShowAsync();
             }
         }
 
@@ -202,9 +202,7 @@ namespace ShoppingListWPApp.Views
             try
             {
                 // Getting current location of device
-                App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarGettingLocationText"));
-                Geoposition position = await ServiceLocator.Current.GetInstance<Geolocator>().GetGeopositionAsync();
-                App.ToggleProgressBar(false, null);
+                Geoposition position = ServiceLocator.Current.GetInstance<GeoHelper>().Position;
 
                 // Finding geographical position of a given address
                 App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarSearchingAddress"));
@@ -224,11 +222,17 @@ namespace ShoppingListWPApp.Views
                 {
                     await new MessageDialog(
                         ResourceLoader.GetForCurrentView().GetString("AddShopFindAddressDialogNotFoundText"),
-                        ResourceLoader.GetForCurrentView().GetString("AddShopFindAddressDialogNotFoundTitle")).ShowAsync();
+                        ResourceLoader.GetForCurrentView().GetString("AddShopFindAddressDialogNotFoundTitle")).ShowAsync
+                        ();
                 }
 
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                new MessageDialog(
+                    ResourceLoader.GetForCurrentView().GetString("GetLocationByAddressError"),
+                    ResourceLoader.GetForCurrentView().GetString("ErrorTitle")).ShowAsync();
+            }
         }
 
         #endregion
