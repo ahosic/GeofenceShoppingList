@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
 namespace ShoppingListWPApp.Models
 {
@@ -14,11 +13,11 @@ namespace ShoppingListWPApp.Models
 
         public ObservableCollection<ShoppingListItem> Items { get; set; }
 
-        public ShoppingList() { }
+        //public ShoppingList() { }
 
-        public ShoppingList(string name, Shop shop)
+        public ShoppingList(string id, string name, Shop shop)
         {
-            ID = Guid.NewGuid().ToString();
+            ID = id;
             ListName = name;
             Shop = shop;
             Items = new ObservableCollection<ShoppingListItem>();

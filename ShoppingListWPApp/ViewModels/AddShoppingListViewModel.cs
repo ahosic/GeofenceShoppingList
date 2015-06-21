@@ -1,17 +1,12 @@
-﻿using GalaSoft.MvvmLight;
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
+using Windows.ApplicationModel.Resources;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Mutzl.MvvmLight;
-using ShoppingListWPApp.Models;
 using Microsoft.Practices.ServiceLocation;
-using Windows.ApplicationModel.Resources;
+using ShoppingListWPApp.Models;
 
 namespace ShoppingListWPApp.ViewModels
 {
@@ -61,12 +56,12 @@ namespace ShoppingListWPApp.ViewModels
             this.navigationService = navigationService;
             this.dialogService = dialogService;
 
-            //Commands
-            CreateShoppingListCommand = new DependentRelayCommand(CreateShoppingList, isDataValid, this, () => ListName, () => SelectedShop);
-            CancelCommand = new RelayCommand(Cancel);
-
             // Initialize all Fields with standard values
             InitializeFields();
+
+            //Commands
+            CreateShoppingListCommand = new RelayCommand(CreateShoppingList);
+            CancelCommand = new RelayCommand(Cancel);
 
             // Gets the Shops-Collection from the MainPageViewModel
             Shops = ServiceLocator.Current.GetInstance<MainPageViewModel>().Shops;
@@ -78,14 +73,23 @@ namespace ShoppingListWPApp.ViewModels
         /// <summary>
         /// Creates a new <c>ShoppingList</c>-Object, adds it to the <c>ShoppingLists</c>-Collection (located in the <c>MainPageViewModel</c>).
         /// </summary>
-        public void CreateShoppingList()
+        public async void CreateShoppingList()
         {
-            ShoppingList shList = new ShoppingList(ListName,SelectedShop);
-            ServiceLocator.Current.GetInstance<MainPageViewModel>().AddShoppingList(shList);
+            if (IsDataValid())
+            {
+                ShoppingList shList = new ShoppingList(Guid.NewGuid().ToString(), ListName.Trim(), SelectedShop);
+                ServiceLocator.Current.GetInstance<MainPageViewModel>().AddShoppingList(shList);
 
-            InitializeFields();
+                InitializeFields();
 
-            navigationService.GoBack();
+                navigationService.GoBack();
+            }
+            else
+            {
+                await dialogService.ShowMessage(
+                        ResourceLoader.GetForCurrentView().GetString("AddShoppingListValidationErrorContent"),
+                        ResourceLoader.GetForCurrentView().GetString("AddShoppingListValidationErrorTitle"));
+            }
         }
 
         /// <summary>
@@ -106,21 +110,25 @@ namespace ShoppingListWPApp.ViewModels
                     null);
             }
             // Check if user pressed the "Proceed-Button"
-            if(result)
+            if (result)
             {
                 navigationService.GoBack();
             }
-            
+
         }
 
         /// <summary>
         /// Checks, if all required values are inputted and valid.
         /// </summary>
         /// <returns>Returns <c>true</c> if all inputted values are valid, <c>false</c> if the provided data is invalid.</returns>
-        public bool isDataValid()
+        public bool IsDataValid()
         {
+            if (ListName.Trim().Equals(string.Empty) || SelectedShop == null)
+            {
+                return false;
+            }
 
-            return !string.IsNullOrWhiteSpace(ListName) && SelectedShop != null;
+            return true;
         }
 
         #endregion
@@ -133,6 +141,7 @@ namespace ShoppingListWPApp.ViewModels
         private void InitializeFields()
         {
             ListName = string.Empty;
+            SelectedShop = null;
         }
 
         #endregion

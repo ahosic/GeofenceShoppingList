@@ -174,7 +174,7 @@ namespace ShoppingListWPApp.ViewModels
         private void CreateShop()
         {
             // Create Shop object and save it
-            Shop shop = new Shop(Name.Trim(), Address, Radius, Location);
+            Shop shop = new Shop(Guid.NewGuid().ToString(), Name.Trim(), Address, Radius, Location);
             ServiceLocator.Current.GetInstance<MainPageViewModel>().AddShop(shop);
 
             // Reinitialize all properties and go back to previous Page

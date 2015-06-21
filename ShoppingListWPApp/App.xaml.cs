@@ -13,6 +13,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ShoppingListWPApp.Common;
 using ShoppingListWPApp.Models;
+using ShoppingListWPApp.ViewModels;
 using ShoppingListWPApp.Views;
 
 namespace ShoppingListWPApp
@@ -63,7 +64,12 @@ namespace ShoppingListWPApp
                     string t = toastLaunch.GetValue("type").ToObject<string>();
                     string id = toastLaunch.GetValue("id").ToObject<string>();
 
-                    // TODO: Navigate to Details-Page of the Object
+                    if (t.Equals("toast"))
+                    {
+                        ShoppingList list =
+                            ServiceLocator.Current.GetInstance<MainPageViewModel>().GetShoppingListByID(id);
+                        rootFrame.Navigate(typeof(AddShoppingListItems), list);
+                    }
                 }
                 catch (Exception ex) { }
             }

@@ -178,7 +178,7 @@ namespace ShoppingListWPApp.ViewModels
         private void Edit()
         {
             // Create new Shop object and replace old object with new one
-            Shop newShop = new Shop(Name.Trim(), Address, Radius, Location);
+            Shop newShop = new Shop(Guid.NewGuid().ToString(), Name.Trim(), Address, Radius, Location);
             ServiceLocator.Current.GetInstance<MainPageViewModel>().EditShop(oldShop, newShop);
 
             // Go back to previous Page

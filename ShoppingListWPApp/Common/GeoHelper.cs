@@ -7,7 +7,6 @@ using Windows.Devices.Geolocation;
 using Windows.Devices.Geolocation.Geofencing;
 using Windows.UI.Core;
 using GalaSoft.MvvmLight.Views;
-using Microsoft.Practices.ServiceLocation;
 using ShoppingListWPApp.Models;
 
 namespace ShoppingListWPApp.Common
@@ -75,10 +74,7 @@ namespace ShoppingListWPApp.Common
             Geocircle circle = new Geocircle((BasicGeoposition)shop.Location, (shop.Radius * 1000));
 
             //Selecting a subset of the events we need to interact with the geofence
-            MonitoredGeofenceStates geoFenceStates = 0;
-
-            geoFenceStates |= MonitoredGeofenceStates.Entered;
-            geoFenceStates |= MonitoredGeofenceStates.Exited;
+            const MonitoredGeofenceStates geoFenceStates = MonitoredGeofenceStates.Entered;
 
             // Setting up how long you need to be in geofence for enter event to fire
             TimeSpan dwellTime = TimeSpan.FromSeconds(1);
@@ -200,7 +196,7 @@ namespace ShoppingListWPApp.Common
             var dispatcher = CoreApplication.MainView.CoreWindow.Dispatcher;
             await dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                ServiceLocator.Current.GetInstance<IDialogService>().ShowMessage("hallo", "test");
+                // Add code here
             });
 
         }

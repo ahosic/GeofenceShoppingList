@@ -2,62 +2,57 @@
     x:Class="ShoppingListWPApp.Views.AddShoppingList"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ShoppingListWPApp.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:converters="using:ShoppingListWPApp.Converter" 
     mc:Ignorable="d"
     DataContext="{Binding Source={StaticResource Locator}, Path=AddShoppingList}"
-    RequestedTheme="Light"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Page.Resources>
-        <converters:ShopToNameConverter x:Key="ShopToNameConverter" />
-    </Page.Resources>
+    <ScrollViewer>
+        <Grid x:Name="LayoutRoot">
+            <Grid.ChildrenTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition/>
+                </TransitionCollection>
+            </Grid.ChildrenTransitions>
 
-    <Grid x:Name="LayoutRoot">
-
-        <Grid.ChildrenTransitions>
-            <TransitionCollection>
-                <EntranceThemeTransition/>
-            </TransitionCollection>
-        </Grid.ChildrenTransitions>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <!-- Title Panel (Application and Page Title) -->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="24,17,24,28">
-            <TextBlock x:Uid="ApplicationTitle" x:Name="ApplicationTitle" Style="{ThemeResource TitleTextBlockStyle}"/>
-            <TextBlock x:Uid="AddShoppingListPageTitle" x:Name="PageTitle" Style="{ThemeResource HeaderTextBlockStyle}" FontSize="45"/>
-        </StackPanel>
-
-        <!-- Content Panel-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="24,0,24,28">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="0">
-                <TextBox x:Uid="ShoppingListName" x:Name="txbShoppingListName" Text="{Binding ListName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  InputScope="AlphanumericFullWidth"/>
+            <!-- Title Panel (Application and Page Title) -->
+            <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="24,17,24,28">
+                <TextBlock x:Uid="ApplicationTitle" x:Name="ApplicationTitle" Style="{ThemeResource TitleTextBlockStyle}"/>
+                <TextBlock x:Uid="AddShoppingListPageTitle" x:Name="PageTitle" Style="{ThemeResource HeaderTextBlockStyle}"/>
             </StackPanel>
-            <StackPanel Grid.Row="1">
-                <ComboBox x:Name="Shops" Header="Choose a Shop" ItemsSource="{Binding Shops}" SelectedItem="{Binding SelectedShop, Mode=TwoWay}" Background="LightGray" BorderBrush="LightGray">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock x:Name="TblShopName" Text="{Binding Name}" FontSize="20"/>
-                                <TextBlock x:Name="Address" Text="{Binding Address}" FontSize="15"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </StackPanel>
+
+            <!-- Content Panel-->
+            <Grid x:Name="ContentPanel" Grid.Row="1" Margin="24,0,24,28">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0">
+                    <TextBox x:Uid="ShoppingListName" x:Name="txbShoppingListName" Text="{Binding ListName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  InputScope="AlphanumericFullWidth"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1">
+                    <ComboBox x:Name="Shops" Header="Choose a Shop" ItemsSource="{Binding Shops, Mode=OneWay}" SelectedItem="{Binding SelectedShop, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock x:Name="TblShopName" Text="{Binding Name}" FontSize="20"/>
+                                    <TextBlock x:Name="Address" Text="{Binding Address}" Foreground="#FF979797" FontSize="15"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
         </Grid>
-    </Grid>
+    </ScrollViewer>
+
     <Page.BottomAppBar>
         <CommandBar Background="{StaticResource MainAppColor}" Foreground="White">
             <CommandBar.PrimaryCommands>

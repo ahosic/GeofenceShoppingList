@@ -10,7 +10,6 @@
     xmlns:common="using:ShoppingListWPApp.Common"
     mc:Ignorable="d"
     DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}"
-    RequestedTheme="Light"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
 
@@ -31,13 +30,15 @@
                 x:Uid="PivotItemLists"
                 Margin="24,14.5,24,24"
                 CommonNavigationTransitionInfo.IsStaggerElement="True">
+
                 <ListView x:Name="ShoppingList" ItemsSource="{Binding ShoppingLists, Mode=OneWay}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid>
+                            <Grid Margin="0,0,0,12">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
+
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Holding">
                                         <common:OpenMenuFlyoutAction />
@@ -46,26 +47,19 @@
                                         <common:GoToShoppingListItemAction />
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
+
                                 <StackPanel>
                                     <TextBlock Text="{Binding ListName}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
                                     <TextBlock Text="{Binding Shop, Converter={StaticResource ShopToNameConverter}}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
                                 </StackPanel>
                                 <FlyoutBase.AttachedFlyout>
                                     <MenuFlyout>
-                                        <MenuFlyout.Items>
-                                            <MenuFlyoutItem Text="Edit" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}"/>
-                                            <MenuFlyoutItem Text="Delete" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding DeleteShoppingListCommand}"/>
-                                        </MenuFlyout.Items>
-                                        <MenuFlyout.MenuFlyoutPresenterStyle>
-                                            <Style TargetType="MenuFlyoutPresenter">
-                                                <Setter Property="Background" Value="{StaticResource MainAppColor}"></Setter>
-                                                <Setter Property="Foreground" Value="White"></Setter>
-                                            </Style>
-                                        </MenuFlyout.MenuFlyoutPresenterStyle>
+                                        <MenuFlyoutItem Text="Edit" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}"/>
+                                        <MenuFlyoutItem Text="Delete" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding DeleteShoppingListCommand}"/>
                                     </MenuFlyout>
                                 </FlyoutBase.AttachedFlyout>
                             </Grid>
-                        </DataTemplate> 
+                        </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </PivotItem>
@@ -94,7 +88,7 @@
                     </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid>
+                            <Grid Margin="0,0,0,12">
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Holding">
                                         <common:OpenMenuFlyoutAction />
@@ -109,7 +103,7 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center" Margin="0,0,0,6">
+                                <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center" Margin="0,0,6,0">
                                     <TextBlock Text="{Binding Name}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
                                     <TextBlock Text="{Binding Address}" TextWrapping="NoWrap" TextTrimming="WordEllipsis" Style="{ThemeResource ListViewItemSubheaderTextBlockStyle}" MaxLines="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
                                 </StackPanel>
@@ -119,17 +113,9 @@
                                 </StackPanel>
                                 <FlyoutBase.AttachedFlyout>
                                     <MenuFlyout>
-                                        <MenuFlyout.Items>
-                                            <MenuFlyoutItem x:Uid="MainPageMenuFlyOutItemShopDetails" Text="Details" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding DetailsShopCommand}"/>
-                                            <MenuFlyoutItem x:Uid="MainPageMenuFlyOutItemShopEdit" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding EditShopCommand}"/>
-                                            <MenuFlyoutItem x:Uid="MainPageMenuFlyOutItemShopDelete" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding DeleteShopCommand}"/>
-                                        </MenuFlyout.Items>
-                                        <MenuFlyout.MenuFlyoutPresenterStyle>
-                                            <Style TargetType="MenuFlyoutPresenter">
-                                                <Setter Property="Background" Value="{StaticResource MainAppColor}"></Setter>
-                                                <Setter Property="Foreground" Value="White"></Setter>
-                                            </Style>
-                                        </MenuFlyout.MenuFlyoutPresenterStyle>
+                                        <MenuFlyoutItem x:Uid="MainPageMenuFlyOutItemShopDetails" Text="Details" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding DetailsShopCommand}"/>
+                                        <MenuFlyoutItem x:Uid="MainPageMenuFlyOutItemShopEdit" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding EditShopCommand}"/>
+                                        <MenuFlyoutItem x:Uid="MainPageMenuFlyOutItemShopDelete" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding DeleteShopCommand}"/>
                                     </MenuFlyout>
                                 </FlyoutBase.AttachedFlyout>
                             </Grid>
@@ -147,17 +133,40 @@
                 <AppBarButton x:Uid="AppBarButtonAdd" x:Name="AbtnAdd" Icon="Add">
                     <AppBarButton.Flyout>
                         <MenuFlyout>
-                            <MenuFlyoutItem x:Uid="AppBarButtonAddFlyoutShop" x:Name="MfoShop" Command="{Binding AddShopCommand}"/>
-                            <MenuFlyoutItem x:Uid="AppBarButtonAddFlyoutList" x:Name="MfoList" Command="{Binding AddShoppingListCommand}"/>
+                            <MenuFlyout.Items>
+                                <MenuFlyoutItem x:Uid="AppBarButtonAddFlyoutShop" x:Name="MfoShop" Command="{Binding AddShopCommand}"/>
+                                <MenuFlyoutItem x:Uid="AppBarButtonAddFlyoutList" x:Name="MfoList" Command="{Binding AddShoppingListCommand}"/>
+                            </MenuFlyout.Items>
+                            <MenuFlyout.MenuFlyoutPresenterStyle>
+                                <Style TargetType="MenuFlyoutPresenter">
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="Background" Value="{StaticResource LightAppColor}"/>
+                                </Style>
+                            </MenuFlyout.MenuFlyoutPresenterStyle>
                         </MenuFlyout>
                     </AppBarButton.Flyout>
                 </AppBarButton>
-                <AppBarButton x:Uid="AppBarButtonFind" x:Name="AbtnFind" Icon="Find"/>
+                <AppBarButton x:Uid="AppBarButtonFind" x:Name="AbtnFind" Icon="Find" Visibility="Collapsed">
+                    <AppBarButton.Flyout>
+                        <Flyout>
+                            <StackPanel Background="{ThemeResource MainAppColor}">
+                                <TextBlock x:Uid="AppBarFlyoutFindAddressHeader" Style="{ThemeResource MessageDialogTitleStyle}" Foreground="White" Margin="24,17,24,12"/>
+                                <TextBox x:Uid="AppBarFlyoutFindAddressTextBoxAddress" x:Name="TbxAddress" InputScope="Search" RequestedTheme="Dark" Margin="24,0,24,12" KeyDown="TbxAddress_KeyDown"/>
+                                <Grid HorizontalAlignment="Stretch" Margin="24,0,24,12" RequestedTheme="Dark">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Button x:Uid="AppBarFlyoutButtonFind" x:Name="BtnFind" Grid.Column="0" Margin="0,0,12,0" HorizontalAlignment="Stretch" Click="BtnFind_Click" />
+                                    <Button x:Uid="AppBarFlyoutButtonCancel" x:Name="BtnCancel" Grid.Column="1" Margin="12,0,0,0" HorizontalAlignment="Stretch" Click="BtnCancel_Click" />
+                                </Grid>
+                            </StackPanel>
+                        </Flyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
                 <AppBarButton x:Uid="AppBarButtonFindMe" x:Name="AbtnFindMe" Icon="Target" Visibility="Collapsed" Click="AbtnFindMe_Click"/>
             </CommandBar.PrimaryCommands>
-            <CommandBar.SecondaryCommands>
-                <AppBarButton x:Uid="AppBarButtonSettings" x:Name="AbtnSetting" Icon="Setting"/>
-            </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
 </Page>

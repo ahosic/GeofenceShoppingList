@@ -2,13 +2,11 @@
     x:Class="ShoppingListWPApp.Views.EditShop"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ShoppingListWPApp.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
     mc:Ignorable="d"
     DataContext="{Binding Source={StaticResource Locator}, Path=EditShop}"
-    RequestedTheme="Light"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <ScrollViewer>
@@ -66,15 +64,16 @@
                         <Flyout>
                             <StackPanel Background="{ThemeResource MainAppColor}">
                                 <TextBlock x:Uid="AppBarFlyoutFindAddressHeader" Style="{ThemeResource MessageDialogTitleStyle}" Foreground="White" Margin="24,17,24,12"/>
-                                <TextBox x:Uid="AppBarFlyoutFindAddressTextBoxAddress" x:Name="TbxAddress" InputScope="Search" RequestedTheme="Dark" Margin="24,0,24,12" KeyDown="TbxAddress_KeyDown" />
-                                <Grid HorizontalAlignment="Stretch" Margin="24,0,24,12" RequestedTheme="Dark">
+                                <TextBlock x:Uid="AppBarFlyoutFindAddressTextBoxAddress" x:Name="TbxAddressHeader" Foreground="White" Margin="24,0,24,6" Style="{ThemeResource TitleTextBlockStyle}" />
+                                <TextBox x:Name="TbxAddress" InputScope="Search" Margin="24,0,24,12" BorderBrush="White" Background="White" KeyDown="TbxAddress_KeyDown" />
+                                <Grid HorizontalAlignment="Stretch" Margin="24,0,24,12">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Button x:Uid="AppBarFlyoutButtonFind" x:Name="BtnFind" Grid.Column="0" Margin="0,0,12,0" HorizontalAlignment="Stretch" Click="BtnFind_Click" />
-                                    <Button x:Uid="AppBarFlyoutButtonCancel" x:Name="BtnCancel" Grid.Column="1" Margin="12,0,0,0" HorizontalAlignment="Stretch" Click="BtnCancel_Click" />
+                                    <Button x:Uid="AppBarFlyoutButtonFind" x:Name="BtnFind" Grid.Column="0" Margin="0,0,12,0" BorderBrush="White" Foreground="White" HorizontalAlignment="Stretch" Click="BtnFind_Click" />
+                                    <Button x:Uid="AppBarFlyoutButtonCancel" x:Name="BtnCancel" Grid.Column="1" Margin="12,0,0,0" BorderBrush="White" Foreground="White" HorizontalAlignment="Stretch" Click="BtnCancel_Click" />
                                 </Grid>
                             </StackPanel>
                         </Flyout>

@@ -120,6 +120,7 @@
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="Common\ViewModelLocator.cs" />
+    <Compile Include="Converter\ShoppingListToShoppingListNameConverter.cs" />
     <Compile Include="Converter\ShopToNameConverter.cs" />
     <Compile Include="Models\Shop.cs" />
     <Compile Include="Models\ShoppingList.cs" />

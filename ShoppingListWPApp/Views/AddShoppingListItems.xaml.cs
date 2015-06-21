@@ -114,5 +114,16 @@ namespace ShoppingListWPApp.Views
 
         private AddShoppingListItemViewModel ViewModel { get { return DataContext as AddShoppingListItemViewModel; } }
         #endregion
+
+        private void CloseFlyout(object sender, RoutedEventArgs e)
+        {
+            if (sender.Equals(BtnCancel))
+            {
+                TbxNameAppBarFlyout.Text = string.Empty;
+                TbxAmountAndMeasureAppBarFlyout.Text = string.Empty;
+            }
+
+            AbtnAddShListItem.Flyout.Hide();
+        }
     }
 }

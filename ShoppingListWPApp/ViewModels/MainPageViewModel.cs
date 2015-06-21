@@ -35,7 +35,14 @@ namespace ShoppingListWPApp.ViewModels
         /// </summary>
         private Geolocator locator;
 
-        private string shopsFilename;
+        /// <summary>
+        /// Filename, where shops are saved.
+        /// </summary>
+        private readonly string shopsFilename;
+        /// <summary>
+        /// Filename, where shopping lists are saved.
+        /// </summary>
+        private readonly string shoppingListsFilename;
 
         #endregion
 
@@ -97,9 +104,6 @@ namespace ShoppingListWPApp.ViewModels
             this.dialogService = dialogService;
             this.locator = locator;
 
-            // Initialize Observable Collections
-            ShoppingLists = new ObservableCollection<ShoppingList>();
-
             // Commands
             AddShopCommand = new RelayCommand(GoToAddShopPage);
             EditShopCommand = new RelayCommand(GoToEditShopPage);
@@ -110,7 +114,10 @@ namespace ShoppingListWPApp.ViewModels
 
             // Load data
             shopsFilename = "shops.json";
+            shoppingListsFilename = "lists.json";
+
             LoadShops();
+            LoadShoppingLists();
         }
 
         #region *** Shop ***
@@ -144,12 +151,32 @@ namespace ShoppingListWPApp.ViewModels
             // Get index of old object
             int idx = Shops.IndexOf(oldShop);
 
+            // Clone ShoppingLists-List
+            var templist = ShoppingLists.ToList();
+
+            // Query all shopping lists and update the Shop object of the Shopping lists
+            foreach (ShoppingList list in templist)
+            {
+                if (list.Shop.ID.Equals(oldShop.ID))
+                {
+                    // Get index of old object
+                    int listIdx = ShoppingLists.IndexOf(list);
+
+                    // Set new shop
+                    list.Shop = newShop;
+
+                    // Remove old object from list and insert new one
+                    ShoppingLists.RemoveAt(listIdx);
+                    ShoppingLists.Insert(listIdx, list);
+                }
+            }
             // Remove old object and insert new object at the same position as the old one
             Shops.Remove(oldShop);
             Shops.Insert(idx, newShop);
 
-            // Save shops to isolated storage
+            // Save data to isolated storage
             SaveShops();
+            SaveShoppingLists();
 
             // Replace old Geofence with new one
             ServiceLocator.Current.GetInstance<GeoHelper>().ModifyGeofence(oldShop.ID, newShop);
@@ -163,8 +190,21 @@ namespace ShoppingListWPApp.ViewModels
         {
             Shops.Remove(shop);
 
-            // Save shops to isolated storage
+            // Clone ShoppingLists-List
+            var templist = ShoppingLists.ToList();
+
+            // Query all shopping lists and update the Shop object of the Shopping lists
+            foreach (ShoppingList list in templist)
+            {
+                if (list.Shop.ID.Equals(shop.ID))
+                {
+                    ShoppingLists.Remove(list);
+                }
+            }
+
+            // Save data to isolated storage
             SaveShops();
+            SaveShoppingLists();
 
             // Remove Geofence
             ServiceLocator.Current.GetInstance<GeoHelper>().RemoveGeofence(shop.ID);
@@ -201,6 +241,7 @@ namespace ShoppingListWPApp.ViewModels
         public void AddShoppingList(ShoppingList shoppingList)
         {
             ShoppingLists.Add(shoppingList);
+            SaveShoppingLists();
         }
 
         /// <summary>
@@ -210,11 +251,27 @@ namespace ShoppingListWPApp.ViewModels
         public void DeleteShoppingList(ShoppingList shoppingList)
         {
             ShoppingLists.Remove(shoppingList);
+            SaveShoppingLists();
         }
 
         public void EditShoppingList()
         {
 
+        }
+
+        /// <summary>
+        /// Gets a <c>ShoppingList</c>-Object with a specified ID out of the <c>ShoppingLists</c>-Collection.
+        /// </summary>
+        /// <param name="id">The ID of the <c>ShoppingList</c>-Object in the <c>ShoppingLists</c>-Collection.</param>
+        /// <returns>The <c>ShoppingList</c>-Object with the specified ID.</returns>
+        public ShoppingList GetShoppingListByID(string id)
+        {
+            // Get Object
+            ShoppingList list = (from l in ShoppingLists
+                                 where l.ID.Equals(id)
+                                 select l).First();
+
+            return list;
         }
 
         #endregion
@@ -346,7 +403,31 @@ namespace ShoppingListWPApp.ViewModels
             }
             catch (Exception ex)
             {
-                dialogService.ShowMessage("An error occured while saving Shop data.", "Error");
+                dialogService.ShowMessage(
+                    ResourceLoader.GetForCurrentView().GetString("SavingErrorContent"),
+                    ResourceLoader.GetForCurrentView().GetString("SavingErrorTitle"));
+            }
+        }
+
+        /// <summary>
+        /// Saves all created shopping lists in the isolated storage of the device as JSON data.
+        /// </summary>
+        private async void SaveShoppingLists()
+        {
+            try
+            {
+                // Get App's folder and create file
+                var folder = ApplicationData.Current.LocalFolder;
+                var file = await folder.CreateFileAsync(shoppingListsFilename, CreationCollisionOption.ReplaceExisting);
+
+                // Write Shops to file as JSON data
+                await FileIO.WriteTextAsync(file, JsonConvert.SerializeObject(ShoppingLists), UnicodeEncoding.Utf8);
+            }
+            catch (Exception ex)
+            {
+                dialogService.ShowMessage(
+                    ResourceLoader.GetForCurrentView().GetString("SavingErrorContent"),
+                    ResourceLoader.GetForCurrentView().GetString("SavingErrorTitle"));
             }
         }
 
@@ -370,6 +451,28 @@ namespace ShoppingListWPApp.ViewModels
             {
                 // Initialize collection
                 Shops = new ObservableCollection<Shop>();
+            }
+        }
+
+        /// <summary>
+        /// Loads all created shopping lists out of the isolated storage of the device.
+        /// </summary>
+        private async void LoadShoppingLists()
+        {
+            try
+            {
+                // Get App's folder and create file
+                var folder = ApplicationData.Current.LocalFolder;
+                var file = await folder.GetFileAsync(shoppingListsFilename);
+
+                // Load data out of file
+                string data = await FileIO.ReadTextAsync(file, UnicodeEncoding.Utf8);
+                ShoppingLists = JsonConvert.DeserializeObject<ObservableCollection<ShoppingList>>(data) ?? new ObservableCollection<ShoppingList>();
+            }
+            catch (Exception ex)
+            {
+                // Initialize collection
+                ShoppingLists = new ObservableCollection<ShoppingList>();
             }
         }
 

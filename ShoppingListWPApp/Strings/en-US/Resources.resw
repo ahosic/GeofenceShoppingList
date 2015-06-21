@@ -149,10 +149,6 @@
     <value>find</value>
     <comment>Primary AppBarButton for Finding Shopping Lists (View: MainPage)</comment>
   </data>
-  <data name="AppBarButtonSettings.Label" xml:space="preserve">
-    <value>Settings</value>
-    <comment>Seconday AppBarButton for Settings (View: MainPage)</comment>
-  </data>
   <data name="ApplicationTitle.Text" xml:space="preserve">
     <value>SHOPPING LIST</value>
     <comment>Application Title</comment>
@@ -241,7 +237,7 @@
     <value>Find Address</value>
     <comment>Header of Find-Address-Flyout (View: AddShop)</comment>
   </data>
-  <data name="AppBarFlyoutFindAddressTextBoxAddress.Header" xml:space="preserve">
+  <data name="AppBarFlyoutFindAddressTextBoxAddress.Text" xml:space="preserve">
     <value>Address</value>
     <comment>Header of TextBox of Find-Address-Flyout (View: AddShop)</comment>
   </data>
@@ -318,7 +314,7 @@
     <comment>Header of Shopping Lists-ListView (View: DetailsShop)</comment>
   </data>
   <data name="AddShoppingListPageTitle.Text" xml:space="preserve">
-    <value>add a shoppinglist</value>
+    <value>add a list</value>
     <comment>Page Title (View: AddShoppingList)</comment>
   </data>
   <data name="ShoppingListName.Header" xml:space="preserve">
@@ -329,18 +325,18 @@
     <value>overview items</value>
     <comment>Page Title (View:AddShoppingListItem)</comment>
   </data>
-  <data name="AppBarFlyoutAddItemAmountAndMeasure.Header" xml:space="preserve">
+  <data name="AppBarFlyoutAddItemAmountAndMeasure.Text" xml:space="preserve">
     <value>Amount and Measure</value>
   </data>
   <data name="AppBarFlyoutAddItemHeader.Text" xml:space="preserve">
     <value>Add Item</value>
     <comment>Header of Flyout AddItem</comment>
   </data>
-  <data name="AppBarFlyoutAddItemName.Header" xml:space="preserve">
-    <value>Name</value>
+  <data name="AppBarFlyoutAddItemName.Text" xml:space="preserve">
+    <value>Text</value>
   </data>
   <data name="AppBarFlyoutButtonAdd.Content" xml:space="preserve">
-    <value>add</value>
+    <value>Add</value>
     <comment>Add-Button of Add-Item-Flyout (View: AddShoppingListItem)</comment>
   </data>
   <data name="DeleteShoppingListDialogButtonNo" xml:space="preserve">
@@ -378,5 +374,21 @@
   </data>
   <data name="DeleteShoppingListItemDialogTitle" xml:space="preserve">
     <value>Delete Shoppinglistitem</value>
+  </data>
+  <data name="AddShoppingListValidationErrorContent" xml:space="preserve">
+    <value>You have to provide all required information in order to create a shopping list.</value>
+    <comment>Content of dialog that is shown, if the provided data is invalid (View: AddShoppingList)</comment>
+  </data>
+  <data name="AddShoppingListValidationErrorTitle" xml:space="preserve">
+    <value>Error</value>
+    <comment>Title of dialog that is shown, if the provided data is invalid (View: AddShoppingList)</comment>
+  </data>
+  <data name="SavingErrorContent" xml:space="preserve">
+    <value>An error occured while saving data.</value>
+    <comment>Content of dialog that is displayed, when an error occures while saving data.</comment>
+  </data>
+  <data name="SavingErrorTitle" xml:space="preserve">
+    <value>Error</value>
+    <comment>Error of dialog that is displayed, when an error occures while saving data.</comment>
   </data>
 </root>

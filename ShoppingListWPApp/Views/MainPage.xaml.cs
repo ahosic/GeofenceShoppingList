@@ -1,11 +1,15 @@
 ﻿using System;
-using Windows.ApplicationModel.Background;
+using System.Linq;
 using Windows.ApplicationModel.Resources;
 using Windows.Devices.Geolocation;
+using Windows.Services.Maps;
+using Windows.System;
+using Windows.UI.Popups;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
-using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 using ShoppingListWPApp.Common;
 
@@ -97,11 +101,13 @@ namespace ShoppingListWPApp.Views
             if (args.Item.Equals(PviMap))
             {
                 AbtnFindMe.Visibility = Visibility.Visible;
+                AbtnFind.Visibility = Visibility.Visible;
                 GetMyLocation();
             }
             else
             {
                 AbtnFindMe.Visibility = Visibility.Collapsed;
+                AbtnFind.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -116,6 +122,48 @@ namespace ShoppingListWPApp.Views
         private void AbtnFindMe_Click(object sender, RoutedEventArgs e)
         {
             GetMyLocation();
+        }
+
+        /// <summary>
+        /// This event gets fired, when the Find-<c>Button</c>  in the Flyout for finding addresses gets tapped. 
+        /// This event executes the <c>FindAddress</c> method.
+        /// </summary>
+        /// <param name="sender">The <c>Button</c> that has been tapped by the user.</param>
+        /// <param name="e">Event arguments</param>
+        /// <seealso cref="FindAddress(string)"/>
+        private void BtnFind_Click(object sender, RoutedEventArgs e)
+        {
+
+            FindAddress(TbxAddress.Text);
+            AbtnFind.Flyout.Hide();
+        }
+
+        /// <summary>
+        /// This event gets fired, when the Cancel-<c>Button</c>  in the Flyout for finding addresses gets tapped.
+        /// This event hides the Flyout for finding addresses.
+        /// </summary>
+        /// <param name="sender">The <c>Button</c> that has been tapped by the user.</param>
+        /// <param name="e">Event arguments</param>
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            AbtnFind.Flyout.Hide();
+        }
+
+        /// <summary>
+        /// This method hides the soft-keyboard after pressing the Enter-Button in the sof-keyboard and executes the <c>FindAddress</c> method.
+        /// </summary>
+        /// <param name="sender">The sender of the <c>KeyDown</c> event.</param>
+        /// <param name="e">Contains the key that has been pressed by the user.</param>
+        /// <seealso cref="FindAddress(string)"/>
+        private void TbxAddress_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            // Check, if the Enter-Button has been pressed
+            if (e.Key.Equals(VirtualKey.Enter))
+            {
+                FindAddress(TbxAddress.Text);
+                InputPane.GetForCurrentView().TryHide();
+                AbtnFind.Flyout.Hide();
+            }
         }
 
         #endregion
@@ -143,6 +191,44 @@ namespace ShoppingListWPApp.Views
             {
                 App.ToggleProgressBar(false, null);
             }
+        }
+
+        /// <summary>
+        /// This method tries to find the geographical position of a given address.
+        /// </summary>
+        /// <param name="address">Address for which the geographical position should be found.</param>
+        private async void FindAddress(string address)
+        {
+            try
+            {
+                // Getting current location of device
+                App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarGettingLocationText"));
+                Geoposition position = await ServiceLocator.Current.GetInstance<Geolocator>().GetGeopositionAsync();
+                App.ToggleProgressBar(false, null);
+
+                // Finding geographical position of a given address
+                App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarSearchingAddress"));
+                MapLocationFinderResult FinderResult = await MapLocationFinder.FindLocationsAsync(address, position.Coordinate.Point);
+                App.ToggleProgressBar(false, null);
+
+                // Check, if any positions have been found
+                if (FinderResult.Status == MapLocationFinderStatus.Success && FinderResult.Locations.Count > 0)
+                {
+                    // Center found location on the MapControl
+                    Map.Center = FinderResult.Locations.First().Point;
+                    Map.DesiredPitch = 0;
+
+                    await Map.TrySetViewAsync(FinderResult.Locations.First().Point, 15);
+                }
+                else
+                {
+                    await new MessageDialog(
+                        ResourceLoader.GetForCurrentView().GetString("AddShopFindAddressDialogNotFoundText"),
+                        ResourceLoader.GetForCurrentView().GetString("AddShopFindAddressDialogNotFoundTitle")).ShowAsync();
+                }
+
+            }
+            catch (Exception ex) { }
         }
 
         #endregion

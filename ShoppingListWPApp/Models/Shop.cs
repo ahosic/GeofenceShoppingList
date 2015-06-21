@@ -29,13 +29,30 @@ namespace ShoppingListWPApp.Models
         /// </summary>
         public BasicGeoposition? Location { get; set; }
 
-        public Shop(string name, string address, double radius, BasicGeoposition? location)
+        public Shop(string id, string name, string address, double radius, BasicGeoposition? location)
         {
-            ID = Guid.NewGuid().ToString();
+            ID = id;
             Name = name;
             Address = address;
             Radius = radius;
             Location = location;
+        }
+
+        /// <summary>
+        /// Gets a formatted representation of the Shop containing the Name and Address of the Shop.
+        /// 
+        /// If the Address property is null, only the Name of the Shop will be returned.
+        /// </summary>
+        /// <returns>A formatted representation of the Shop.</returns>
+        public override string ToString()
+        {
+            // Check, if Address property is empty or null
+            if (Address.Trim().Equals(string.Empty) || Address == null)
+            {
+                return Name;
+            }
+
+            return Name + ", " + Address;
         }
     }
 }

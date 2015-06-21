@@ -4,12 +4,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:ShoppingListWPApp"
     xmlns:viewModels="using:ShoppingListWPApp.Common"
-    xmlns:converters="using:ShoppingListWPApp.Converter">
+    xmlns:converters="using:ShoppingListWPApp.Converter"
+    RequestedTheme="Light">
 
     <Application.Resources>
         <viewModels:ViewModelLocator x:Key="Locator" />
         <SolidColorBrush x:Key="MainAppColor" Color="#FF1BA1E2"/>
+        <SolidColorBrush x:Key="LightAppColor" Color="#FF47B4E9"/>
         <converters:RadiusToRadiusWithUnitConverter x:Key="RadiusToRadiusWithUnitConverter"/>
         <converters:ShopToNameConverter x:Key="ShopToNameConverter" />
+        <converters:ShoppingListToShoppingListNameConverter x:Key="ShoppingListToShoppingListNameConverter" />
+
+        <Style TargetType="MenuFlyoutPresenter">
+            <Setter Property="Background" Value="{StaticResource MainAppColor}"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
     </Application.Resources>
 </Application>

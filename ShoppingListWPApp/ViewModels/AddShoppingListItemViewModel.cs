@@ -10,7 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Resources;
+using Windows.UI.Core;
 
 namespace ShoppingListWPApp.ViewModels
 {
@@ -85,7 +87,7 @@ namespace ShoppingListWPApp.ViewModels
         /// <summary>
         /// Creates a new <c>ShoppingListItem</c>-Object, adds it to the <c>ShoppingLists</c>-Collection (located in the <c>MainPageViewModel</c>).
         /// </summary>
-        public void CreateItem()
+        public async void CreateItem()
         {
             if(!string.IsNullOrWhiteSpace(Name) && !string.IsNullOrWhiteSpace(AmountAndMeasure))
             {
