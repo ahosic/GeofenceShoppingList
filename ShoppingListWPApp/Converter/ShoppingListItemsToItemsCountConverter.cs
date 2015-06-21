@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using Windows.UI.Xaml.Data;
 using ShoppingListWPApp.Models;
 
@@ -18,15 +19,15 @@ namespace ShoppingListWPApp.Converter
         /// <param name="parameter">Parameters that can be passed to the Converter.</param>
         /// <param name="language">Cultural information that can be passed to the Converter.</param>
         /// <returns>Returns a string representation of the Count property of the <c>Items</c> collection.</returns>
-        public object Convert(object value, System.Type targetType, object parameter, string language)
+        public object Convert(object value, Type targetType, object parameter, string language)
         {
             ObservableCollection<ShoppingListItem> items = (ObservableCollection<ShoppingListItem>)value;
             return items.Count.ToString();
         }
 
-        public object ConvertBack(object value, System.Type targetType, object parameter, string language)
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

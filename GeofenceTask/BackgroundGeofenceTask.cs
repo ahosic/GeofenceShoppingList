@@ -1,7 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using Windows.ApplicationModel.Background;
 using Windows.Data.Xml.Dom;
@@ -9,14 +7,31 @@ using Windows.Devices.Geolocation.Geofencing;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Notifications;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace GeofenceTask
 {
+    /// <summary>
+    /// This Background Task is used for responding on Geofence events.
+    /// 
+    /// This Background Task gets triggered, when the device enters a Geofence that was created by the App.
+    /// </summary>
     public sealed class BackgroundGeofenceTask : IBackgroundTask
     {
+        /// <summary>
+        /// A Collection of <c>ShoppingList</c> objects in JSON format.
+        /// 
+        /// This collection gets populated by the <c>Run</c> method while loading shopping list data out of the isolated storage.
+        /// </summary>
         private JArray shoppingLists;
 
+        /// <summary>
+        /// Reads out current Geofence-Reports and creates corresponding Toast Notifications and displays them.
+        /// 
+        /// This method gets invoked, when the device enters a Geofence that was created by the App.
+        /// </summary>
+        /// <param name="taskInstance">The current Instance of the Background Task.</param>
         public async void Run(IBackgroundTaskInstance taskInstance)
         {
             // Get entered Geofences
@@ -96,46 +111,6 @@ namespace GeofenceTask
             }
 
             deferral.Complete();
-
-            //ToastTemplateType toastTemplate = ToastTemplateType.ToastText02;
-            //XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
-            //XmlNodeList toastTextElements = toastXml.GetElementsByTagName("text");
-
-            //toastTextElements[0].AppendChild(toastXml.CreateTextNode("You are pretty close to your shop"));
-            //toastTextElements[1].AppendChild(toastXml.CreateTextNode(SelectedReport.Geofence.Id));
-
-            //IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
-            //((XmlElement)toastNode).SetAttribute("launch", "{\"type\":\"toast\",\"id\":\"" + SelectedReport.Geofence.Id.Trim() + "\"}");
-
-
-            //var ToastContent = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText02);
-            //var TextNodes = ToastContent.GetElementsByTagName("text");
-
-            //if (SelectedReport.NewState == GeofenceState.Entered)
-            //{
-            //    TextNodes[0].AppendChild(ToastContent.CreateTextNode("You are pretty close to your shop"));
-            //    TextNodes[1].AppendChild(ToastContent.CreateTextNode(SelectedReport.Geofence.Id));
-
-            //}
-
-            //var settings = ApplicationData.Current.LocalSettings;
-
-            //if (settings.Values.ContainsKey("Status"))
-            //{
-            //    settings.Values["Status"] = SelectedReport.NewState;
-            //}
-            //else
-            //{
-            //    settings.Values.Add(new KeyValuePair<string, object>("Status", SelectedReport.NewState.ToString()));
-            //}
-        }
-
-        /// <summary>
-        /// Loads all created shopping lists out of the isolated storage of the device.
-        /// </summary>
-        private async void LoadShoppingLists()
-        {
-
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using Windows.Devices.Geolocation;
+﻿using Windows.Devices.Geolocation;
 
 namespace ShoppingListWPApp.Models
 {

@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 using Windows.ApplicationModel.Resources;
-using Windows.Devices.Geolocation;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using GalaSoft.MvvmLight;
@@ -31,10 +30,6 @@ namespace ShoppingListWPApp.ViewModels
         /// This <c>IDialogService</c>-Object is used for displaying Dialogs on the Device-Screen.
         /// </summary>
         private IDialogService dialogService;
-        /// <summary>
-        /// This <c>Geolocator</c>-Object is used for retrieving the geographical position of the device using GPS.
-        /// </summary>
-        private Geolocator locator;
 
         /// <summary>
         /// Filename, where shops are saved.
@@ -98,12 +93,11 @@ namespace ShoppingListWPApp.ViewModels
 
         #endregion
 
-        public MainPageViewModel(INavigationService navigationService, IDialogService dialogService, Geolocator locator)
+        public MainPageViewModel(INavigationService navigationService, IDialogService dialogService)
         {
             // Services
             this.navigationService = navigationService;
             this.dialogService = dialogService;
-            this.locator = locator;
 
             // Commands
             AddShopCommand = new RelayCommand(GoToAddShopPage);

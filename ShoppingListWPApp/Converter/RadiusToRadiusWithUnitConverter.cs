@@ -1,4 +1,5 @@
-﻿using Windows.ApplicationModel.Resources;
+﻿using System;
+using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml.Data;
 
 namespace ShoppingListWPApp.Converter
@@ -17,7 +18,7 @@ namespace ShoppingListWPApp.Converter
         /// <param name="parameter">Parameters that can be passed to the Converter.</param>
         /// <param name="language">Cultural information that can be passed to the Converter.</param>
         /// <returns>Returns a formatted, regional-specific string representation of <c>value</c>.</returns>
-        public object Convert(object value, System.Type targetType, object parameter, string language)
+        public object Convert(object value, Type targetType, object parameter, string language)
         {
             return ((double)value).ToString("0.00") + " " + ResourceLoader.GetForCurrentView().GetString("GeoFenceShopRadiusUnit");
         }
@@ -31,9 +32,9 @@ namespace ShoppingListWPApp.Converter
         /// <param name="language">Cultural information that can be passed to the Converter.</param>
         /// <returns>Returns a <c>double</c>-Value.</returns>
         /// <exception cref="System.NotImplementedException">Thrown because this method is not implemented (not used).</exception>
-        public object ConvertBack(object value, System.Type targetType, object parameter, string language)
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

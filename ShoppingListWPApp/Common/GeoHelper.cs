@@ -40,7 +40,9 @@ namespace ShoppingListWPApp.Common
         {
             // Services
             this.dialogService = dialogService;
-            this.locator = new Geolocator { ReportInterval = 30 };
+
+            // Request Location Updates every 30 seconds
+            this.locator = new Geolocator { ReportInterval = 30000 };
             this.locator.PositionChanged += PositionChanged;
 
             InitPosition();

@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml.Data;
+﻿using System;
+using Windows.UI.Xaml.Data;
 using ShoppingListWPApp.Models;
 
 namespace ShoppingListWPApp.Converter
@@ -19,7 +20,7 @@ namespace ShoppingListWPApp.Converter
         /// or "address" for returning a string representation of the <c>Shop</c> object.</param>
         /// <param name="language">Cultural information that can be passed to the Converter.</param>
         /// <returns>Returns information about the <c>Shop</c> object of a <c>ShoppingList</c> object depending on the parameter passed to the method.</returns>
-        public object Convert(object value, System.Type targetType, object parameter, string language)
+        public object Convert(object value, Type targetType, object parameter, string language)
         {
             ShoppingList list = (ShoppingList)value;
 
@@ -34,9 +35,9 @@ namespace ShoppingListWPApp.Converter
             }
         }
 
-        public object ConvertBack(object value, System.Type targetType, object parameter, string language)
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

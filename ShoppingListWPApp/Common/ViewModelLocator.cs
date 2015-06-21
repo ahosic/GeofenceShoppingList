@@ -1,5 +1,4 @@
-﻿using Windows.Devices.Geolocation;
-using GalaSoft.MvvmLight.Ioc;
+﻿using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 using ShoppingListWPApp.ViewModels;
@@ -72,7 +71,6 @@ namespace ShoppingListWPApp.Common
             // Register Services
             SimpleIoc.Default.Register<INavigationService>(() => navigationService);
             SimpleIoc.Default.Register<IDialogService>(() => new DialogService());
-            SimpleIoc.Default.Register<Geolocator>();
             SimpleIoc.Default.Register<GeoHelper>();
 
             // Register ViewModels
