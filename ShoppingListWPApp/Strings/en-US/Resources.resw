@@ -150,7 +150,7 @@
     <comment>Primary AppBarButton for Finding Shopping Lists (View: MainPage)</comment>
   </data>
   <data name="ApplicationTitle.Text" xml:space="preserve">
-    <value>SHOPPING LIST</value>
+    <value>GEOSHOPPER</value>
     <comment>Application Title</comment>
   </data>
   <data name="PivotItemLists.Header" xml:space="preserve">
@@ -166,7 +166,7 @@
     <comment>Header of the Shops-PivotItem (View: MainPage)</comment>
   </data>
   <data name="PivotMain.Title" xml:space="preserve">
-    <value>SHOPPING LIST</value>
+    <value>GEOSHOPPER</value>
     <comment>Title of the Application (View: MainPage)</comment>
   </data>
   <data name="ShopName.Header" xml:space="preserve">
@@ -251,7 +251,7 @@
   </data>
   <data name="StatusBarSearchingAddress" xml:space="preserve">
     <value>Finding Address...</value>
-    <comment>Text that is displayed in the Statusbar while trying to find an address of the device (View: AddShop)</comment>
+    <comment>Text that is displayed in the Statusbar while trying to find an address of the device (View: AddShop, EditShop, MainPage)</comment>
   </data>
   <data name="DeleteShopDialogContent" xml:space="preserve">
     <value>Are you sure you want to delete this shop?</value>
@@ -357,10 +357,18 @@
     <comment>Text of Dialog that is displayed, when an error occures while finding an address. (View: AddShop, EditShop, MainPage)</comment>
   </data>
   <data name="GPSError" xml:space="preserve">
-    <value>An Error occured while locating your position. Check your GPS settings.</value>
+    <value>An Error occured while locating your position. Check your location settings.</value>
     <comment>Text of Dialog that is displayed, when an error occures while trying to locate the device. (View: AddShop, EditShop, MainPage)</comment>
   </data>
   <data name="YesText" xml:space="preserve">
     <value>Yes</value>
+  </data>
+  <data name="StatusBarGettingLocation" xml:space="preserve">
+    <value>Getting location...</value>
+    <comment>Text that is displayed in the Statusbar while trying to get the location of the device (View: AddShop, EditShop, MainPage)</comment>
+  </data>
+  <data name="GPSStatusError" xml:space="preserve">
+    <value>Location is disabled on your device. To enable location, go to Settings and select location.</value>
+    <comment>Text of Dialog that is displayed, when the Status of Location service of the device changes.</comment>
   </data>
 </root>

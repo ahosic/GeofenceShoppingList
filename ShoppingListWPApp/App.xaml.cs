@@ -51,8 +51,8 @@ namespace ShoppingListWPApp
 #endif
             Frame rootFrame = Window.Current.Content as Frame;
 
-            // Initializing Position
-            ServiceLocator.Current.GetInstance<GeoHelper>().InitPosition();
+            // Initializing Geofencing
+            ServiceLocator.Current.GetInstance<GeoHelper>().InitGeofencing();
 
             // Get Parameters
             string launchString = e.Arguments;
@@ -87,7 +87,6 @@ namespace ShoppingListWPApp
                 // Associate the frame with a SuspensionManager key.
                 SuspensionManager.RegisterFrame(rootFrame, "AppFrame");
 
-                // TODO: Change this value to a cache size that is appropriate for your application.
                 rootFrame.CacheSize = 1;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
@@ -164,8 +163,17 @@ namespace ShoppingListWPApp
             deferral.Complete();
         }
 
+        /// <summary>
+        /// Shows or hides a Progressbar in the Statusbar of the device.
+        /// 
+        /// If toggle is true, the Progressbar will be shown. If toggle is false, the Progressbar will be hidden. 
+        /// If a message is present, a text will be shown in Progressbar, otherwise only the Progressbar will be visible.
+        /// </summary>
+        /// <param name="toggle">If true, Progressbar will be shown. If false, Progressbar will be hidden.</param>
+        /// <param name="message">A text that is displayed, while the Progressbar is visible.</param>
         public static async void ToggleProgressBar(bool toggle, string message = "")
         {
+            // Get progressbar
             StatusBarProgressIndicator progressbar = StatusBar.GetForCurrentView().ProgressIndicator;
             if (toggle)
             {

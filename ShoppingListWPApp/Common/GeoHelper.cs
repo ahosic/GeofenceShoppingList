@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
+using Windows.ApplicationModel.Resources;
 using Windows.Devices.Geolocation;
 using Windows.Devices.Geolocation.Geofencing;
 using GalaSoft.MvvmLight.Views;
@@ -20,8 +21,9 @@ namespace ShoppingListWPApp.Common
         /// This <c>IDialogService</c>-Object is used for displaying Dialogs on the Device-Screen.
         /// </summary>
         private readonly IDialogService dialogService;
+
         /// <summary>
-        /// This <c>Geolocator</c>-Object is used for retrieving the geographical position of the device using GPS.
+        /// This <c>Geolocator</c>-Object is used for retrieving the geographical position of the device.
         /// </summary>
         private Geolocator locator;
 
@@ -30,46 +32,39 @@ namespace ShoppingListWPApp.Common
         #region *** Properties ***
 
         /// <summary>
-        /// Represents the device's current geographical position.
+        /// This <c>Geolocator</c>-Object is used for retrieving the geographical position of the device.
         /// </summary>
-        public Geoposition Position { get; set; }
+        public Geolocator Locator
+        {
+            get
+            {
+                switch (locator.LocationStatus)
+                {
+                    case PositionStatus.Disabled:
+                        dialogService.ShowMessage(
+                        ResourceLoader.GetForCurrentView().GetString("GPSStatusError"),
+                        ResourceLoader.GetForCurrentView().GetString("ErrorTitle"));
+                        return null;
+                    case PositionStatus.NotAvailable:
+                        dialogService.ShowMessage(
+                        ResourceLoader.GetForCurrentView().GetString("GPSStatusError"),
+                        ResourceLoader.GetForCurrentView().GetString("ErrorTitle"));
+                        return null;
+                }
+
+                return locator;
+            }
+            private set { locator = value; }
+        }
 
         #endregion
 
         public GeoHelper(IDialogService dialogService)
         {
-            // Services
+            // Initialize Services
             this.dialogService = dialogService;
-
-            // Request Location Updates every 30 seconds
-            this.locator = new Geolocator { ReportInterval = 30000 };
-            this.locator.PositionChanged += PositionChanged;
-
-            InitPosition();
-            InitGeofencing();
+            this.Locator = new Geolocator();
         }
-
-        #region *** Geolocation ***
-
-        /// <summary>
-        /// Gets the current device's geographical position.
-        /// </summary>
-        public async void InitPosition()
-        {
-            Position = await locator.GetGeopositionAsync();
-        }
-
-        /// <summary>
-        /// Updates the <c>Position</c> property every time, when the position of the device changes.
-        /// </summary>
-        /// <param name="sender">The <c>Geolocator</c>, who reacted on the <c>PositionChanged</c> event.</param>
-        /// <param name="args">Contains the new position of the device.</param>
-        private void PositionChanged(Geolocator sender, PositionChangedEventArgs args)
-        {
-            Position = args.Position;
-        }
-
-        #endregion
 
         #region *** Geofencing ***
 

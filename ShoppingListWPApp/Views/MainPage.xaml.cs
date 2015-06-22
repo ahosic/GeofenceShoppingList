@@ -177,8 +177,29 @@ namespace ShoppingListWPApp.Views
         {
             try
             {
-                // Getting current position of the device
-                Geoposition position = ServiceLocator.Current.GetInstance<GeoHelper>().Position;
+                // Getting current location of device
+                Geoposition position;
+                try
+                {
+                    App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarGettingLocation"));
+                    position = await ServiceLocator.Current.GetInstance<GeoHelper>().Locator.GetGeopositionAsync();
+                    App.ToggleProgressBar(false, null);
+                }
+                catch (NullReferenceException nullEx)
+                {
+                    App.ToggleProgressBar(false, null);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    App.ToggleProgressBar(false, null);
+
+                    new MessageDialog(
+                    ResourceLoader.GetForCurrentView().GetString("GPSError"),
+                    ResourceLoader.GetForCurrentView().GetString("ErrorTitle")).ShowAsync();
+
+                    return;
+                }
 
                 // Center current position of the device on the MapControl
                 Map.Center = position.Coordinate.Point;
@@ -202,7 +223,28 @@ namespace ShoppingListWPApp.Views
             try
             {
                 // Getting current location of device
-                Geoposition position = ServiceLocator.Current.GetInstance<GeoHelper>().Position;
+                Geoposition position;
+                try
+                {
+                    App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarGettingLocation"));
+                    position = await ServiceLocator.Current.GetInstance<GeoHelper>().Locator.GetGeopositionAsync();
+                    App.ToggleProgressBar(false, null);
+                }
+                catch (NullReferenceException nullEx)
+                {
+                    App.ToggleProgressBar(false, null);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    App.ToggleProgressBar(false, null);
+
+                    new MessageDialog(
+                    ResourceLoader.GetForCurrentView().GetString("GPSError"),
+                    ResourceLoader.GetForCurrentView().GetString("ErrorTitle")).ShowAsync();
+
+                    return;
+                }
 
                 // Finding geographical position of a given address
                 App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarSearchingAddress"));
