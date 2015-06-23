@@ -41,15 +41,26 @@ namespace ShoppingListWPApp.Common
         {
             get { return ServiceLocator.Current.GetInstance<DetailsShopViewModel>(); }
         }
-
+        /// <summary>
+        /// ViewModel for the <c>AddShoppingList</c>-View.
+        /// </summary>
         public AddShoppingListViewModel AddShoppingList
         {
             get { return ServiceLocator.Current.GetInstance<AddShoppingListViewModel>(); }
         }
-
+        /// <summary>
+        /// ViewModel for the <c>AddShoppingListItem</c>-View.
+        /// </summary>
         public AddShoppingListItemViewModel AddShoppingListItem
         {
             get { return ServiceLocator.Current.GetInstance<AddShoppingListItemViewModel>(); }
+        }
+        /// <summary>
+        /// ViewModel for the <c>EditShoppingList</c>-View.
+        /// </summary>
+        public EditShoppingListViewModel EditShoppingList
+        {
+            get { return ServiceLocator.Current.GetInstance<EditShoppingListViewModel>(); }
         }
 
         #endregion
@@ -67,6 +78,7 @@ namespace ShoppingListWPApp.Common
             navigationService.Configure("detailsShop", typeof(DetailsShop));
             navigationService.Configure("addShoppingList", typeof(AddShoppingList));
             navigationService.Configure("addShoppingListItem", typeof(AddShoppingListItems));
+            navigationService.Configure("editShoppingList", typeof(EditShoppingList));
 
             // Register Services
             SimpleIoc.Default.Register<INavigationService>(() => navigationService);
@@ -80,6 +92,7 @@ namespace ShoppingListWPApp.Common
             SimpleIoc.Default.Register<DetailsShopViewModel>();
             SimpleIoc.Default.Register<AddShoppingListViewModel>();
             SimpleIoc.Default.Register<AddShoppingListItemViewModel>();
+            SimpleIoc.Default.Register<EditShoppingListViewModel>();
         }
     }
 }

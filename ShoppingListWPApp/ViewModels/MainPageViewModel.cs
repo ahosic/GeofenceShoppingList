@@ -106,6 +106,7 @@ namespace ShoppingListWPApp.ViewModels
             DetailsShopCommand = new RelayCommand(GoToDetailsShop);
             AddShoppingListCommand = new RelayCommand(GoToAddShoppingListPage);
             DeleteShoppingListCommand = new RelayCommand(GoToDeleteShoppingList);
+            EditShoppingListCommand = new RelayCommand(GoToEditShoppingListPage);
 
             // Load data
             shopsFilename = "shops.json";
@@ -249,9 +250,25 @@ namespace ShoppingListWPApp.ViewModels
             SaveShoppingLists();
         }
 
-        public void EditShoppingList()
+        /// <summary>
+        /// Replaces an old <c>ShoppingList</c>-Object with a modified one.
+        /// </summary>
+        /// <param name="oldShoppingList">The <c>Shop</c>-Object that should be replaced.</param>
+        /// <param name="newShoppingList">The <c>Shop</c>-Object that should be inserted into the Collection.</param>
+        public void EditShoppingList(ShoppingList oldShoppingList, ShoppingList newShoppingList)
         {
+            // Get index of old object
+            int idx = ShoppingLists.IndexOf(oldShoppingList);
 
+            // Set Items of old object to the new object
+            newShoppingList.Items = oldShoppingList.Items;
+
+            // Remove old object and insert new object at the same position as the old one
+            ShoppingLists.Remove(oldShoppingList);
+            ShoppingLists.Insert(idx, newShoppingList);
+
+            // Save data to isolated storage
+            SaveShoppingLists();
         }
 
         /// <summary>
@@ -341,6 +358,14 @@ namespace ShoppingListWPApp.ViewModels
         {
             ShowDialogShop();
             navigationService.NavigateTo("addShoppingList");
+        }
+
+        /// <summary>
+        /// Navigates the User to the <c>EditShoppingList</c>-View.
+        /// </summary>
+        private void GoToEditShoppingListPage()
+        {
+            navigationService.NavigateTo("editShoppingList", SelectedShoppingList);
         }
 
         /// <summary>

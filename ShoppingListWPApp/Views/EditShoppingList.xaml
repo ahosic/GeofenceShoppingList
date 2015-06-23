@@ -1,11 +1,11 @@
 ﻿<Page
-    x:Class="ShoppingListWPApp.Views.AddShoppingList"
+    x:Class="ShoppingListWPApp.Views.EditShoppingList"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    DataContext="{Binding Source={StaticResource Locator}, Path=AddShoppingList}"
+    DataContext="{Binding Source={StaticResource Locator}, Path=EditShoppingList}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <ScrollViewer>
@@ -24,7 +24,7 @@
             <!-- Title Panel (Application and Page Title) -->
             <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="24,17,24,28">
                 <TextBlock x:Uid="ApplicationTitle" x:Name="ApplicationTitle" Style="{ThemeResource TitleTextBlockStyle}"/>
-                <TextBlock x:Uid="AddShoppingListPageTitle" x:Name="PageTitle" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                <TextBlock x:Uid="EditShoppingListPageTitle" x:Name="PageTitle" Style="{ThemeResource HeaderTextBlockStyle}"/>
             </StackPanel>
 
             <!-- Content Panel-->
@@ -56,7 +56,7 @@
     <Page.BottomAppBar>
         <CommandBar Background="{StaticResource MainAppColor}" Foreground="White">
             <CommandBar.PrimaryCommands>
-                <AppBarButton x:Uid="AppBarButtonDone" x:Name="AbtnDoneShList" Icon="Accept" Command="{Binding CreateShoppingListCommand}"/>
+                <AppBarButton x:Uid="AppBarButtonDone" x:Name="AbtnDoneShList" Icon="Accept" Command="{Binding EditShoppingListCommand}"/>
                 <AppBarButton x:Uid="AppBarButtonCancel" x:Name="AbtnCancelShList" Icon="Cancel" Command="{Binding CancelCommand}"/>
             </CommandBar.PrimaryCommands>
         </CommandBar>

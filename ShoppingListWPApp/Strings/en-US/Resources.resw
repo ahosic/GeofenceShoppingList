@@ -371,4 +371,10 @@
     <value>Location is disabled on your device. To enable location, go to Settings and select location.</value>
     <comment>Text of Dialog that is displayed, when the Status of Location service of the device changes.</comment>
   </data>
+  <data name="ComboBoxItemHeader.Header" xml:space="preserve">
+    <value>Choose a shop</value>
+  </data>
+  <data name="EditShoppingListPageTitle.Text" xml:space="preserve">
+    <value>edit list</value>
+  </data>
 </root>

@@ -101,6 +101,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\EditShoppingList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,6 +135,7 @@
     <Compile Include="ViewModels\AddShoppingListViewModel.cs" />
     <Compile Include="ViewModels\AddShopViewModel.cs" />
     <Compile Include="ViewModels\DetailsShopViewModel.cs" />
+    <Compile Include="ViewModels\EditShoppingListViewModel.cs" />
     <Compile Include="ViewModels\EditShopViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Views\AddShop.xaml.cs">
@@ -147,6 +152,9 @@
     </Compile>
     <Compile Include="Views\EditShop.xaml.cs">
       <DependentUpon>EditShop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditShoppingList.xaml.cs">
+      <DependentUpon>EditShoppingList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

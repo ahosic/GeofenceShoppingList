@@ -12,6 +12,13 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Practices.ServiceLocation;
 using ShoppingListWPApp.Common;
+using ShoppingListWPApp.Models;
+using ShoppingListWPApp.ViewModels;
+using Windows.UI.Xaml.Shapes;
+using Windows.Foundation;
+using Windows.UI.Xaml.Controls.Maps;
+using Windows.UI.Xaml.Media;
+using Windows.UI;
 
 namespace ShoppingListWPApp.Views
 {
@@ -102,7 +109,8 @@ namespace ShoppingListWPApp.Views
             {
                 AbtnFindMe.Visibility = Visibility.Visible;
                 AbtnFind.Visibility = Visibility.Visible;
-                GetMyLocation();
+                CreatePushPinOnMap();
+                //GetMyLocation();
             }
             else
             {
@@ -275,6 +283,65 @@ namespace ShoppingListWPApp.Views
                     ResourceLoader.GetForCurrentView().GetString("GetLocationByAddressError"),
                     ResourceLoader.GetForCurrentView().GetString("ErrorTitle")).ShowAsync();
             }
+        }
+
+        private void CreatePushPinOnMap()
+        {
+            try
+            {
+                foreach(Shop shop in ServiceLocator.Current.GetInstance<MainPageViewModel>().Shops)
+                {
+                    Geopoint point = new Geopoint(shop.Location.Value);
+
+                    var pin = new Grid
+                    {
+                        Height = 100,
+                        Width = 100
+                    };
+
+                    Ellipse pushpin = new Ellipse
+                    {
+                        Fill = new SolidColorBrush(Colors.DodgerBlue),
+                        Stroke = new SolidColorBrush(Colors.White),
+                        StrokeThickness = 2,
+                        Width = 15,
+                        Height = 15,
+                        Margin = new Windows.UI.Xaml.Thickness(0, 25, 0, 0),
+                        Name = shop.ID
+                    };
+
+                    pushpin.Tapped += pushpin_Tapped;
+
+                    pin.Children.Add(pushpin);
+
+                    pin.Children.Add(new TextBlock()
+                    {
+                        Text = shop.Name,
+                        FontSize = 12,
+                        Foreground = new SolidColorBrush(Colors.Black),
+                        HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center,
+                        VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center,
+
+                    });
+
+                    MapControl.SetLocation(pin, point);
+
+                    MapControl.SetNormalizedAnchorPoint(pin, new Point(0.5,0.5));
+
+                    Map.Children.Add(pin);
+
+                }
+            }
+            catch(Exception){}
+        }
+
+        private void pushpin_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var shopEllipse = sender as Ellipse;
+          
+            Shop shop = ServiceLocator.Current.GetInstance<MainPageViewModel>().Shops.Where(s => s.ID == shopEllipse.Name).Single<Shop>();
+
+            this.Frame.Navigate(typeof(DetailsShop), ServiceLocator.Current.GetInstance<MainPageViewModel>().IndexOfShop(shop));
         }
 
         #endregion
