@@ -88,7 +88,9 @@ namespace ShoppingListWPApp.ViewModels
         /// Gets or Sets the Command that is issued by the user, in order to delete a previously selected ShoppingList.
         /// </summary>
         public ICommand DeleteShoppingListCommand { get; set; }
-
+        /// <summary>
+        /// Gets or Sets the Command that is issued by the user, in order to modify a previously selected ShoppingList.
+        /// </summary>
         public ICommand EditShoppingListCommand { get; set; }
 
         #endregion

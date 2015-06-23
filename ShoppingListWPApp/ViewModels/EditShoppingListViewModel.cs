@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.ApplicationModel.Resources;
+using Mutzl.MvvmLight;
 
 namespace ShoppingListWPApp.ViewModels
 {
@@ -67,7 +68,7 @@ namespace ShoppingListWPApp.ViewModels
             this.dialogService = dialogService;
 
             //Commands
-            EditShoppingListCommand = new RelayCommand(Edit);
+            EditShoppingListCommand = new DependentRelayCommand(Edit, IsDataValid, this, () => ListName, () => SelectedShop);
             CancelCommand = new RelayCommand(Cancel);
 
             // Set Shops
@@ -77,7 +78,7 @@ namespace ShoppingListWPApp.ViewModels
         #region *** Public methods ***
 
         /// <summary>
-        /// Sets the shop that should be modified and assigns its values to the corresponding values.
+        /// Sets the shoppinglist that should be modified and assigns its values to the corresponding values.
         /// </summary>
         /// <param name="oldShoppingList">The <c>ShoppingList</c>-Object that should be modified.</param>
         public void SetShoppingList(ShoppingList oldShoppingList)
@@ -85,11 +86,9 @@ namespace ShoppingListWPApp.ViewModels
             // Set selected ShoppingList (selected on the previous Page)
             this.oldShoppingList = oldShoppingList;
 
-            // Initialize all fields with the values of the selected Shop
+            // Initialize all fields with the values of the selected Shoppinglist
             ListName = oldShoppingList.ListName;
 
-            
-            
         }
 
         #endregion
@@ -102,7 +101,7 @@ namespace ShoppingListWPApp.ViewModels
         /// <returns>Returns <c>true</c> if all inputted values are valid, <c>false</c> if the provided data is invalid.</returns>
         private bool IsDataValid()
         {
-            return !string.IsNullOrWhiteSpace(ListName);
+            return !string.IsNullOrWhiteSpace(ListName) && SelectedShop != null;
         }
 
         /// <summary>

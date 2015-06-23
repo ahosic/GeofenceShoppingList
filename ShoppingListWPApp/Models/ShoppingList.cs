@@ -2,15 +2,26 @@
 
 namespace ShoppingListWPApp.Models
 {
+    /// <summary>
+    /// An object which holds information about a Shoppinglist.
+    /// </summary>
     class ShoppingList
     {
         /// <summary>
-        /// Gets the ID of the Shopping list.
+        /// Gets the ID of the Shoppinglist.
         /// </summary>
         public string ID { get; private set; }
+        /// <summary>
+        /// Gets or Sets the ListName of a Shoppinglist.
+        /// </summary>
         public string ListName { get; set; }
+        /// <summary>
+        /// Gets or Sets the Shop of a Shoppinglist.
+        /// </summary>
         public Shop Shop { get; set; }
-
+        /// <summary>
+        /// Gets or Sets the Items of the Shoppinglist.
+        /// </summary>
         public ObservableCollection<ShoppingListItem> Items { get; set; }
 
         public ShoppingList(string id, string name, Shop shop)
