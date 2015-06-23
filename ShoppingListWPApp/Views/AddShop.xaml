@@ -80,6 +80,16 @@
                         </Flyout>
                     </AppBarButton.Flyout>
                 </AppBarButton>
+                <AppBarButton x:Uid="AppBarButtonSecondaryMapStyle" x:Name="AbtnMapStyle" Icon="Street">
+                    <AppBarButton.Flyout>
+                        <Flyout>
+                            <StackPanel Background="{ThemeResource MainAppColor}">
+                                <TextBlock x:Uid="AppBarFlyoutMapStyleTitle" Style="{ThemeResource MessageDialogTitleStyle}" Foreground="White" Margin="24,17,24,12"/>
+                                <ComboBox x:Name="MapStyles" Margin="24,0,24,12" BorderBrush="White" SelectionChanged="MapStyles_SelectionChanged" />
+                            </StackPanel>
+                        </Flyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>

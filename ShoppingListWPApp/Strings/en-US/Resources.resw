@@ -326,12 +326,6 @@
   <data name="AddShopDialogTitle" xml:space="preserve">
     <value>Add a Shop</value>
   </data>
-  <data name="DeleteShoppingListItemDialogContent" xml:space="preserve">
-    <value>Are you sure you want to delete this shoppinglistitem?</value>
-  </data>
-  <data name="DeleteShoppingListItemDialogTitle" xml:space="preserve">
-    <value>Delete Shoppinglistitem</value>
-  </data>
   <data name="AddShoppingListValidationErrorContent" xml:space="preserve">
     <value>You have to provide all required information in order to create a shopping list.</value>
     <comment>Content of dialog that is shown, if the provided data is invalid (View: AddShoppingList)</comment>
@@ -376,5 +370,41 @@
   </data>
   <data name="EditShoppingListPageTitle.Text" xml:space="preserve">
     <value>edit list</value>
+  </data>
+  <data name="AppBarFlyoutMapStyleTitle.Text" xml:space="preserve">
+    <value>Set Map style</value>
+    <comment>Title of Flyout used for setting the Map style (View: MainPage, AddShop, EditShop, DetailsShop)</comment>
+  </data>
+  <data name="MapStyleAerial" xml:space="preserve">
+    <value>Aerial</value>
+    <comment>Item of MapStyle-Combobox (View: MainPage, AddShop, EditShop, DetailsShop)</comment>
+  </data>
+  <data name="MapStyleAerialWithRoads" xml:space="preserve">
+    <value>Aerial with Roads</value>
+    <comment>Item of MapStyle-Combobox (View: MainPage, AddShop, EditShop, DetailsShop)</comment>
+  </data>
+  <data name="MapStyleNone" xml:space="preserve">
+    <value>None</value>
+    <comment>Item of MapStyle-Combobox (View: MainPage, AddShop, EditShop, DetailsShop)</comment>
+  </data>
+  <data name="MapStyleRoads" xml:space="preserve">
+    <value>Roads</value>
+    <comment>Item of MapStyle-Combobox (View: MainPage, AddShop, EditShop, DetailsShop)</comment>
+  </data>
+  <data name="MapStyleStandard" xml:space="preserve">
+    <value>Standard</value>
+    <comment>Item of MapStyle-Combobox (View: MainPage, AddShop, EditShop, DetailsShop)</comment>
+  </data>
+  <data name="MapStyleTerrain" xml:space="preserve">
+    <value>Terrain</value>
+    <comment>Item of MapStyle-Combobox (View: MainPage, AddShop, EditShop, DetailsShop)</comment>
+  </data>
+  <data name="AppBarButtonMapStyle.Label" xml:space="preserve">
+    <value>map style</value>
+    <comment>Label of AppBar-Button for changing map style</comment>
+  </data>
+  <data name="AppBarButtonSecondaryMapStyle.Label" xml:space="preserve">
+    <value>Set Map Style</value>
+    <comment>Label of secondary Appbarbutton for changing map style</comment>
   </data>
 </root>

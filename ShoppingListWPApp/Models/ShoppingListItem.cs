@@ -14,12 +14,10 @@
         /// </summary>
         public string AmountAndMeasure { get; set; }
 
-        public ShoppingListItem() { }
-
-        public ShoppingListItem(string _name, string _amountAndMeasure)
+        public ShoppingListItem(string name, string amountAndMeasure)
         {
-            Name = _name;
-            AmountAndMeasure = _amountAndMeasure;
+            Name = name;
+            AmountAndMeasure = amountAndMeasure;
         }
     }
 }

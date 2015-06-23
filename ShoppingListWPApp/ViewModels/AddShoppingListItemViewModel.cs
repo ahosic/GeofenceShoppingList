@@ -1,9 +1,10 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
-using Windows.ApplicationModel.Resources;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
+using Microsoft.Practices.ServiceLocation;
+using Mutzl.MvvmLight;
 using ShoppingListWPApp.Models;
 
 namespace ShoppingListWPApp.ViewModels
@@ -66,12 +67,11 @@ namespace ShoppingListWPApp.ViewModels
             this.dialogService = dialogService;
 
             // Commands
-            AddItemCommand = new RelayCommand(CreateItem);
-            DeleteItemCommand = new RelayCommand(GoToDeleteShoppingListItem);
+            AddItemCommand = new DependentRelayCommand(CreateItem, IsDataValid, this, () => Name, () => AmountAndMeasure);
+            DeleteItemCommand = new RelayCommand(DeleteItem);
 
             // Initialize all Fields with standard values
             InitializeFields();
-
         }
 
         #region *** command methods ***
@@ -79,48 +79,60 @@ namespace ShoppingListWPApp.ViewModels
         /// <summary>
         /// Creates a new <c>ShoppingListItem</c>-Object, adds it to the <c>ShoppingLists</c>-Collection (located in the <c>MainPageViewModel</c>).
         /// </summary>
-        public async void CreateItem()
+        private void CreateItem()
         {
-            if (!string.IsNullOrWhiteSpace(Name) && !string.IsNullOrWhiteSpace(AmountAndMeasure))
-            {
-                ShoppingListItem item = new ShoppingListItem(Name, AmountAndMeasure);
-                ShoppingList.AddItem(item);
+            ShoppingListItem item = new ShoppingListItem(Name, AmountAndMeasure);
+            ShoppingList.AddItem(item);
 
-                InitializeFields();
-            }
+            // Get old object
+            ShoppingList oldShoppingList = ServiceLocator.Current.GetInstance<MainPageViewModel>().GetShoppingListByID(ShoppingList.ID);
 
+            // Update Shoppinglist
+            ServiceLocator.Current.GetInstance<MainPageViewModel>().EditShoppingList(oldShoppingList, ShoppingList);
+
+            // Reset all fields
+            InitializeFields();
         }
 
         /// <summary>
         /// Removes a <c>ShoppingListItem</c>-Object from the <c>Items</c>-Collection.
         /// </summary>
         /// <param name="shoppingListItem">The <c>ShoppingListItem</c>-Object that should be removed from the Collection.</param>
-        public void DeleteItem(ShoppingListItem shoppingListItem)
+        private void DeleteItem()
         {
-            Items.Remove(shoppingListItem);
+            Items.Remove(ShoppingListItem);
+
+            // Get old object
+            ShoppingList oldShoppingList = ServiceLocator.Current.GetInstance<MainPageViewModel>().GetShoppingListByID(ShoppingList.ID);
+
+            // Update Shoppinglist
+            ServiceLocator.Current.GetInstance<MainPageViewModel>().EditShoppingList(oldShoppingList, ShoppingList);
+
+            ShoppingListItem = null;
         }
 
-        /// <summary>
-        /// After opening a dialog and asking for confirmation it removes the selected <c>ShoppingListItem</c>-Object out of the <c>Items</c>-Collection.
-        /// </summary>
-        private async void GoToDeleteShoppingListItem()
-        {
-            // Show dialog
-            bool result = await dialogService.ShowMessage(
-                ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListItemDialogContent"),
-                ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListItemDialogTitle"),
-                ResourceLoader.GetForCurrentView().GetString("YesText"),
-                ResourceLoader.GetForCurrentView().GetString("NoText"),
-                null);
+        ///// <summary>
+        ///// After opening a dialog and asking for confirmation it removes the selected <c>ShoppingListItem</c>-Object out of the <c>Items</c>-Collection.
+        ///// </summary>
+        //private async void GoToDeleteShoppingListItem()
+        //{
+        //    // Show dialog
+        //    bool result = await dialogService.ShowMessage(
+        //        ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListItemDialogContent"),
+        //        ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListItemDialogTitle"),
+        //        ResourceLoader.GetForCurrentView().GetString("YesText"),
+        //        ResourceLoader.GetForCurrentView().GetString("NoText"),
+        //        null);
 
-            // Check, if user pressed the "Proceed-Button"
-            if (result)
-            {
-                // Delete selected ShoppingListItem object
-                DeleteItem(ShoppingListItem);
-                ShoppingListItem = null;
-            }
-        }
+        //    // Check, if user pressed the "Proceed-Button"
+        //    if (result)
+        //    {
+        //        // Delete selected ShoppingListItem object
+        //        DeleteItem(ShoppingListItem);
+
+        //    }
+        //}
+
         #endregion
 
         #region *** private methods ***
@@ -132,6 +144,20 @@ namespace ShoppingListWPApp.ViewModels
         {
             Name = string.Empty;
             AmountAndMeasure = string.Empty;
+        }
+
+        /// <summary>
+        /// Checks, if all required values are set and valid.
+        /// </summary>
+        /// <returns>Returns <c>true</c> if all inputted values are valid, <c>false</c> if the provided data is invalid.</returns>
+        private bool IsDataValid()
+        {
+            if (Name.Trim().Equals(string.Empty) || AmountAndMeasure.Trim().Equals(string.Empty))
+            {
+                return false;
+            }
+
+            return true;
         }
 
         #endregion

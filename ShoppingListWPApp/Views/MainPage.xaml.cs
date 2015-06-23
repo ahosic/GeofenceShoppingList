@@ -2,23 +2,24 @@
 using System.Linq;
 using Windows.ApplicationModel.Resources;
 using Windows.Devices.Geolocation;
+using Windows.Foundation;
 using Windows.Services.Maps;
 using Windows.System;
+using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Shapes;
+using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 using ShoppingListWPApp.Common;
 using ShoppingListWPApp.Models;
 using ShoppingListWPApp.ViewModels;
-using Windows.UI.Xaml.Shapes;
-using Windows.Foundation;
-using Windows.UI.Xaml.Controls.Maps;
-using Windows.UI.Xaml.Media;
-using Windows.UI;
 
 namespace ShoppingListWPApp.Views
 {
@@ -39,6 +40,16 @@ namespace ShoppingListWPApp.Views
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+
+            // Initialize Map styles
+            MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleStandard"));
+            MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleRoads"));
+            MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleAerial"));
+            MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleAerialWithRoads"));
+            MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleTerrain"));
+            MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleNone"));
+
+            MapStyles.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -107,15 +118,17 @@ namespace ShoppingListWPApp.Views
             // Check, if the Map-PivoItem is loaded
             if (args.Item.Equals(PviMap))
             {
-                AbtnFindMe.Visibility = Visibility.Visible;
+                AbtnMapStyle.Visibility = Visibility.Visible;
                 AbtnFind.Visibility = Visibility.Visible;
+                AbtnFindMe.Visibility = Visibility.Visible;
                 CreatePushPinOnMap();
-                //GetMyLocation();
+                GetMyLocation();
             }
             else
             {
-                AbtnFindMe.Visibility = Visibility.Collapsed;
+                AbtnMapStyle.Visibility = Visibility.Collapsed;
                 AbtnFind.Visibility = Visibility.Collapsed;
+                AbtnFindMe.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -172,6 +185,44 @@ namespace ShoppingListWPApp.Views
                 InputPane.GetForCurrentView().TryHide();
                 AbtnFind.Flyout.Hide();
             }
+        }
+
+        /// <summary>
+        /// Sets the style of the MapControl on the MainPage.
+        /// 
+        /// This method gets invoked, when the selected item of the <c>MapStyles</c> combobox changes.
+        /// </summary>
+        /// <param name="sender">The combobox, for which the <c>SelectedItem</c> property has changed.</param>
+        /// <param name="e">Event arguments.</param>
+        private void MapStyles_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (MapStyles.SelectedIndex)
+            {
+                case 0:
+                    Map.Style = MapStyle.Road;
+                    break;
+                case 1:
+                    Map.Style = MapStyle.Road;
+                    break;
+                case 2:
+                    Map.Style = MapStyle.Aerial;
+                    break;
+                case 3:
+                    Map.Style = MapStyle.AerialWithRoads;
+                    break;
+                case 4:
+                    Map.Style = MapStyle.Terrain;
+                    break;
+                case 5:
+                    Map.Style = MapStyle.None;
+                    break;
+                default:
+                    Map.Style = MapStyle.None;
+                    break;
+            }
+
+            // Close Flyout
+            AbtnMapStyle.Flyout.Hide();
         }
 
         #endregion
@@ -285,12 +336,17 @@ namespace ShoppingListWPApp.Views
             }
         }
 
+        /// <summary>
+        /// Creates for all <c>Shop</c> objects a pushpin on the <c>MapControl</c>.
+        /// </summary>
         private void CreatePushPinOnMap()
         {
             try
             {
-                foreach(Shop shop in ServiceLocator.Current.GetInstance<MainPageViewModel>().Shops)
+                // Iterate through all Shops
+                foreach (Shop shop in ServiceLocator.Current.GetInstance<MainPageViewModel>().Shops)
                 {
+                    // Get location of Shop
                     Geopoint point = new Geopoint(shop.Location.Value);
 
                     var pin = new Grid
@@ -299,49 +355,62 @@ namespace ShoppingListWPApp.Views
                         Width = 100
                     };
 
+                    // Create pushpin
                     Ellipse pushpin = new Ellipse
                     {
-                        Fill = new SolidColorBrush(Colors.DodgerBlue),
+                        Fill = new SolidColorBrush(Color.FromArgb(255, 27, 161, 226)),
                         Stroke = new SolidColorBrush(Colors.White),
                         StrokeThickness = 2,
-                        Width = 15,
-                        Height = 15,
-                        Margin = new Windows.UI.Xaml.Thickness(0, 25, 0, 0),
+                        Width = 20,
+                        Height = 20,
+                        Margin = new Thickness(0, 25, 0, 0),
                         Name = shop.ID
                     };
 
+                    // Assign events
                     pushpin.Tapped += pushpin_Tapped;
 
+                    // Add pushpin to pin with a title
                     pin.Children.Add(pushpin);
-
                     pin.Children.Add(new TextBlock()
                     {
                         Text = shop.Name,
                         FontSize = 12,
                         Foreground = new SolidColorBrush(Colors.Black),
-                        HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Center,
-                        VerticalAlignment = Windows.UI.Xaml.VerticalAlignment.Center,
+                        HorizontalAlignment = HorizontalAlignment.Center,
+                        VerticalAlignment = VerticalAlignment.Center,
 
                     });
 
+                    // Add Pin to MapControl
                     MapControl.SetLocation(pin, point);
-
-                    MapControl.SetNormalizedAnchorPoint(pin, new Point(0.5,0.5));
-
+                    MapControl.SetNormalizedAnchorPoint(pin, new Point(0.5, 0.5));
                     Map.Children.Add(pin);
 
                 }
             }
-            catch(Exception){}
+            catch (Exception) { }
         }
 
+        /// <summary>
+        /// Navigates to the DetailsPage of a tapped Shop (tapped on a MapControl).
+        /// 
+        /// This method gets invoked, when the user taps on a pushpin on the MapControl on the MainPage. 
+        /// Every pushpin on this MapControl represents a <c>Shop</c> object.
+        /// </summary>
+        /// <param name="sender">The sender of the event.</param>
+        /// <param name="e">Event arguments.</param>
         private void pushpin_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            // Get tapped pushpin
             var shopEllipse = sender as Ellipse;
-          
-            Shop shop = ServiceLocator.Current.GetInstance<MainPageViewModel>().Shops.Where(s => s.ID == shopEllipse.Name).Single<Shop>();
 
-            this.Frame.Navigate(typeof(DetailsShop), ServiceLocator.Current.GetInstance<MainPageViewModel>().IndexOfShop(shop));
+            // Get Shop object of the pushpin
+            Shop shop = ServiceLocator.Current.GetInstance<MainPageViewModel>().Shops.Where(s => s.ID == shopEllipse.Name).Single<Shop>();
+            int idx = ServiceLocator.Current.GetInstance<MainPageViewModel>().IndexOfShop(shop);
+
+            // Navigate to DetailsShop-View of the Shop
+            ServiceLocator.Current.GetInstance<INavigationService>().NavigateTo("detailsShop", idx);
         }
 
         #endregion

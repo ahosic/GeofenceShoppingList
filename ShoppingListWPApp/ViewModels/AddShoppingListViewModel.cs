@@ -15,7 +15,8 @@ namespace ShoppingListWPApp.ViewModels
     /// </summary>
     class AddShoppingListViewModel : ViewModelBase
     {
-        #region *** private Members ***
+        #region *** Private Members ***
+
         /// <summary>
         /// This <c>INavigationService</c>-Object is used for navigating between pages.
         /// </summary>
@@ -24,6 +25,7 @@ namespace ShoppingListWPApp.ViewModels
         /// This <c>IDialogService</c>-Object is used for displaying Dialogs on the Device-Screen.
         /// </summary>
         private IDialogService dialogService;
+
         #endregion
 
         #region *** Properties ***
@@ -65,15 +67,14 @@ namespace ShoppingListWPApp.ViewModels
 
             // Gets the Shops-Collection from the MainPageViewModel
             Shops = ServiceLocator.Current.GetInstance<MainPageViewModel>().Shops;
-
         }
 
-        #region *** command methods ***
+        #region *** Command Methods ***
 
         /// <summary>
         /// Creates a new <c>ShoppingList</c>-Object, adds it to the <c>ShoppingLists</c>-Collection (located in the <c>MainPageViewModel</c>).
         /// </summary>
-        public async void CreateShoppingList()
+        private async void CreateShoppingList()
         {
             if (IsDataValid())
             {
@@ -95,7 +96,7 @@ namespace ShoppingListWPApp.ViewModels
         /// <summary>
         /// Cancels the Creation-Process of a new <c>ShoppingList-Object</c> and navigates back to the previous page.
         /// </summary>
-        public async void Cancel()
+        private async void Cancel()
         {
             bool result = true;
 
@@ -121,7 +122,7 @@ namespace ShoppingListWPApp.ViewModels
         /// Checks, if all required values are inputted and valid.
         /// </summary>
         /// <returns>Returns <c>true</c> if all inputted values are valid, <c>false</c> if the provided data is invalid.</returns>
-        public bool IsDataValid()
+        private bool IsDataValid()
         {
             if (ListName.Trim().Equals(string.Empty) || SelectedShop == null)
             {
@@ -133,7 +134,7 @@ namespace ShoppingListWPApp.ViewModels
 
         #endregion
 
-        #region *** private methods ***
+        #region *** Private methods ***
 
         /// <summary>
         /// Initializes all Fields with standard values.

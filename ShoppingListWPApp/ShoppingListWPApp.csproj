@@ -125,6 +125,7 @@
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="Common\ViewModelLocator.cs" />
     <Compile Include="Converter\ShoppingListItemsToItemsCountConverter.cs" />
+    <Compile Include="Converter\ShoppingListsToVisibilityConverter.cs" />
     <Compile Include="Converter\ShoppingListToShoppingListNameConverter.cs" />
     <Compile Include="Converter\ShopToNameConverter.cs" />
     <Compile Include="Models\Shop.cs" />

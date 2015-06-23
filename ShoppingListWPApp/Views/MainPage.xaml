@@ -158,11 +158,22 @@
                         </MenuFlyout>
                     </AppBarButton.Flyout>
                 </AppBarButton>
+                <AppBarButton x:Uid="AppBarButtonMapStyle" x:Name="AbtnMapStyle" Icon="Street" Visibility="Collapsed">
+                    <AppBarButton.Flyout>
+                        <Flyout>
+                            <StackPanel Background="{ThemeResource MainAppColor}">
+                                <TextBlock x:Uid="AppBarFlyoutMapStyleTitle" Style="{ThemeResource MessageDialogTitleStyle}" Foreground="White" Margin="24,17,24,12"/>
+                                <ComboBox x:Name="MapStyles" Margin="24,0,24,12" BorderBrush="White" SelectionChanged="MapStyles_SelectionChanged" />
+                            </StackPanel>
+                        </Flyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
                 <AppBarButton x:Uid="AppBarButtonFind" x:Name="AbtnFind" Icon="Find" Visibility="Collapsed">
                     <AppBarButton.Flyout>
                         <Flyout>
                             <StackPanel Background="{ThemeResource MainAppColor}">
                                 <TextBlock x:Uid="AppBarFlyoutFindAddressHeader" Style="{ThemeResource MessageDialogTitleStyle}" Foreground="White" Margin="24,17,24,12"/>
+                                <TextBlock x:Uid="AppBarFlyoutFindAddressTextBoxAddress" x:Name="TbxAddressHeader" Foreground="White" Margin="24,0,24,6" Style="{ThemeResource TitleTextBlockStyle}" />
                                 <TextBox x:Uid="AppBarFlyoutFindAddressTextBoxAddress" x:Name="TbxAddress" InputScope="Search" RequestedTheme="Dark" Margin="24,0,24,12" KeyDown="TbxAddress_KeyDown"/>
                                 <Grid HorizontalAlignment="Stretch" Margin="24,0,24,12" RequestedTheme="Dark">
                                     <Grid.ColumnDefinitions>

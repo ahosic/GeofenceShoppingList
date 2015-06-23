@@ -262,9 +262,6 @@ namespace ShoppingListWPApp.ViewModels
             // Get index of old object
             int idx = ShoppingLists.IndexOf(oldShoppingList);
 
-            // Set Items of old object to the new object
-            newShoppingList.Items = oldShoppingList.Items;
-
             // Remove old object and insert new object at the same position as the old one
             ShoppingLists.Remove(oldShoppingList);
             ShoppingLists.Insert(idx, newShoppingList);
@@ -293,7 +290,7 @@ namespace ShoppingListWPApp.ViewModels
         /// </summary>
         /// <param name="shop"><c>Shop</c> object for which <c>ShoppingList</c> objects should be found.</param>
         /// <returns>A collection of <c>ShoppingList</c> objects, which are associated with a specific Shop.</returns>
-        public List<ShoppingList> GetShoppingListsByID(string id)
+        public List<ShoppingList> GetShoppingListsByShopID(string id)
         {
             // Get Shopping lists
             List<ShoppingList> lists = (from list in ShoppingLists

@@ -165,9 +165,9 @@ namespace ShoppingListWPApp.ViewModels
         #region *** Command methods ***
 
         /// <summary>
-        /// Checks, if all required values are inputted and valid.
+        /// Checks, if all required values are set and valid.
         /// </summary>
-        /// <returns>Returns <c>true</c> if all inputted values are valid, <c>false</c> if the provided data is invalid.</returns>
+        /// <returns>Returns <c>true</c> if all set values are valid, <c>false</c> if the provided data is invalid.</returns>
         private bool IsDataValid()
         {
             if (Name.Trim().Equals(string.Empty) || Location == null)

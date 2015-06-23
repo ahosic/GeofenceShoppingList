@@ -87,7 +87,7 @@ namespace ShoppingListWPApp.ViewModels
         {
             // Set selected Shop (selected on the previous Page)
             shop = ServiceLocator.Current.GetInstance<MainPageViewModel>().GetShopByIndex(idx);
-            ShoppingLists = ServiceLocator.Current.GetInstance<MainPageViewModel>().GetShoppingListsByID(shop.ID);
+            ShoppingLists = ServiceLocator.Current.GetInstance<MainPageViewModel>().GetShoppingListsByShopID(shop.ID);
 
             // Initialize all fields with the values of the selected Shop
             Name = shop.Name;

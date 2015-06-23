@@ -43,7 +43,7 @@
                     <TextBlock x:Uid="DetailsShopHeaderRadius" x:Name="HeaderRadius" Foreground="{ThemeResource TextBoxDisabledHeaderForegroundThemeBrush}" Style="{ThemeResource TitleTextBlockStyle}"/>
                     <TextBlock x:Name="Radius" Text="{Binding Radius, Converter={StaticResource RadiusToRadiusWithUnitConverter}}" FontSize="{ThemeResource TextStyleExtraLargePlusFontSize}" Margin="0,0,0,12" />
 
-                    <TextBlock x:Uid="DetailsShopHeaderShoppingLists" x:Name="HeaderShoppingLists" Foreground="{ThemeResource TextBoxDisabledHeaderForegroundThemeBrush}" Style="{ThemeResource TitleTextBlockStyle}"/>
+                    <TextBlock x:Uid="DetailsShopHeaderShoppingLists" x:Name="HeaderShoppingLists" Visibility="{Binding Items, ElementName=ShoppingLists, Mode=OneWay, Converter={StaticResource ShoppingListsToVisibilityConverter}}" Foreground="{ThemeResource TextBoxDisabledHeaderForegroundThemeBrush}" Style="{ThemeResource TitleTextBlockStyle}"/>
                     <ListView x:Name="ShoppingLists" Margin="0,0,0,12" ItemsSource="{Binding ShoppingLists, Mode=OneWay}">
                         <!-- Stretch list items to fit the device width -->
                         <ListView.ItemContainerStyle>
@@ -85,6 +85,18 @@
                 <AppBarButton x:Uid="DetailsShopEdit" x:Name="ShopEdit" Command="{Binding EditCommand}" Icon="Edit" />
                 <AppBarButton x:Uid="DetailsShopDelete" x:Name="ShopDelete" Command="{Binding DeleteCommand}" Icon="Delete" />
             </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Uid="AppBarButtonSecondaryMapStyle" x:Name="AbtnMapStyle" Icon="Street">
+                    <AppBarButton.Flyout>
+                        <Flyout>
+                            <StackPanel Background="{ThemeResource MainAppColor}">
+                                <TextBlock x:Uid="AppBarFlyoutMapStyleTitle" Style="{ThemeResource MessageDialogTitleStyle}" Foreground="White" Margin="24,17,24,12"/>
+                                <ComboBox x:Name="MapStyles" Margin="24,0,24,12" BorderBrush="White" SelectionChanged="MapStyles_SelectionChanged" />
+                            </StackPanel>
+                        </Flyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
+            </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
 </Page>

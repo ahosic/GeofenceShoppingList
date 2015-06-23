@@ -1,17 +1,14 @@
-﻿using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Views;
-using Microsoft.Practices.ServiceLocation;
-using ShoppingListWPApp.Common;
-using ShoppingListWPApp.Models;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.ApplicationModel.Resources;
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Views;
+using Microsoft.Practices.ServiceLocation;
 using Mutzl.MvvmLight;
+using ShoppingListWPApp.Common;
+using ShoppingListWPApp.Models;
 
 namespace ShoppingListWPApp.ViewModels
 {
@@ -70,11 +67,8 @@ namespace ShoppingListWPApp.ViewModels
             //Commands
             EditShoppingListCommand = new DependentRelayCommand(Edit, IsDataValid, this, () => ListName, () => SelectedShop);
             CancelCommand = new RelayCommand(Cancel);
-
-            // Set Shops
-            Shops = ServiceLocator.Current.GetInstance<MainPageViewModel>().Shops;
         }
-        
+
         #region *** Public methods ***
 
         /// <summary>
@@ -86,9 +80,14 @@ namespace ShoppingListWPApp.ViewModels
             // Set selected ShoppingList (selected on the previous Page)
             this.oldShoppingList = oldShoppingList;
 
+            // Set Shops
+            Shops = ServiceLocator.Current.GetInstance<MainPageViewModel>().Shops;
+
             // Initialize all fields with the values of the selected Shoppinglist
             ListName = oldShoppingList.ListName;
-
+            SelectedShop = (from s in Shops
+                            where s.ID.Equals(oldShoppingList.Shop.ID)
+                            select s).First();
         }
 
         #endregion
@@ -112,6 +111,8 @@ namespace ShoppingListWPApp.ViewModels
         {
             // Create new Shop object and replace old object with new one
             ShoppingList newShoppingList = new ShoppingList(Guid.NewGuid().ToString(), ListName.Trim(), SelectedShop);
+            newShoppingList.Items = oldShoppingList.Items;
+
             ServiceLocator.Current.GetInstance<MainPageViewModel>().EditShoppingList(oldShoppingList, newShoppingList);
 
             // Go back to previous Page

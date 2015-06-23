@@ -157,7 +157,43 @@ namespace ShoppingListWPApp.Common
         /// </summary>
         public async void InitGeofencing()
         {
+            // Check, if Background Task is already registered.
+            if (IsTaskRegistered("ShoppinglistGeofenceTask"))
+            {
+                // Unregister Background Task
+                Unregister("ShoppinglistGeofenceTask");
+            }
+
+            // Register Background Task
             await RegisterGeofenceTask();
+        }
+
+        /// <summary>
+        /// Checks, if a Background Task with a specific name is already registered.
+        /// </summary>
+        /// <param name="taskName">The name of the Background Task.</param>
+        /// <returns>False, if the Task is not registered, true if the task is already registered.</returns>
+        private bool IsTaskRegistered(string taskName)
+        {
+            var Registered = false;
+            var entry = BackgroundTaskRegistration.AllTasks.FirstOrDefault(keyval => keyval.Value.Name == taskName);
+
+            if (entry.Value != null)
+                Registered = true;
+
+            return Registered;
+        }
+
+        /// <summary>
+        /// Unregisters a Background Task with a specified name.
+        /// </summary>
+        /// <param name="taskName">The name of the Background Task.</param>
+        private void Unregister(string taskName)
+        {
+            var entry = BackgroundTaskRegistration.AllTasks.FirstOrDefault(keyval => keyval.Value.Name == taskName);
+
+            if (entry.Value != null)
+                entry.Value.Unregister(true);
         }
 
         /// <summary>

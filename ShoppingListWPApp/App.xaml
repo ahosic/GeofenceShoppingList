@@ -14,6 +14,7 @@
         <converters:ShopToNameConverter x:Key="ShopToNameConverter" />
         <converters:ShoppingListToShoppingListNameConverter x:Key="ShoppingListToShoppingListNameConverter" />
         <converters:ShoppingListItemsToItemsCountConverter x:Key="ShoppingListItemsToItemsCountConverter" />
+        <converters:ShoppingListsToVisibilityConverter x:Key="ShoppingListsToVisibilityConverter"/>
 
         <Style TargetType="MenuFlyoutPresenter">
             <Setter Property="Background" Value="{StaticResource MainAppColor}"></Setter>

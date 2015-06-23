@@ -2,15 +2,19 @@
 using System.Linq;
 using Windows.ApplicationModel.Resources;
 using Windows.Devices.Geolocation;
+using Windows.Foundation;
 using Windows.Services.Maps;
 using Windows.System;
+using Windows.UI;
 using Windows.UI.Popups;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Shapes;
 using Microsoft.Practices.ServiceLocation;
 using ShoppingListWPApp.Common;
 using ShoppingListWPApp.ViewModels;
@@ -37,6 +41,16 @@ namespace ShoppingListWPApp.Views
 
             // Append MapTapped method of AddShopViewModel to MapTapped event of the MapControl
             Map.MapTapped += ServiceLocator.Current.GetInstance<AddShopViewModel>().MapTapped;
+
+            // Initialize Map styles
+            MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleStandard"));
+            MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleRoads"));
+            MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleAerial"));
+            MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleAerialWithRoads"));
+            MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleTerrain"));
+            MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleNone"));
+
+            MapStyles.SelectedIndex = 0;
         }
 
         /// <summary>
@@ -116,11 +130,22 @@ namespace ShoppingListWPApp.Views
             try
             {
                 // Clear all MapIcons of the MapControl
-                Map.MapElements.Clear();
+                Map.Children.Clear();
 
-                // Add MappIcon with the tapped location to the MapControl
-                MapIcon icon = new MapIcon { Location = args.Location };
-                Map.MapElements.Add(icon);
+                // Create pushpin
+                Ellipse pushpin = new Ellipse
+                {
+                    Fill = new SolidColorBrush(Color.FromArgb(255, 27, 161, 226)),
+                    Stroke = new SolidColorBrush(Colors.White),
+                    StrokeThickness = 2,
+                    Width = 20,
+                    Height = 20,
+                };
+
+                // Add Pin to MapControl
+                MapControl.SetLocation(pushpin, args.Location);
+                MapControl.SetNormalizedAnchorPoint(pushpin, new Point(0.5, 0.5));
+                Map.Children.Add(pushpin);
             }
             catch (Exception ex) { }
 
@@ -179,6 +204,44 @@ namespace ShoppingListWPApp.Views
                 InputPane.GetForCurrentView().TryHide();
                 AbtnFind.Flyout.Hide();
             }
+        }
+
+        /// <summary>
+        /// Sets the style of the MapControl on the AddShop-View.
+        /// 
+        /// This method gets invoked, when the selected item of the <c>MapStyles</c> combobox changes.
+        /// </summary>
+        /// <param name="sender">The combobox, for which the <c>SelectedItem</c> property has changed.</param>
+        /// <param name="e">Event arguments.</param>
+        private void MapStyles_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (MapStyles.SelectedIndex)
+            {
+                case 0:
+                    Map.Style = MapStyle.Road;
+                    break;
+                case 1:
+                    Map.Style = MapStyle.Road;
+                    break;
+                case 2:
+                    Map.Style = MapStyle.Aerial;
+                    break;
+                case 3:
+                    Map.Style = MapStyle.AerialWithRoads;
+                    break;
+                case 4:
+                    Map.Style = MapStyle.Terrain;
+                    break;
+                case 5:
+                    Map.Style = MapStyle.None;
+                    break;
+                default:
+                    Map.Style = MapStyle.None;
+                    break;
+            }
+
+            // Close Flyout
+            AbtnMapStyle.Flyout.Hide();
         }
 
         #endregion
