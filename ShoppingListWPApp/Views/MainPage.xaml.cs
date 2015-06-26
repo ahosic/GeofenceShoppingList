@@ -32,6 +32,7 @@ namespace ShoppingListWPApp.Views
         /// NavigationHelper aids in navigation between pages.
         /// </summary>
         private NavigationHelper navigationHelper;
+        private Ellipse myLocationPushPin;
 
         public MainPage()
         {
@@ -121,8 +122,8 @@ namespace ShoppingListWPApp.Views
                 AbtnMapStyle.Visibility = Visibility.Visible;
                 AbtnFind.Visibility = Visibility.Visible;
                 AbtnFindMe.Visibility = Visibility.Visible;
-                CreatePushPinOnMap();
                 GetMyLocation();
+                CreatePushPinOnMap();
             }
             else
             {
@@ -232,38 +233,20 @@ namespace ShoppingListWPApp.Views
         /// <summary>
         /// Gets the current location of the device and centers the current position on the <c>MapControl</c>.
         /// </summary>
-        private async void GetMyLocation()
+        private void GetMyLocation()
         {
             try
             {
-                // Getting current location of device
-                Geoposition position;
-                try
+                // Check, if Location-Pushpin is null else remove it and create a new one  
+                if (myLocationPushPin == null)
+                {        
+                    CreateMyLocationPushPin();
+                }else
                 {
-                    App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarGettingLocation"));
-                    position = await ServiceLocator.Current.GetInstance<GeoHelper>().Locator.GetGeopositionAsync();
-                    App.ToggleProgressBar(false, null);
+                    // Remove the old Location-Pushpin
+                    Map.Children.Remove(myLocationPushPin);
+                    CreateMyLocationPushPin();
                 }
-                catch (NullReferenceException nullEx)
-                {
-                    App.ToggleProgressBar(false, null);
-                    return;
-                }
-                catch (Exception ex)
-                {
-                    App.ToggleProgressBar(false, null);
-
-                    new MessageDialog(
-                    ResourceLoader.GetForCurrentView().GetString("GPSError"),
-                    ResourceLoader.GetForCurrentView().GetString("ErrorTitle")).ShowAsync();
-
-                    return;
-                }
-
-                // Center current position of the device on the MapControl
-                Map.Center = position.Coordinate.Point;
-                Map.DesiredPitch = 0;
-                await Map.TrySetViewAsync(position.Coordinate.Point, 15);
             }
             catch (Exception ex)
             {
@@ -271,6 +254,58 @@ namespace ShoppingListWPApp.Views
                     ResourceLoader.GetForCurrentView().GetString("GPSError"),
                     ResourceLoader.GetForCurrentView().GetString("ErrorTitle")).ShowAsync();
             }
+        
+        }
+
+        /// <summary>
+        /// Gets the current location of the device and centers the current position on the <c>MapControl</c> with a Pushpin.
+        /// </summary>
+        private async void CreateMyLocationPushPin()
+        {
+            // Getting current location of device
+            Geoposition position;
+            try
+            {
+                App.ToggleProgressBar(true, ResourceLoader.GetForCurrentView().GetString("StatusBarGettingLocation"));
+                position = await ServiceLocator.Current.GetInstance<GeoHelper>().Locator.GetGeopositionAsync();
+                App.ToggleProgressBar(false, null);
+            }
+            catch (NullReferenceException nullEx)
+            {
+                App.ToggleProgressBar(false, null);
+                return;
+            }
+            catch (Exception ex)
+            {
+                App.ToggleProgressBar(false, null);
+
+                new MessageDialog(
+                ResourceLoader.GetForCurrentView().GetString("GPSError"),
+                ResourceLoader.GetForCurrentView().GetString("ErrorTitle")).ShowAsync();
+
+                return;
+            }
+
+            // Create a Pushpin
+            myLocationPushPin = new Ellipse
+            {
+                Fill = new SolidColorBrush(Color.FromArgb(255, 226, 61, 61)),
+                Stroke = new SolidColorBrush(Colors.White),
+                StrokeThickness = 2,
+                Width = 20,
+                Height = 20,
+            };
+
+            // Add Pin to MapControl
+            MapControl.SetLocation(myLocationPushPin, position.Coordinate.Point);
+            MapControl.SetNormalizedAnchorPoint(myLocationPushPin, new Point(0.5, 0.5));
+            Map.Children.Add(myLocationPushPin);
+
+            // Center current position of the device on the MapControl
+            Map.Center = position.Coordinate.Point;
+            Map.DesiredPitch = 0;
+            await Map.TrySetViewAsync(position.Coordinate.Point, 15);
+               
         }
 
         /// <summary>
