@@ -9,6 +9,7 @@ using Windows.Storage.Streams;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
+using Mutzl.MvvmLight;
 using Newtonsoft.Json;
 using ShoppingListWPApp.Common;
 using ShoppingListWPApp.Models;
@@ -106,7 +107,7 @@ namespace ShoppingListWPApp.ViewModels
             EditShopCommand = new RelayCommand(GoToEditShopPage);
             DeleteShopCommand = new RelayCommand(GoToDeleteShop);
             DetailsShopCommand = new RelayCommand(GoToDetailsShop);
-            AddShoppingListCommand = new RelayCommand(GoToAddShoppingListPage);
+            AddShoppingListCommand = new DependentRelayCommand(GoToAddShoppingListPage, AreShopsCreated, this, () => Shops);
             DeleteShoppingListCommand = new RelayCommand(GoToDeleteShoppingList);
             EditShoppingListCommand = new RelayCommand(GoToEditShoppingListPage);
 
@@ -303,6 +304,20 @@ namespace ShoppingListWPApp.ViewModels
         #endregion
 
         #region *** Command methods ***
+
+        /// <summary>
+        /// Checks, if <c>Shop</c> objects are present.
+        /// </summary>
+        /// <returns>False, if no <c>Shop</c> objects are present, otherwise true.</returns>
+        private bool AreShopsCreated()
+        {
+            if (Shops == null || Shops.Count == 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
 
         /// <summary>
         /// Navigates the User to the <c>AddShop</c>-View.

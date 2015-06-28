@@ -392,7 +392,7 @@
     <comment>Item of MapStyle-Combobox (View: MainPage, AddShop, EditShop, DetailsShop)</comment>
   </data>
   <data name="MapStyleStandard" xml:space="preserve">
-    <value>Standard</value>
+    <value>Standard (Roads)</value>
     <comment>Item of MapStyle-Combobox (View: MainPage, AddShop, EditShop, DetailsShop)</comment>
   </data>
   <data name="MapStyleTerrain" xml:space="preserve">

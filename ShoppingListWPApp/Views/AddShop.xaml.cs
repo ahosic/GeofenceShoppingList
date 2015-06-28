@@ -44,10 +44,10 @@ namespace ShoppingListWPApp.Views
 
             // Initialize Map styles
             MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleStandard"));
-            MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleRoads"));
             MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleAerial"));
             MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleAerialWithRoads"));
             MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleTerrain"));
+            MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleRoads"));
             MapStyles.Items.Add(ResourceLoader.GetForCurrentView().GetString("MapStyleNone"));
 
             MapStyles.SelectedIndex = 0;
@@ -221,16 +221,16 @@ namespace ShoppingListWPApp.Views
                     Map.Style = MapStyle.Road;
                     break;
                 case 1:
-                    Map.Style = MapStyle.Road;
-                    break;
-                case 2:
                     Map.Style = MapStyle.Aerial;
                     break;
-                case 3:
+                case 2:
                     Map.Style = MapStyle.AerialWithRoads;
                     break;
-                case 4:
+                case 3:
                     Map.Style = MapStyle.Terrain;
+                    break;
+                case 4:
+                    Map.Style = MapStyle.Road;
                     break;
                 case 5:
                     Map.Style = MapStyle.None;
