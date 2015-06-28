@@ -1,0 +1,1354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="1628084e-062a-426a-9da0-560047b9e55b" name="UMLClassDiagram" linkedPackageId="98cf75fe-c9f5-4157-b778-6e19a08397c8" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="668046b0-49ae-4c22-b748-e162376917df">
+      <profileInstance Id="fe734861-e217-4586-a168-c9ff6ae167c9" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="05a38f19-559d-4078-a65d-3d621a9708c5">
+      <profileInstance Id="5078b7aa-8200-4718-98e5-8eee5d2a3673" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="4ce55993-7ece-4ef5-ae9f-ace886916b53">
+      <profileInstance Id="26b6ce1d-d866-4f2b-b6f4-13615d6ac9a9" name="CSharpProfile">
+        <elementDefinition Id="6b8096ec-62bd-49fb-aad7-5c67c095bad6" />
+      </profileInstance>
+      <elementDefinition Id="f381bc7d-69c9-4420-af74-d49d64b8d66d" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="edf260f3-0d4d-4d3c-995c-8d6ff1bf0e77" name="Shop" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <referencesInternal>
+          <reference Id="17029eae-5619-4fa2-955c-4615ca05c779" handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShop" tag="ViewCode">
+            <elementDefinition Id="e85f02cb-3068-4b34-b6d6-1f112ea7b2a6" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="a8fe77c0-9dcd-460c-aae8-a81c3e534f7c" name="class" profile="CSharpProfile">
+            <elementDefinition Id="1650c81a-8859-4210-8b94-492f07088617" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="e3d1f912-59d2-4bce-8bab-8f528eded44f">
+                <propertyInstance Id="8c4bcf30-4cdc-4e34-b53b-028f72576fb5" name="ClrAttributes">
+                  <elementDefinition Id="25fd6ab9-a79b-44e6-9e10-4014fc3ddf8a" />
+                </propertyInstance>
+                <elementDefinition Id="0f78bd81-feba-4da9-91c3-0e545949a2c5" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="80f2b9ee-4071-43a7-8e94-16d0a3556cac">
+                <propertyInstance Id="d34d1cd4-cccc-406e-b44f-d6aae25c7b2f" name="IsPartial" value="false">
+                  <elementDefinition Id="5a4d73ef-7351-4df4-a911-8403d62c01f1" />
+                </propertyInstance>
+                <elementDefinition Id="d3034ae7-33ba-4bc3-a954-b5f4ad01e120" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="8b779457-d019-4651-b22e-7ab0603e3a04">
+                <propertyInstance Id="f907ca9b-d43f-4a4e-8716-f7f5ed30fd15" name="IsStatic" value="False">
+                  <elementDefinition Id="f5b7eda2-534c-4fb8-8523-39b67b9912dc" />
+                </propertyInstance>
+                <elementDefinition Id="78732115-e278-49a7-bd9b-ce6f4be3a712" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="9f720e60-223a-4b08-9bad-485db58f7d20">
+                <propertyInstance Id="03475793-85f6-4d74-9a73-2133b1acf7b8" name="IsUnsafe" value="false">
+                  <elementDefinition Id="d6abcf54-e55a-466a-aa55-8674bf50d07b" />
+                </propertyInstance>
+                <elementDefinition Id="014605b3-80b8-490a-a87d-884fbb58ff27" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="04f1811b-a4f9-4bd1-9cce-adce3dbd3b98">
+                <propertyInstance Id="203443f8-7778-4b0d-bd1b-1a65306f2d7b" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="e9652f66-7dce-4975-a651-d4763c95a6c2" />
+                </propertyInstance>
+                <elementDefinition Id="c10e909e-99ee-4f16-818e-2a103b1b7607" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="dfdacf90-35d0-41c1-9b07-1c89a95400c4" />
+        <ownedAttributesInternal>
+          <property Id="49027d41-0d53-4114-b9a2-e122ac4f529a" name="ID" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="dcab1d79-cd38-4ad9-b20f-4fc0b7cba52d" handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShop Member%3DID" tag="ViewCode">
+                <elementDefinition Id="675ff020-fba1-421d-948d-38ea82ff0126" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="09129425-420f-4307-a121-50d35da211c3" name="property" profile="CSharpProfile">
+                <elementDefinition Id="ba5ea558-8f07-4491-bde0-bf1f53478822" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="abee2a63-f090-4e06-a673-d9b0a1a5f9a8">
+                    <propertyInstance Id="92871608-6a00-41b8-8353-be8afac0a8d5" name="ClrAttributes">
+                      <elementDefinition Id="3e8c33ed-03f2-4040-a049-3f9ed1d866d0" />
+                    </propertyInstance>
+                    <elementDefinition Id="b685d96d-ed8f-4455-92bd-a41f7a19fd21" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b726dd6f-ccde-42f5-8361-f529c97c7770">
+                    <propertyInstance Id="8456d0cd-0aad-4f72-96be-fb4ca43b4875" name="Get" value="public">
+                      <elementDefinition Id="aedd6092-5793-4089-8be5-bb6889c050ca" />
+                    </propertyInstance>
+                    <elementDefinition Id="9d37561e-15e7-49c1-889b-cc506ba2a066" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="78c86da4-8e59-470d-9551-3b43a9ab67da">
+                    <propertyInstance Id="a1573eb5-8341-4192-9828-5afbbe2fc24f" name="HasBody" value="false">
+                      <elementDefinition Id="c35671fb-18f1-4bad-9a18-2eb9999d34a7" />
+                    </propertyInstance>
+                    <elementDefinition Id="87b7fb94-8080-4dc9-92b2-87d868d208f4" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4af0497b-ffc6-4ea6-bb47-8f0ee47f1011">
+                    <propertyInstance Id="a7f83bd8-45ac-4cf4-94e9-cf212eb18d85" name="IsUnsafe" value="false">
+                      <elementDefinition Id="d44eab1d-0326-4759-80fa-e54639e0654f" />
+                    </propertyInstance>
+                    <elementDefinition Id="1999d631-ea2a-4e95-8809-3d16d37838c8" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="9eb43ad5-bb5b-4955-8aab-701fe73e048b">
+                    <propertyInstance Id="c7de6d7b-d2f2-483b-be07-a4b43a5da3f4" name="Inheritance" value="none">
+                      <elementDefinition Id="8956c1d4-8e51-4d50-aea1-612f4b94250d" />
+                    </propertyInstance>
+                    <elementDefinition Id="e4a85180-a465-4f2e-b1fc-5a6a2ea2429a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d5b33343-946b-4ec1-bc65-46acfb6d76a4">
+                    <propertyInstance Id="c5ee8372-2b5a-40cd-a875-0103d9e90ba6" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="47bac8c4-a551-4100-bc77-2ed3d588c1c9" />
+                    </propertyInstance>
+                    <elementDefinition Id="c16724d7-7b9c-4342-bc64-76fef76ade9a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="827a3d9f-c15f-440c-9e55-1e8740f3b8f9">
+                    <propertyInstance Id="22fca031-91f8-46b7-919d-9dc3f5156059" name="Set" value="public">
+                      <elementDefinition Id="38a569af-1116-4a5a-a119-86b223533f16" />
+                    </propertyInstance>
+                    <elementDefinition Id="003ef88e-325d-4502-a483-3d00f66dd0c1" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="354e6eaa-e053-43b0-a9f6-f1c97ccf3e7a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="04a90ca9-db9d-42ae-9de7-c8ced5e3326d" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="e6e3c960-7bfc-489d-8ecb-5e3eafa9d997" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="dff046cf-0e5a-4d70-832b-95f5350c8591" handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShop Member%3DName" tag="ViewCode">
+                <elementDefinition Id="f525ee8a-a1d4-4c5d-8f53-57b2aa7ecdf9" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="42937774-6d78-4841-8fdb-1d4f7241665f" name="property" profile="CSharpProfile">
+                <elementDefinition Id="51dd4c00-76cf-4e94-ae06-1ff4a1383c7e" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d34c9dd5-ed2c-4242-8a78-8c49faba236e">
+                    <propertyInstance Id="66857884-b60e-44a4-aba1-95645c94c620" name="ClrAttributes">
+                      <elementDefinition Id="8ad5665b-c94d-4677-80ec-beea0e428b2d" />
+                    </propertyInstance>
+                    <elementDefinition Id="c124e735-7a31-49b4-b783-d060ecf5217c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d54a3b59-6387-42f1-bc1a-45ffbbd08a41">
+                    <propertyInstance Id="c1f26254-8fea-43fa-8d09-28e9a79f002e" name="Get" value="public">
+                      <elementDefinition Id="07c6da8a-b17a-474b-90d2-915dad1af79d" />
+                    </propertyInstance>
+                    <elementDefinition Id="9ec6207c-317a-4218-9a41-3267861d9ef1" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="76280634-4d48-46a1-b1c5-1c9234270b18">
+                    <propertyInstance Id="0f35be01-b276-4db1-a0fd-90d11f910e11" name="HasBody" value="false">
+                      <elementDefinition Id="5eb3afd7-31a0-415a-b10f-5715a56008d9" />
+                    </propertyInstance>
+                    <elementDefinition Id="10468a78-f058-4fa8-929d-48e3399aa949" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f849f867-86d7-416c-8b34-73e8d56db204">
+                    <propertyInstance Id="bf84fe97-6310-4f92-bb91-af2dc96fcf31" name="IsUnsafe" value="false">
+                      <elementDefinition Id="4491a5e7-5dff-432c-b086-e9e8eba8bb73" />
+                    </propertyInstance>
+                    <elementDefinition Id="e9d396eb-dd38-4c69-8db4-46aaaf4093bb" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="df7a371d-726f-4834-8cb5-0719636226a5">
+                    <propertyInstance Id="59ba94fd-0e87-4a01-a2b6-e7b79d15f265" name="Inheritance" value="none">
+                      <elementDefinition Id="bdc2f6dd-be94-4ad6-b1b4-fcc1ddf2ce52" />
+                    </propertyInstance>
+                    <elementDefinition Id="8a2ed8f8-9e9c-439b-be72-671f7f3d2ff5" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d99b6044-3952-47fe-a453-9b23ffb228fb">
+                    <propertyInstance Id="a30c8494-fd4f-4901-ad54-cf674c561656" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="9c9204c6-a80c-46cf-88e2-785f1fd66cc6" />
+                    </propertyInstance>
+                    <elementDefinition Id="812e0c2d-1d1e-49b3-b0b2-79a1a202253d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="62111ac2-54a8-4028-a1c5-276497cc9186">
+                    <propertyInstance Id="749fd98d-4e30-435d-938b-c38c8215958b" name="Set" value="public">
+                      <elementDefinition Id="1c474c7d-021e-4bbc-bdae-1f14aca02ab0" />
+                    </propertyInstance>
+                    <elementDefinition Id="7c5e834a-d10b-494b-abc7-79e721086759" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="d716b0b5-7ce6-41ac-bbae-2f1cab8639e0" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="04a90ca9-db9d-42ae-9de7-c8ced5e3326d" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="9c9aaf4d-698b-42dd-b8c6-405293df6dcc" name="Address" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="95879c03-ecf7-4c70-bab0-d54e38a784e0" handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShop Member%3DAddress" tag="ViewCode">
+                <elementDefinition Id="91074704-3747-4d6e-a1cb-029c17474216" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="9802d812-8217-4ee0-b31a-ffe91b3cc5fc" name="property" profile="CSharpProfile">
+                <elementDefinition Id="78b38112-43b3-4342-a0aa-453bca7fe741" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="0329844f-b3b5-4457-a776-a00bdd013696">
+                    <propertyInstance Id="f9d3c7ab-14cd-48b4-b6f1-4e433a5c8264" name="ClrAttributes">
+                      <elementDefinition Id="707356c0-3731-42fb-aa6b-53927b85d392" />
+                    </propertyInstance>
+                    <elementDefinition Id="0d0e9e0d-407f-4b4e-b999-3d37db1aacc2" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="2c5e3bf3-dabb-46a2-b95b-8c643b62e820">
+                    <propertyInstance Id="ee09ae29-33ba-42c3-90b5-70f5529c9479" name="Get" value="public">
+                      <elementDefinition Id="8f6b8b9d-a8bc-47ee-bf29-4378f41203ac" />
+                    </propertyInstance>
+                    <elementDefinition Id="db0b9a79-6a39-4f75-9ffc-0897349a0642" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="88200f98-5ec7-444d-ada0-922169a66d51">
+                    <propertyInstance Id="98e8e59a-3848-494c-9dc0-00df79683ecc" name="HasBody" value="false">
+                      <elementDefinition Id="5bc6536e-4405-4c7b-a328-4055dcd9a0af" />
+                    </propertyInstance>
+                    <elementDefinition Id="373412b2-e860-42fb-a7f8-3f247b73eebf" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f3b1745e-b6d1-4bc4-a26f-f0a68fa50a80">
+                    <propertyInstance Id="44dd72ad-075c-4c76-aa23-52767e058403" name="IsUnsafe" value="false">
+                      <elementDefinition Id="f4d9dfdb-5e61-4533-80a0-ac833720afe0" />
+                    </propertyInstance>
+                    <elementDefinition Id="8b3a6db7-a2a3-452e-8dea-726f274fe154" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c37cd219-07fb-41bb-8f65-d0843b8929b2">
+                    <propertyInstance Id="003d4ba3-77ef-442e-a870-b2b8bd5395cf" name="Inheritance" value="none">
+                      <elementDefinition Id="2d8fee38-8548-487a-afa0-7d5fee37ff8c" />
+                    </propertyInstance>
+                    <elementDefinition Id="f87c1fd9-4cf5-4d5b-ab59-bbedce5443c5" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="cd8587f4-96d1-4886-b941-5b386934e720">
+                    <propertyInstance Id="10f8fa6c-acdb-4870-b6c1-c1ad619a777f" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="3f3f9066-01dc-407c-b8ed-975c02951a9b" />
+                    </propertyInstance>
+                    <elementDefinition Id="73f11be3-1208-4cae-9fd4-cf86ccd28107" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="24272a65-9a0c-4813-9002-7b3aa56f9d8b">
+                    <propertyInstance Id="0d4e8a10-a4b4-4acc-8083-3c3cee98a83d" name="Set" value="public">
+                      <elementDefinition Id="4f7b7019-70f0-4b92-abed-d998f378f5a8" />
+                    </propertyInstance>
+                    <elementDefinition Id="b833b6eb-289d-413d-ae69-a84396320839" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="943d2d48-b12e-4015-94cd-aeb138771b9f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="04a90ca9-db9d-42ae-9de7-c8ced5e3326d" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="9b78472c-8060-4a5e-81ea-4b8c9f1dbd0e" name="Radius" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="5319ac5b-4eb2-4c9c-8889-467597df2b3d" handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShop Member%3DRadius" tag="ViewCode">
+                <elementDefinition Id="13aeb9f8-c45b-4010-8e7e-92e2302a5018" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="fd33d7d6-764b-4818-b6c3-419c0376b5d0" name="property" profile="CSharpProfile">
+                <elementDefinition Id="45431208-c571-4eac-b624-241f3edf8030" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="94444d73-fefb-454c-a1a7-37ae9df84249">
+                    <propertyInstance Id="07633022-1289-482d-a0a9-9c3ab3589161" name="ClrAttributes">
+                      <elementDefinition Id="4646ee79-9e09-45c0-ab9a-ae0b47863036" />
+                    </propertyInstance>
+                    <elementDefinition Id="94d0131b-3a1e-45e8-be94-cbdf7a2e8888" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e70f1ce2-16f7-4320-8638-205df6db9d55">
+                    <propertyInstance Id="cc35d160-9f6b-47c8-b269-9af1da0c1cf3" name="Get" value="public">
+                      <elementDefinition Id="f0f7c636-b0ad-4633-aa0f-0dfb7cd758c6" />
+                    </propertyInstance>
+                    <elementDefinition Id="23524892-9080-434e-a661-529f5ac9da7e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e8a1808d-848c-4777-b6d0-5d48f31902d4">
+                    <propertyInstance Id="85a3d013-9ca1-4a08-af4e-34a647fa6e38" name="HasBody" value="false">
+                      <elementDefinition Id="f887437d-182e-427d-a4ea-398460062fe7" />
+                    </propertyInstance>
+                    <elementDefinition Id="b7302c82-3cb6-4c33-a8f1-18ef4500ccaf" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="879f7c39-6d3a-489c-9ad4-60a450250f3d">
+                    <propertyInstance Id="c1533f68-1208-4b8d-a6fe-0781c0caa0f9" name="IsUnsafe" value="false">
+                      <elementDefinition Id="109bab32-8334-4a4c-85ee-0452858e323e" />
+                    </propertyInstance>
+                    <elementDefinition Id="02217b7f-c473-453d-bd94-455e67ac7864" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="0adb1d4d-8519-470c-b3a9-ebd431bb5589">
+                    <propertyInstance Id="b24e190c-5614-457e-83aa-5e2c00da049b" name="Inheritance" value="none">
+                      <elementDefinition Id="e8d561f3-873b-4181-b067-65a87473b1bd" />
+                    </propertyInstance>
+                    <elementDefinition Id="a8813de1-673c-486c-a41a-7c1385aa77e6" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b12686c1-be1b-4f73-9d95-19b2dbe52f7e">
+                    <propertyInstance Id="f5eabf8e-370a-41c7-b648-9c25ce780273" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="3d7d7b71-ba98-45a4-9348-a2e6e7fa54b3" />
+                    </propertyInstance>
+                    <elementDefinition Id="1396628a-7afa-4aed-b769-5eefffbe09fb" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4b91031f-dbf4-468a-a30d-d29bc82f8fd3">
+                    <propertyInstance Id="c739657c-aed8-443f-bab4-cdb5ea333a53" name="Set" value="public">
+                      <elementDefinition Id="5c5df1c7-b150-48ef-b4f3-989f43a5decd" />
+                    </propertyInstance>
+                    <elementDefinition Id="d8028df5-f8b7-439b-aa75-3b448f62bc98" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="71dff3f2-dfe1-4295-be17-629f1e7385b8" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="3c46ad01-4cfe-4a01-b0fc-3f7de9be5b2c" LastKnownName="Double" />
+            </type_NamedElement>
+          </property>
+          <property Id="e132376d-e97f-465e-856c-c10303e34623" name="Location" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="817e3b45-b3b4-4d1f-93dd-c6870f4a7193" handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShop Member%3DLocation" tag="ViewCode">
+                <elementDefinition Id="8a3217ad-8c79-4303-9a54-dc7324843404" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="c3e51b66-5a81-4ddf-aed1-b0ceb842fe21" name="property" profile="CSharpProfile">
+                <elementDefinition Id="2d0c3cfb-0255-46d8-a49b-b924e88b4a11" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="2e3e6c7f-3a48-40ce-ae0d-7efd44b64297">
+                    <propertyInstance Id="b71617ee-a7ed-4f04-9291-44a827bfe140" name="ClrAttributes">
+                      <elementDefinition Id="15a9c537-ac87-49d9-b1d6-b34538557c40" />
+                    </propertyInstance>
+                    <elementDefinition Id="d1567407-9cc9-4ce2-92d9-7e0ef168352e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="93e6137d-4d2b-4f5a-a2df-10f882c393f8">
+                    <propertyInstance Id="d516b50c-f88e-49a8-b1eb-f5560d5ac7ff" name="Get" value="public">
+                      <elementDefinition Id="370eac47-cd32-4ee1-8b0f-046a44ccaed0" />
+                    </propertyInstance>
+                    <elementDefinition Id="4637ddd5-b8f7-4160-bc79-166417ce2af2" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4018af32-7823-4d42-9b3b-5ba1a46a22f4">
+                    <propertyInstance Id="f1808a00-2bb1-408d-a57c-c256c4055572" name="HasBody" value="false">
+                      <elementDefinition Id="d5643342-db46-4cb0-926a-c06b8e306d2c" />
+                    </propertyInstance>
+                    <elementDefinition Id="dd440890-0d94-4a48-871d-e04bad772fd4" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="9784767b-6220-43c0-b9ee-bc92332ec297">
+                    <propertyInstance Id="47efaec4-b473-4a67-a3cc-4403d597d68a" name="IsUnsafe" value="false">
+                      <elementDefinition Id="413590ea-f72e-4a2d-9b9f-e02cfdbf2a87" />
+                    </propertyInstance>
+                    <elementDefinition Id="60d14096-3dc1-472d-ad5d-e96f78030376" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ead9c423-76c7-43e4-9d4d-73d78a000b5d">
+                    <propertyInstance Id="6bd62746-d932-465d-996d-ec88951132a0" name="Inheritance" value="none">
+                      <elementDefinition Id="7d74f96a-45f1-405e-8260-92716ac68e67" />
+                    </propertyInstance>
+                    <elementDefinition Id="ac36a541-15c9-4ace-a7ba-f016cacef28b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="05320a9b-b964-45f5-bdf9-bf238260afb8">
+                    <propertyInstance Id="0b8cd999-09e3-4566-8f9b-f6632ef73a69" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="47c997f5-0610-46f8-af27-370e43b1a3a3" />
+                    </propertyInstance>
+                    <elementDefinition Id="a7defb15-d4f5-4c2d-b52e-37c86d4e89d0" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="349b3200-97ab-434b-b086-b160f64cec6f">
+                    <propertyInstance Id="c2e46d00-1149-4328-ba71-32ad4d9c7b86" name="Set" value="public">
+                      <elementDefinition Id="72b4f902-5afa-47be-ac2b-f23c3a689577" />
+                    </propertyInstance>
+                    <elementDefinition Id="a745c42e-5ebc-476a-b25d-3c2994995c8c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="0740e71a-9db9-4a35-aa4d-7e8646db7b58" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="3d31c629-0cd5-4bcf-a896-655d4d91edcf" LastKnownName="Nullable&lt;BasicGeoposition‎&gt;" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="1885f423-07ca-4e09-9c02-89e75b6dea35" name="ToString" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="81e6c561-929b-4ce3-9feb-70f1ec68189d" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShop Member%3DToString" tag="ViewCode">
+                <elementDefinition Id="7e43041b-5de3-4534-8ff0-e09dc10eb583" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="6336d5eb-308b-4038-9d7c-7543d5e44225" name="method" profile="CSharpProfile">
+                <elementDefinition Id="9003fc33-a861-4659-b2fd-e2dc6f4d2103" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d475b46a-bfda-40ed-b894-5819ca907f26">
+                    <propertyInstance Id="344884ef-e84b-48e1-8122-603d07e9d707" name="ClrAttributes">
+                      <elementDefinition Id="8750aba3-5ef0-4963-9a00-783057c7ab2e" />
+                    </propertyInstance>
+                    <elementDefinition Id="5b17776a-3d7f-46d3-a78e-3c7e09e1bd17" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="eb183631-2df7-4a9b-b615-4b8d9db1dceb">
+                    <propertyInstance Id="bd71d92d-20f2-49a8-94b3-9f283b4e15a5" name="IsPartial" value="false">
+                      <elementDefinition Id="5883b759-f479-4962-93a3-0d4eb58301a9" />
+                    </propertyInstance>
+                    <elementDefinition Id="2e7e168f-a2be-4f0c-acd3-a07aca0db503" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7879eac9-1470-4ecd-8ee1-285f8e09a2cb">
+                    <propertyInstance Id="d43ae551-70b8-4de7-b85f-84e96770f02b" name="IsUnsafe" value="false">
+                      <elementDefinition Id="ecdc2430-6a91-4d57-b6d1-23f8d27bfbd1" />
+                    </propertyInstance>
+                    <elementDefinition Id="477312ae-1025-4d62-b49c-0352243fbf21" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="99c556b2-f7af-4663-b1dd-62cef506b6f2">
+                    <propertyInstance Id="5bd93f52-3aa8-40a4-9df1-5ac442e2a164" name="Inheritance" value="none">
+                      <elementDefinition Id="a9dbcaba-2841-40bd-afe3-d2c044cf2438" />
+                    </propertyInstance>
+                    <elementDefinition Id="f67082e1-9093-4756-9bba-960529aa01b1" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="66824766-4f5f-4f15-bdf4-048fd1d38707">
+                    <propertyInstance Id="c80fb481-20ed-4209-b7d3-5d58f6014e29" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="7e2e224e-5ad8-4a24-81bc-bc53c654b3f5" />
+                    </propertyInstance>
+                    <elementDefinition Id="5d8a0652-ee6b-45dc-a953-aeccce3fb6c5" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a9574134-ef4a-41dd-98e0-8d70279fae0c">
+                    <propertyInstance Id="4c95addb-5fc5-4422-bab5-825ef24cf530" name="params" value="false">
+                      <elementDefinition Id="749615c1-c7e2-4843-aba8-9c5055866210" />
+                    </propertyInstance>
+                    <elementDefinition Id="67b212fa-700f-4697-8276-0628dad17cd7" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="e72e68c3-293e-4359-aafd-a833ef4620da" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="58df82a8-fb21-463a-ba93-41e726585b87" direction="Return">
+                  <elementDefinition Id="e796055c-f0ae-4ba2-bb4e-ad35c401414f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="04a90ca9-db9d-42ae-9de7-c8ced5e3326d" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="f3acb362-f5e9-4048-a535-c900ab301286" name="Shop" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="9ab28695-f8d0-486c-bebc-f25f6318b93a" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShop Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DDouble)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3D(Name%3DNullable GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FWindows Phone Kits%2F8.1%2FReferences%2FCommonConfiguration%2FNeutral%2FWindows.winmd&quot; Namespace%3DWindows.Devices.Geolocation Type%3DBasicGeoposition)]))])" tag="ViewCode">
+                <elementDefinition Id="74aad665-258f-4bf6-9d37-732a258102bb" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="1b45009f-f577-4c36-a9ae-9701f3268dfc" name="method" profile="CSharpProfile">
+                <elementDefinition Id="73614fcb-5bb1-4fa4-9a59-d2f56268ffae" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3a3f0fab-ba6a-49ee-91ee-3fa63a12812f">
+                    <propertyInstance Id="7ce112f2-2c32-49eb-aeb0-8d4bc07263ce" name="ClrAttributes">
+                      <elementDefinition Id="359aa973-6963-4a11-bc6a-b46e117eaff7" />
+                    </propertyInstance>
+                    <elementDefinition Id="c18645ce-cb77-431e-bc88-260ee2d87acf" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f2e34890-35eb-4b64-b5d3-7c9e645c9799">
+                    <propertyInstance Id="728fd447-59d3-45fe-b443-b956d42defd8" name="IsPartial" value="false">
+                      <elementDefinition Id="7b011052-0cb0-46ea-b036-6b6ea79dba60" />
+                    </propertyInstance>
+                    <elementDefinition Id="907c56fa-519e-4af4-a537-0dc17c60e188" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ace01d65-c83d-4153-b68f-a52a92a78c8c">
+                    <propertyInstance Id="bbf9fe12-f373-452e-a0e6-16580c6b1d47" name="IsUnsafe" value="false">
+                      <elementDefinition Id="7e65a61f-c5d8-4e5d-9ead-0181f2a60336" />
+                    </propertyInstance>
+                    <elementDefinition Id="c7912582-80ec-417a-93d3-7e4891aa859e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d2788351-37a6-4091-b6df-261c60f84096">
+                    <propertyInstance Id="a6de7422-334e-4f46-acf9-ea441d6abcab" name="Inheritance" value="none">
+                      <elementDefinition Id="018895eb-929f-493f-8be3-e561ae863361" />
+                    </propertyInstance>
+                    <elementDefinition Id="4c3359ff-bfae-4eab-b752-58705c262f5c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="8985b201-7cfc-42e6-ae69-632a833ac2ba">
+                    <propertyInstance Id="b98ad4cf-acfe-46fa-826a-8d62e5b1b0ec" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="16c08cb1-6b60-4cd2-8e5a-29d0198c169e" />
+                    </propertyInstance>
+                    <elementDefinition Id="d6c30b59-e3c5-49dd-b61b-56174564a60d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="be7dbed7-96e0-44aa-9636-4083b6fc1e7f">
+                    <propertyInstance Id="65f2786a-0b57-4bd2-b03c-ce5010b7051a" name="params" value="false">
+                      <elementDefinition Id="a38dc68d-d1f9-4752-bf97-2801323a1c82" />
+                    </propertyInstance>
+                    <elementDefinition Id="ee0ab211-d24f-40cf-8353-2127193a1d7e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="ccac76b0-f9c8-4171-b3b5-ab9a942b62aa" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="117520ed-a252-4cd4-af19-fe31f283c61e" name="id" direction="In">
+                  <referencesInternal>
+                    <reference Id="51285bfb-95a8-46a3-8be2-96b9eb0a52e6" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShop Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DDouble)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3D(Name%3DNullable GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FWindows Phone Kits%2F8.1%2FReferences%2FCommonConfiguration%2FNeutral%2FWindows.winmd&quot; Namespace%3DWindows.Devices.Geolocation Type%3DBasicGeoposition)]))]) ParameterIdentifier%3Did" tag="ViewCode">
+                      <elementDefinition Id="b6b61a94-3712-4f2e-b395-ba6627f3dba6" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="3776fcdf-0ddc-4ca2-9b2d-d6e66f81d2d1" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="04a90ca9-db9d-42ae-9de7-c8ced5e3326d" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c7aef782-1095-45d9-bb73-fe05ddb02ec1" name="name" direction="In">
+                  <referencesInternal>
+                    <reference Id="ba405ce6-c5ab-4d4e-b231-3ed2d64af9d2" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShop Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DDouble)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3D(Name%3DNullable GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FWindows Phone Kits%2F8.1%2FReferences%2FCommonConfiguration%2FNeutral%2FWindows.winmd&quot; Namespace%3DWindows.Devices.Geolocation Type%3DBasicGeoposition)]))]) ParameterIdentifier%3Dname" tag="ViewCode">
+                      <elementDefinition Id="9df31d82-e427-4a0f-ab19-920c2d02bb93" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="a316f071-975f-4b03-9595-b820b2eed166" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="04a90ca9-db9d-42ae-9de7-c8ced5e3326d" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="ba586144-9bc0-4f84-a8c4-160accb78597" name="address" direction="In">
+                  <referencesInternal>
+                    <reference Id="d221d006-5e1b-4506-baa7-d98716758647" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShop Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DDouble)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3D(Name%3DNullable GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FWindows Phone Kits%2F8.1%2FReferences%2FCommonConfiguration%2FNeutral%2FWindows.winmd&quot; Namespace%3DWindows.Devices.Geolocation Type%3DBasicGeoposition)]))]) ParameterIdentifier%3Daddress" tag="ViewCode">
+                      <elementDefinition Id="01dbcaeb-91a2-407e-9d27-edfcff770d0f" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="5da7d163-c0b7-433d-aa0d-ef71715e1e51" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="04a90ca9-db9d-42ae-9de7-c8ced5e3326d" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="690e613e-8ac8-4471-9187-64caece78469" name="radius" direction="In">
+                  <referencesInternal>
+                    <reference Id="e6d6ac96-3b69-46dc-b04b-5e36559068b5" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShop Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DDouble)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3D(Name%3DNullable GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FWindows Phone Kits%2F8.1%2FReferences%2FCommonConfiguration%2FNeutral%2FWindows.winmd&quot; Namespace%3DWindows.Devices.Geolocation Type%3DBasicGeoposition)]))]) ParameterIdentifier%3Dradius" tag="ViewCode">
+                      <elementDefinition Id="dde2db42-ff4d-4d48-ad66-d77e25742068" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="546913e8-edd1-4582-a7e0-98cc2663b490" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3c46ad01-4cfe-4a01-b0fc-3f7de9be5b2c" LastKnownName="Double" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="357b58c1-9423-4ac1-9ff0-b95290d138e2" name="location" direction="In">
+                  <referencesInternal>
+                    <reference Id="e9ca744a-6446-4f4c-b772-9313351eb86b" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShop Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DDouble)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3D(Name%3DNullable GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FWindows Phone Kits%2F8.1%2FReferences%2FCommonConfiguration%2FNeutral%2FWindows.winmd&quot; Namespace%3DWindows.Devices.Geolocation Type%3DBasicGeoposition)]))]) ParameterIdentifier%3Dlocation" tag="ViewCode">
+                      <elementDefinition Id="40a86cf5-f300-454a-aa3d-cf07e43c5c20" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="ac2fa6fa-32a3-4867-8b1b-f5bea07b7008" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3d31c629-0cd5-4bcf-a896-655d4d91edcf" LastKnownName="Nullable&lt;BasicGeoposition‎&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="04a90ca9-db9d-42ae-9de7-c8ced5e3326d" name="String" isAbstract="false" isLeaf="false" cachedFullName="ShoppingListModelingProject::System::String">
+        <elementDefinition Id="d0262cde-57ac-46ed-b8bb-470a66c5f1a0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3c46ad01-4cfe-4a01-b0fc-3f7de9be5b2c" name="Double" isAbstract="false" isLeaf="false" cachedFullName="ShoppingListModelingProject::System::Double">
+        <elementDefinition Id="cd698f07-fa27-4205-a144-efa0b15128e8" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3d31c629-0cd5-4bcf-a896-655d4d91edcf" name="Nullable&lt;BasicGeoposition‎&gt;" isAbstract="false" isLeaf="false" cachedFullName="ShoppingListModelingProject::System::Nullable&lt;BasicGeoposition‎&gt;">
+        <elementDefinition Id="a937f7e7-172a-4610-906c-76e2291d2bb9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="387eadb1-f8b8-4e36-853b-0ae7c1a53a9e" name="ShoppingList" visibility="Package" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <referencesInternal>
+          <reference Id="9dddccdf-8bf3-429e-9534-5c0e7f05f8b5" handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingList" tag="ViewCode">
+            <elementDefinition Id="f94733d1-10db-48ef-ab32-faf6e0ff5d52" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="bd1552b1-df6b-492d-b44c-b77f64fcacd8" name="class" profile="CSharpProfile">
+            <elementDefinition Id="6511840c-55bb-4524-a8dc-e385770de6da" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="77ab4430-1982-46ba-a71c-7ffd5ef5d881">
+                <propertyInstance Id="3b600f6a-80e6-4887-8616-a5dd3b34333f" name="ClrAttributes">
+                  <elementDefinition Id="9c2df0c4-2ea3-4115-a702-5e2d90c9af20" />
+                </propertyInstance>
+                <elementDefinition Id="33e27af8-28e4-46f1-a6c2-373a591fb2ef" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="ba8bfe24-d1d5-4812-a567-b243b5028de7">
+                <propertyInstance Id="67739243-3b30-40ef-99d1-6a24654e91b5" name="IsPartial" value="false">
+                  <elementDefinition Id="6e5f4371-9f86-4e38-afd1-a04079401f18" />
+                </propertyInstance>
+                <elementDefinition Id="3ac6d4c1-def0-4db1-8093-ecfa213c5ed0" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="a950ec4d-2bbc-41b6-9f41-1d6556a3f6ae">
+                <propertyInstance Id="19b81d06-6538-4110-87d3-579d8be04bf6" name="IsStatic" value="False">
+                  <elementDefinition Id="0bd72a13-ff4c-4ebb-9aa8-8bb61c0260ae" />
+                </propertyInstance>
+                <elementDefinition Id="9fa8abf0-e44a-4f78-8176-a20788ce11fd" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="12c623cd-c9da-4834-b236-04d895ae8fa7">
+                <propertyInstance Id="f271f0c6-4dfa-4e37-96c3-025a79316a3f" name="IsUnsafe" value="false">
+                  <elementDefinition Id="ab25d1e1-76fe-49ba-8059-ccabd35d890d" />
+                </propertyInstance>
+                <elementDefinition Id="63c68ff3-0181-40fe-898f-dd3fb2ad4ff5" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="c8e7c765-5aeb-4283-a7e1-8349d0ce29f8">
+                <propertyInstance Id="d95c589c-49c1-4394-8c93-48b285dbb349" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="6c842320-e5a4-4cbb-afa9-f8ba9debe7ae" />
+                </propertyInstance>
+                <elementDefinition Id="b0fcb04b-79de-4a6d-9498-75938f75a8a8" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="c15c920b-51f1-4ba0-9bc4-be3b791c3163" />
+        <targetEnds>
+          <association Id="547b3b57-c483-48e6-90c4-3df597ae5eeb" isDerived="false" sourceEndRoleName="ShoppingList" targetEndRoleName="Shop" isLeaf="false" isAbstract="false">
+            <classMoniker Id="edf260f3-0d4d-4d3c-995c-8d6ff1bf0e77" LastKnownName="Shop" />
+            <description>Property Shop references type Shop.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0885b57e-8170-42b6-9548-26a66f4f927a" name="ShoppingList" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="4096b726-5922-4308-96c5-d149a10f386a" name="Lower" value="*">
+                      <elementDefinition Id="476e2d84-2aff-4cc3-9e9e-de2bb5b7ee23" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="fced3854-40d6-4c00-9e3e-935db17cc578" name="Upper" value="*">
+                      <elementDefinition Id="7d27fae4-5cfc-45f6-bbde-fbf392d5ade8" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="4cdb7901-c4fe-4ce2-ae9c-bdc5ca2025db" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f7749d33-0482-4169-b065-0a141c0e6419" name="Shop" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="a84f07e0-1f9f-4171-875f-600d37ca38d7" name="Lower" value="1">
+                      <elementDefinition Id="5d161953-ab82-4618-bf8e-0e92b99d5a97" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="1beba53e-2203-4eb4-9ef2-4e3fc54bc075" name="Upper" value="1">
+                      <elementDefinition Id="c0d9384e-9103-4cae-bb02-994a2e9facde" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="de0dea70-7169-4cb2-a3e5-7d2111b418b6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="46bf1d2d-a0a1-42d4-8398-5ea04c692063" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="b36188f4-9a71-4359-98dd-b89920601409" name="ID" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="f8c6faef-cb41-40b1-88e3-057311e0c8c4" handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingList Member%3DID" tag="ViewCode">
+                <elementDefinition Id="8e050ea7-0ad8-4bd8-ba1f-210f1093c627" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="f5e60f0e-f177-4724-93b5-bb0883826fff" name="property" profile="CSharpProfile">
+                <elementDefinition Id="ec3970a6-438b-4fe4-9a00-b241dd9c22b9" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f936d6d2-c640-454c-b213-dee6705b9ec0">
+                    <propertyInstance Id="0467e382-274b-44e3-aeae-bd45dffa126b" name="ClrAttributes">
+                      <elementDefinition Id="59565363-46e9-4de9-8f26-9272171f4eef" />
+                    </propertyInstance>
+                    <elementDefinition Id="a75ca5e3-e606-4694-a591-d1cc65a25466" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="76c2939d-24c3-4704-a18b-66ad61d02da8">
+                    <propertyInstance Id="fe957fce-18ae-4e9e-8078-34c6701cb362" name="Get" value="public">
+                      <elementDefinition Id="8bd65dd2-6a0e-4fa7-9ad0-d53087dd3502" />
+                    </propertyInstance>
+                    <elementDefinition Id="4fcb923f-1fe0-4c04-9e7d-a78afb932b20" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f08ca7b1-8507-4d27-a7d9-345251d64dfd">
+                    <propertyInstance Id="d218eca1-ef3e-4015-b435-d4eae7a8f66f" name="HasBody" value="false">
+                      <elementDefinition Id="12354aae-b784-459f-b661-dd32d4b612fd" />
+                    </propertyInstance>
+                    <elementDefinition Id="71642bbb-a82f-4cc6-b595-474b7b988598" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="60f1438e-b81e-40e0-a0bf-1873629cd06a">
+                    <propertyInstance Id="1071d840-6eb6-428d-b739-1d4ba73cda65" name="IsUnsafe" value="false">
+                      <elementDefinition Id="ca6dadb4-7881-404d-b972-7cb0bff6a3f1" />
+                    </propertyInstance>
+                    <elementDefinition Id="171c85e1-e75b-494c-baae-0e1a34a3d7f4" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3ec6309c-4e5a-44b2-9944-db7548fabc19">
+                    <propertyInstance Id="5b273042-4eb8-446c-babd-4455a0cc8c9c" name="Inheritance" value="none">
+                      <elementDefinition Id="4e9a4546-e981-4122-a055-c96dd6db9fe8" />
+                    </propertyInstance>
+                    <elementDefinition Id="ac6ecd18-0a6d-4e98-996c-6c5f7f738b89" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ae4c18cb-4877-4a50-82c2-4fc8a0a65c24">
+                    <propertyInstance Id="1d42f644-67ac-4f30-8b69-e6cce9e7a76b" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="2850d28d-9278-42b7-b806-13566fc5ffc2" />
+                    </propertyInstance>
+                    <elementDefinition Id="8913bd53-f640-4c09-af8d-96de53d84641" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b1941b34-a84c-4092-afcb-3ba6cb8cf1fa">
+                    <propertyInstance Id="c42e1cd5-4922-4ce8-8598-b53693ea8eba" name="Set" value="public">
+                      <elementDefinition Id="2b2f77c7-14f2-44c5-8264-b3ec6b6eae94" />
+                    </propertyInstance>
+                    <elementDefinition Id="d4cb5f2c-e8c4-44c0-81fc-37b85f5a8b54" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="8e6467a8-5f44-48d9-9ad6-b1d950e75d4b" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="04a90ca9-db9d-42ae-9de7-c8ced5e3326d" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="7ded6264-e708-458e-a19f-03279acbdb5f" name="ListName" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="98f3606b-0218-4712-a77c-2ff9702ce08b" handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingList Member%3DListName" tag="ViewCode">
+                <elementDefinition Id="f28787f7-a03a-4289-9311-871e894b625c" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="c6cc8d70-0278-451a-8d5d-6f3a580c2c70" name="property" profile="CSharpProfile">
+                <elementDefinition Id="41e3d436-7dcd-48f9-be51-d4057ad746d7" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7705757a-e26f-4757-9ffe-570623fc16d5">
+                    <propertyInstance Id="8942d2af-33cd-4987-aa7d-30e4160e154e" name="ClrAttributes">
+                      <elementDefinition Id="06dac709-6c12-4e1a-b4c3-bf5cd3d0ddc2" />
+                    </propertyInstance>
+                    <elementDefinition Id="4304507a-b1c2-4ef4-be55-369dc14cfb30" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7df121b9-3778-4cd8-8ede-e71afad9a2ae">
+                    <propertyInstance Id="0466a417-516b-457b-8eb9-891561673cd6" name="Get" value="public">
+                      <elementDefinition Id="61e7fc80-9215-4cb6-81d5-675f030ace5f" />
+                    </propertyInstance>
+                    <elementDefinition Id="5390805b-3796-4ab8-ba9c-f2fdcb06941b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="53697cc7-2f2e-4d1f-b23a-fadb47a70759">
+                    <propertyInstance Id="bc8e752e-7bd7-430c-9f67-e8bd5f53b958" name="HasBody" value="false">
+                      <elementDefinition Id="bba4b9fb-8693-4249-b3d7-51a17d76ce6d" />
+                    </propertyInstance>
+                    <elementDefinition Id="b601b3c2-2b90-4387-b855-e9082a259699" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="8b87cd56-dcf6-423b-8a1d-7f11a22f3c10">
+                    <propertyInstance Id="da8064fc-a7c3-4b65-9d80-15008af173bc" name="IsUnsafe" value="false">
+                      <elementDefinition Id="6bbb8448-e972-4428-8ea4-66e9f85d7f7c" />
+                    </propertyInstance>
+                    <elementDefinition Id="a1df8a31-c5ed-4bd7-b9ef-6d8ca5f80cfb" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f4baa56b-58a4-456b-9f8e-89d35913cf03">
+                    <propertyInstance Id="8cf50852-1103-4837-904c-b3320edb584c" name="Inheritance" value="none">
+                      <elementDefinition Id="1e6c1582-1804-4d51-b968-6af63e1deb64" />
+                    </propertyInstance>
+                    <elementDefinition Id="99baef38-4847-4806-b9b5-5d44f9881824" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="78d95c6d-753f-4853-b89c-d89fecf5d65e">
+                    <propertyInstance Id="afaef7bf-53d7-4de1-97af-d041c7690a82" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="7b089c25-4909-4bed-b79e-f75e84570f71" />
+                    </propertyInstance>
+                    <elementDefinition Id="9aa6c5fd-74cb-4c87-a6b9-a5566be93986" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1c84a2df-0e04-4898-919f-57cda99f394a">
+                    <propertyInstance Id="68f492ba-1c92-4d3f-b8c3-c495570078c2" name="Set" value="public">
+                      <elementDefinition Id="836bb5b2-87a1-4d3d-892f-c26ba7bfa3eb" />
+                    </propertyInstance>
+                    <elementDefinition Id="520eb8c0-9bd1-42fc-a4c0-4a69171679bd" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="1a248820-7818-4e6c-a491-1e466b6c14cc" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="04a90ca9-db9d-42ae-9de7-c8ced5e3326d" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="678cb5c0-8f84-479d-867e-b02b1d928b4c" name="Shop" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="f58b703e-9338-4ffa-8958-21abf9ea1843" handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingList Member%3DShop" tag="ViewCode">
+                <elementDefinition Id="56d64eb1-1a38-455c-b027-1a88abd7da22" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="7dec8063-ea30-4c5e-ae2b-6a08fc397c0e" name="property" profile="CSharpProfile">
+                <elementDefinition Id="a76e8d4f-8d84-4079-ba36-0ae1c3a8d4a7" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4dad9285-762b-4671-8a9c-7efd4b958fc1">
+                    <propertyInstance Id="b3804ce2-caad-46c2-bc0c-823e7a322558" name="ClrAttributes">
+                      <elementDefinition Id="0c65c608-8f26-4f69-87b5-db4fa7c056a4" />
+                    </propertyInstance>
+                    <elementDefinition Id="3d013caf-1c52-450a-948d-a6e87872ba46" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4749bad5-478c-4a17-bdef-cc880f00a960">
+                    <propertyInstance Id="bd948fad-b9d8-4f52-ab7e-1ef3fb82d237" name="Get" value="public">
+                      <elementDefinition Id="1ce2870a-2d52-47b0-b928-5a4bc8fd6796" />
+                    </propertyInstance>
+                    <elementDefinition Id="20e59f42-e4a4-48d3-a4e0-53321e3075d0" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d9ebf609-c5c5-4033-a811-2456e767df30">
+                    <propertyInstance Id="bb014ae4-ada2-4751-9d6e-06a84527462f" name="HasBody" value="false">
+                      <elementDefinition Id="f2b978eb-6fea-4a9c-a35b-096000cd6833" />
+                    </propertyInstance>
+                    <elementDefinition Id="c994bcbe-0a18-40b3-b05a-effb7388d9dc" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7bb19cc3-07e2-4d7a-801b-bdb3064e0bb4">
+                    <propertyInstance Id="ae96584c-569d-44ee-8dba-9156512bf358" name="IsUnsafe" value="false">
+                      <elementDefinition Id="27c131df-6fc2-482f-8d70-5ca71bbb235b" />
+                    </propertyInstance>
+                    <elementDefinition Id="331f0e63-f04e-4c83-9556-cb405c7b9f79" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="888d90d9-8f75-4cab-8e74-dbf8b76534b7">
+                    <propertyInstance Id="a45b84e5-65b4-466b-960b-fa0a9923611d" name="Inheritance" value="none">
+                      <elementDefinition Id="e68d8e0c-3602-4360-9231-034576739235" />
+                    </propertyInstance>
+                    <elementDefinition Id="45ae8c71-74ec-4be7-ad04-3576571eab1f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b7a8ea62-6275-49be-9e42-46079fe70910">
+                    <propertyInstance Id="878d940c-58dc-44fc-822a-8d69e1cb7c74" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="acbc0136-6a23-4dd6-b4cc-2aa4a9948b96" />
+                    </propertyInstance>
+                    <elementDefinition Id="bba432fb-b687-4b9e-8f76-20e016d0dfbb" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c8bbd99d-66bb-4f27-abbc-d72ea0f5f2d8">
+                    <propertyInstance Id="377627e5-d032-4517-a3c3-6674e11591ee" name="Set" value="public">
+                      <elementDefinition Id="37eb128d-23ab-4c7d-a0a3-a33deefc8fd0" />
+                    </propertyInstance>
+                    <elementDefinition Id="d419aa6e-0c22-4a1f-9703-d33964c43b8a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="f897b20b-2514-4a0e-a60c-fdf10d1c9c94" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="4610974e-e6b1-4116-bc5b-cc0643fcec9e" LastKnownName="Shop" />
+            </type_NamedElement>
+          </property>
+          <property Id="18e59f65-9493-4075-86d1-3d422216162e" name="Items" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="9e2a1851-6e9b-4882-8ab3-3e5c648ff067" handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingList Member%3DItems" tag="ViewCode">
+                <elementDefinition Id="59d8d1dc-9b8d-49cf-8556-21f4af98f58c" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="33a9562d-ca5e-4aeb-96bc-8acdd383d505" name="property" profile="CSharpProfile">
+                <elementDefinition Id="85a1fa8f-8c6f-48a8-bc71-a0cf04ed1723" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d61cd454-b121-496a-9c84-73b06faf2c5c">
+                    <propertyInstance Id="e5c70ff4-00ec-4997-8ebf-4a520a84482f" name="ClrAttributes">
+                      <elementDefinition Id="698362af-0795-4963-86e3-749d42cde798" />
+                    </propertyInstance>
+                    <elementDefinition Id="faaaeee2-492b-4c8e-8827-460c6aeb8f61" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="20aeab04-4b77-4ff4-aeb3-1726a61a0158">
+                    <propertyInstance Id="d5510e4e-07b2-4806-8f9d-ca84102c9fff" name="Get" value="public">
+                      <elementDefinition Id="efd483b2-1011-4a12-9dd5-4cc07e0790c6" />
+                    </propertyInstance>
+                    <elementDefinition Id="dc681b78-31dd-48d3-bf62-b50078e7d60c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1adf82d9-acd0-4035-8f88-1032faae593e">
+                    <propertyInstance Id="e0029f51-4df0-4c61-9cdd-6b347ca31559" name="HasBody" value="false">
+                      <elementDefinition Id="62274475-382c-4e5a-ad39-062c36911ce8" />
+                    </propertyInstance>
+                    <elementDefinition Id="a4c247ed-b77a-4201-88c3-14ba418e5a38" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="897a542e-dd13-4c68-a2e7-9f4c399e8443">
+                    <propertyInstance Id="b8bbd2c0-3139-41b0-9acc-c72b72969015" name="IsUnsafe" value="false">
+                      <elementDefinition Id="49260285-e95a-414e-9f7b-ac858085483e" />
+                    </propertyInstance>
+                    <elementDefinition Id="3e395145-380d-484e-baa5-1952e8641aa4" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1c243b58-d138-4183-8cc0-f1d52e03473e">
+                    <propertyInstance Id="75a832d2-13a3-45cb-b887-3b9c64d13221" name="Inheritance" value="none">
+                      <elementDefinition Id="bf89bf2b-d163-4436-abe5-a27b863049eb" />
+                    </propertyInstance>
+                    <elementDefinition Id="a7375ed1-09f5-4b2d-ada6-3dffe3f19d15" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b2c205a8-9644-47ac-9e11-12251a4c08fb">
+                    <propertyInstance Id="a57cff0d-a39a-4ae3-bf15-b7862f021736" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="4f8e3726-4491-4ac4-8669-ff86650b6c30" />
+                    </propertyInstance>
+                    <elementDefinition Id="55fa5a24-e0d0-4ced-8a15-98ff0b220c1c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="036e0742-8aef-4798-8f02-dd121bb8112c">
+                    <propertyInstance Id="18c136a6-80ee-42b2-b8fe-2d05a8607dfe" name="Set" value="public">
+                      <elementDefinition Id="548040e7-bf42-4b45-a054-93df124c42d6" />
+                    </propertyInstance>
+                    <elementDefinition Id="29f5f203-de0d-4f7d-9faa-23d2051894e0" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="b18c3f27-35ed-480a-a60a-2f24f01fd369" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="701b44ec-014a-42d1-bc92-02afe5aaab9b" LastKnownName="ObservableCollection&lt;ShoppingListItem‎&gt;" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="ad6f2335-4a14-45d4-bbbe-b881ad482153" name="ShoppingList" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="be081aa7-277d-4fb3-8143-069bbfb93ac2" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingList Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShop)])" tag="ViewCode">
+                <elementDefinition Id="0670dcb8-917d-4ec8-a1e2-56dbde6fbaea" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="29a0eed4-1ab4-4fdb-88ac-b63b05afd21e" name="method" profile="CSharpProfile">
+                <elementDefinition Id="67d451a1-18f0-48ee-9901-7884775fd560" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="68d50e4b-365d-4fb5-86ee-5323970ee8c6">
+                    <propertyInstance Id="f17ee057-5372-4782-a712-ec314e5c949e" name="ClrAttributes">
+                      <elementDefinition Id="ed46bf60-b869-41d5-bf1a-fbe98670b9c4" />
+                    </propertyInstance>
+                    <elementDefinition Id="382992b2-aa52-4bdf-8fb3-2c74011abd6f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="65363c7d-6e7a-4f60-b0d4-002b627a4241">
+                    <propertyInstance Id="dcfdb13b-7171-4caa-8015-f3ecda342cf9" name="IsPartial" value="false">
+                      <elementDefinition Id="487683dc-ef1a-4f55-b00a-cbe2018d1199" />
+                    </propertyInstance>
+                    <elementDefinition Id="7f48b1b1-c3ad-4278-adf1-0e9ba7ece03f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1a8914aa-9e74-4fa7-b0ed-ce02479ac547">
+                    <propertyInstance Id="adb402e6-fc72-4f0f-b393-fb1d899ee1e4" name="IsUnsafe" value="false">
+                      <elementDefinition Id="c3670ea6-6f57-4fcd-8f1e-bc884cc889c5" />
+                    </propertyInstance>
+                    <elementDefinition Id="b86f4b19-e32c-4d82-95b9-18a443fb87eb" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="9a5dca7a-76d4-49e5-ad8c-9d2ea05240fc">
+                    <propertyInstance Id="e040a85c-6c65-4071-b181-5d2880acfd24" name="Inheritance" value="none">
+                      <elementDefinition Id="c761c800-543a-452b-838c-2be42379109c" />
+                    </propertyInstance>
+                    <elementDefinition Id="5e60dfe2-61c2-480a-b882-312f2437a8e5" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="57d2d7a9-5dea-46c7-aa54-88468c9ac609">
+                    <propertyInstance Id="520592f2-5437-4172-bb50-8f9dd39e739a" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="79e14132-5183-457b-801d-585fe518a265" />
+                    </propertyInstance>
+                    <elementDefinition Id="de1bf605-0a9a-4c41-8f2d-6ffa7edff080" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="480fc5e6-b02e-4aa4-9fdf-87c0d6139596">
+                    <propertyInstance Id="675503f5-a3a2-4092-a669-609aa34bf554" name="params" value="false">
+                      <elementDefinition Id="a3a79a70-9ede-47fb-af18-ef09a6fbe7a6" />
+                    </propertyInstance>
+                    <elementDefinition Id="58e9827e-0a59-45ae-ad90-db170e88150a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="180774ce-84be-4351-913d-3ceb5f3e63be" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="86aabacd-ff86-4afe-9813-0a83562fd92d" name="id" direction="In">
+                  <referencesInternal>
+                    <reference Id="ec8a1a4e-5888-4b4c-bc4d-6d055c67c8a2" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingList Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShop)]) ParameterIdentifier%3Did" tag="ViewCode">
+                      <elementDefinition Id="46a436e0-7e23-41cb-8e1a-c7b7d4373a71" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="92c00f74-bb0e-499c-a505-988ee145cfd5" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="04a90ca9-db9d-42ae-9de7-c8ced5e3326d" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="47ad9834-0dd7-4410-8d57-cdee562a5032" name="name" direction="In">
+                  <referencesInternal>
+                    <reference Id="6f1e0760-59ef-4d4e-b446-230727acbd87" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingList Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShop)]) ParameterIdentifier%3Dname" tag="ViewCode">
+                      <elementDefinition Id="2d1c0925-7dfd-4bf1-bbcd-0ca5785f3fc6" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="dd6662c5-d0fd-4995-8f51-8e8f30afc04d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="04a90ca9-db9d-42ae-9de7-c8ced5e3326d" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="50fb7c91-ca49-4ad2-bdd1-3b22162f8589" name="shop" direction="In">
+                  <referencesInternal>
+                    <reference Id="4bc11948-34a3-43b3-9f79-75afa6b04e47" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingList Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShop)]) ParameterIdentifier%3Dshop" tag="ViewCode">
+                      <elementDefinition Id="52eb3c50-cd0c-462b-8f32-5d4376029e6b" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="5c3d3ed7-7f34-4c1c-9781-8ccefe30a67a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="4610974e-e6b1-4116-bc5b-cc0643fcec9e" LastKnownName="Shop" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="0fe24594-71cf-4efd-a88e-14ce09c6c78b" name="AddItem" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="b8442824-30ab-47e7-b069-f6392bca6099" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingList Member%3D(Name%3DAddItem OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingListItem)])" tag="ViewCode">
+                <elementDefinition Id="01e7a575-0c7f-43cb-bcc1-d526bdc22384" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="f4188216-6e57-42aa-9d8a-34f1e6d1851f" name="method" profile="CSharpProfile">
+                <elementDefinition Id="d790540c-e4e0-4378-9f29-55c9c9c1c3bc" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e2967bb9-6b17-46a2-ada8-3c1b73b50468">
+                    <propertyInstance Id="0dd6a2e9-c631-4559-a90c-6bdb6841aa1a" name="ClrAttributes">
+                      <elementDefinition Id="86f50ae3-4a81-498e-991e-d4d8d8c82986" />
+                    </propertyInstance>
+                    <elementDefinition Id="70a2499c-a327-4b24-8064-ce0d39bcc655" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="984bb634-6b1e-4f05-ab08-32122c35ac78">
+                    <propertyInstance Id="b56ed239-44ca-4144-a8d3-177d6cffea67" name="IsPartial" value="false">
+                      <elementDefinition Id="1ab99fea-227e-4f24-88c8-bfd9917032dc" />
+                    </propertyInstance>
+                    <elementDefinition Id="f2d10d6c-6dbf-43dd-9a67-00ea0082cf3f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a1dcf3d2-7ed0-4618-8828-e202b8234db6">
+                    <propertyInstance Id="f7f4e89b-abc9-414f-b829-289e96eff89a" name="IsUnsafe" value="false">
+                      <elementDefinition Id="34c5c799-674f-49ab-88ab-12f5adabdb43" />
+                    </propertyInstance>
+                    <elementDefinition Id="d55725e5-52bb-49bb-bd2a-15873a2f38b2" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="0cba2e80-35d3-4c95-aa3d-3ed23ff5c68c">
+                    <propertyInstance Id="81d5f180-536e-4e69-ad7b-cda1888eac4e" name="Inheritance" value="none">
+                      <elementDefinition Id="025560b8-b029-49cd-b44f-66f402f7306f" />
+                    </propertyInstance>
+                    <elementDefinition Id="5f5046a5-f34e-44e0-bc71-c391382f7009" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="19058671-b3a8-48a1-a457-cec8b597c652">
+                    <propertyInstance Id="7ddbcb41-893e-42bb-9469-6a772a17279f" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="9959835b-3379-43eb-a405-8c98f493bbd0" />
+                    </propertyInstance>
+                    <elementDefinition Id="9c30217e-3bff-471b-bbc4-f3fbae18b009" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="765fafd8-2a0b-4012-8093-affe9ea6a420">
+                    <propertyInstance Id="83c27950-b285-4816-be56-6d09844fc5da" name="params" value="false">
+                      <elementDefinition Id="a75338f7-e3b3-40f9-b45e-4d5b51bfeebd" />
+                    </propertyInstance>
+                    <elementDefinition Id="dc88e2d6-b62f-4e5c-98d4-3934315b7831" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="75e423b3-4e66-46cc-9923-616f6c2b7906" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cca6516b-903f-4ae5-b330-598e0126a7d9" name="shListItem" direction="In">
+                  <referencesInternal>
+                    <reference Id="0c32f959-61bb-4e3e-9a87-18578dd2a448" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingList Member%3D(Name%3DAddItem OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingListItem)]) ParameterIdentifier%3DshListItem" tag="ViewCode">
+                      <elementDefinition Id="89ce1e6f-2a72-443b-af17-13215978712b" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="bdf80cb7-44ad-420c-8c3c-0d6e788ceb3e" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="18f4b485-683f-4dee-9d70-e71159717e14" LastKnownName="ShoppingListItem" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="4610974e-e6b1-4116-bc5b-cc0643fcec9e" name="Shop" isAbstract="false" isLeaf="false" cachedFullName="ShoppingListModelingProject::ShoppingListWPApp::Models::Shop">
+        <elementDefinition Id="dfdacf90-35d0-41c1-9b07-1c89a95400c4" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="701b44ec-014a-42d1-bc92-02afe5aaab9b" name="ObservableCollection&lt;ShoppingListItem‎&gt;" isAbstract="false" isLeaf="false" cachedFullName="ShoppingListModelingProject::System::Collections::ObjectModel::ObservableCollection&lt;ShoppingListItem‎&gt;">
+        <elementDefinition Id="db0f8edd-cdb3-47e2-938e-0120bae10a5b" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="18f4b485-683f-4dee-9d70-e71159717e14" name="ShoppingListItem" isAbstract="false" isLeaf="false" cachedFullName="ShoppingListModelingProject::ShoppingListWPApp::Models::ShoppingListItem">
+        <elementDefinition Id="3e112210-cf6d-4eef-8537-9c5922d5f864" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7026112a-0270-4cbb-817d-6c364275876a" name="ShoppingListItem" visibility="Package" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <referencesInternal>
+          <reference Id="d2908b11-811d-49e1-a424-15b38ed1018c" handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingListItem" tag="ViewCode">
+            <elementDefinition Id="3490014a-091c-455a-8884-76186c681bc5" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="3addb154-0a59-4eb8-969e-9ce114ddd844" name="class" profile="CSharpProfile">
+            <elementDefinition Id="8cf92c40-e1c8-4e0a-be7c-66dd37bd3192" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="3ef722cd-b7be-4506-ae28-37d6eb89b23c">
+                <propertyInstance Id="2f20c462-0906-46d4-b8b1-98ceec4bb70e" name="ClrAttributes">
+                  <elementDefinition Id="c15de34d-9770-4b00-abc3-cf0e869807e7" />
+                </propertyInstance>
+                <elementDefinition Id="cb98df78-44de-4b09-99f5-f53e55586e84" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="18d32adf-77d1-4644-9bc2-c8715cb9bf8b">
+                <propertyInstance Id="82e31f91-5644-428f-b8dc-197d98bff117" name="IsPartial" value="false">
+                  <elementDefinition Id="56b8c195-442d-461f-aa3b-45433947ff32" />
+                </propertyInstance>
+                <elementDefinition Id="28a9a6b9-ed90-49af-b202-5deab105cdbe" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="93b55e47-eaf9-4b99-b028-b3b7d85bea04">
+                <propertyInstance Id="ffc34aa1-d261-428a-a3a1-16af349bdb7e" name="IsStatic" value="False">
+                  <elementDefinition Id="bfb93eda-6ad1-4af9-8990-f0c5c74b8e86" />
+                </propertyInstance>
+                <elementDefinition Id="0ee03a23-d291-45cf-9e8d-78f58011dd42" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="c5cf00e2-950c-43fb-aff8-ed98144a38bc">
+                <propertyInstance Id="a7169558-c13f-442a-b859-b50dcbbe7dd9" name="IsUnsafe" value="false">
+                  <elementDefinition Id="38bfc6ab-386e-4c53-8b71-d1f8a0c37d4a" />
+                </propertyInstance>
+                <elementDefinition Id="d0ba1cc7-6ceb-4116-911b-beb7a45342ec" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="3ca91fc0-2cc1-4b9d-9b01-3e21e43c460e">
+                <propertyInstance Id="3d3d2596-443e-49e7-962c-262047a14075" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="a111dc39-99d8-4d71-b12d-fc469826d918" />
+                </propertyInstance>
+                <elementDefinition Id="ee7163f3-136d-4ad9-ae15-a17e7d718afd" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="3e112210-cf6d-4eef-8537-9c5922d5f864" />
+        <targetEnds>
+          <association Id="8ef6588c-4b24-4385-8130-2246e4be7023" isDerived="false" sourceEndRoleName="ShoppingListItem" targetEndRoleName="ShoppingList" isLeaf="false" isAbstract="false">
+            <classMoniker Id="387eadb1-f8b8-4e36-853b-0ae7c1a53a9e" LastKnownName="ShoppingList" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5b428d8e-98fd-431f-ab2b-0149f2ac8f1e" name="ShoppingListItem" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="5222f79e-df4f-49e3-a799-dcedd44a18f4" name="Lower" value="*">
+                      <elementDefinition Id="f139997d-21f2-42f4-a578-bad4187dd961" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="00b70d69-131d-4233-970c-5e4c4d19f04c" name="Upper" value="*">
+                      <elementDefinition Id="9a1969a2-a617-4543-9b18-866bf79e3643" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="35e236b4-e0b5-42f5-a3e8-74681f290d78" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c8a969bf-45cd-4f76-b165-dbcded2fbb5d" name="ShoppingList" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a55d0b23-8b25-462f-8b25-8dd3b085d26c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="23c79513-4ef0-422a-afb5-bdb01694492a" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="e906770b-9801-46a4-b838-1312a6a8c0d0" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="efeba605-85e7-4adb-b0d3-e8abbca32822" handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingListItem Member%3DName" tag="ViewCode">
+                <elementDefinition Id="012962bc-aa0a-4f18-b14f-4d13382261ba" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="d4230535-713d-4f07-89df-4cf1a5036d3a" name="property" profile="CSharpProfile">
+                <elementDefinition Id="56e092f2-31c3-47fa-a4f7-69af5c0edf7b" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="bf8f24d9-ccd0-439b-bd81-d651797eb0ce">
+                    <propertyInstance Id="72081754-0a72-459b-9b06-65ae1a3d036f" name="ClrAttributes">
+                      <elementDefinition Id="45ff4c15-1e85-4f96-960d-6da94dc49193" />
+                    </propertyInstance>
+                    <elementDefinition Id="17baf2ce-7a02-446e-b0aa-740053d31dea" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b5a1529a-8718-40a5-aad8-384f82db1f3b">
+                    <propertyInstance Id="d4baf1eb-7ac9-4214-8677-fc896f72fb4b" name="Get" value="public">
+                      <elementDefinition Id="8ccf3209-9a94-4e57-b838-60453d2d97d3" />
+                    </propertyInstance>
+                    <elementDefinition Id="640d4afd-c7c2-4d69-9679-01c2c6200c7f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7c0238b0-090f-4c76-ae89-f00a56da3498">
+                    <propertyInstance Id="c53d62d1-bb2e-4d22-b285-d7145dafdbb2" name="HasBody" value="false">
+                      <elementDefinition Id="73667a2d-eb51-4540-9732-3b5cc05dcfd4" />
+                    </propertyInstance>
+                    <elementDefinition Id="ed67ea8e-9237-4e9c-a526-a542753fb448" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3ddbf069-9ed0-47ef-b2f2-0b7aeb1f278f">
+                    <propertyInstance Id="f262cf6e-b5a8-4a44-8432-1b132cbea3ec" name="IsUnsafe" value="false">
+                      <elementDefinition Id="29c784d3-0e09-494e-a53c-adde84292e52" />
+                    </propertyInstance>
+                    <elementDefinition Id="71f6488c-305d-4a0c-a66f-9f46ab2a9bf2" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c67fcbca-0bc9-4a20-a4f8-dabe7019fcca">
+                    <propertyInstance Id="011a827c-57d4-4d61-8c0d-96af06fbab38" name="Inheritance" value="none">
+                      <elementDefinition Id="b51b8ee6-7993-42de-b79a-aff37f4ac0b3" />
+                    </propertyInstance>
+                    <elementDefinition Id="5a9c3010-95c7-4248-bf4d-10cb8bcc341f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7fc78960-20dc-429e-a9a4-ec9f07d7326c">
+                    <propertyInstance Id="3d893caa-de33-4aec-92c7-90524f9fb6aa" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="2a8f1eae-27a2-4c76-a2b0-1ec6187ae6fb" />
+                    </propertyInstance>
+                    <elementDefinition Id="61c0c688-8fc3-469d-82b4-4253495176e7" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d533d33c-9148-4a17-8b73-a8987db9956e">
+                    <propertyInstance Id="aeb8f258-963b-4d76-928c-cc770fb9fdc5" name="Set" value="public">
+                      <elementDefinition Id="aadaf5b0-7e8f-43dc-9f0d-2a28956f0eff" />
+                    </propertyInstance>
+                    <elementDefinition Id="83315497-3ecf-49fe-8014-04a00fd27d8e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="9cf99adb-8c89-41d4-8881-58f22acf7970" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="04a90ca9-db9d-42ae-9de7-c8ced5e3326d" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="8a212bc3-789a-42f1-9b8e-d227963da584" name="AmountAndMeasure" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="c69e5fe9-2b80-4380-8ccc-7ffc6d78c78e" handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingListItem Member%3DAmountAndMeasure" tag="ViewCode">
+                <elementDefinition Id="008e6d0d-6786-4582-83a6-3f74c60b2a97" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="b5d803ed-9ba1-4d7f-9c74-6ee11ce32998" name="property" profile="CSharpProfile">
+                <elementDefinition Id="f5d85a29-f13b-458b-bd6f-81015a110559" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f9a4a1f8-c836-44a6-a8cd-3b3815125323">
+                    <propertyInstance Id="36a384cf-5e9c-4dd4-b70f-71ff79517987" name="ClrAttributes">
+                      <elementDefinition Id="76a3c96e-c46c-4291-a254-a7ea8d78da97" />
+                    </propertyInstance>
+                    <elementDefinition Id="0d2a98b4-2799-4264-9f87-3eaad4001ae8" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="80a07ccd-3d4d-42ed-a65a-e1bf3dd9573f">
+                    <propertyInstance Id="74e2670e-edb7-42d4-972d-73dcf34e4f7e" name="Get" value="public">
+                      <elementDefinition Id="b21622c4-0c67-4412-9b75-25febbb66e98" />
+                    </propertyInstance>
+                    <elementDefinition Id="bdbd4b3c-07a7-45af-9755-5bc57bb40d95" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="de4315ca-00de-4a74-8522-bd380f139e37">
+                    <propertyInstance Id="c2a3966f-6e9d-48b4-ba65-010ad354b990" name="HasBody" value="false">
+                      <elementDefinition Id="2a3d1045-9fa2-4d6f-90a4-de50e780918d" />
+                    </propertyInstance>
+                    <elementDefinition Id="3cf232cd-b3b5-492a-9830-bbe002b1c51c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="fd8bd89f-ab86-44d4-b52c-f84d37ae60b9">
+                    <propertyInstance Id="b60febcd-6bd0-400b-8aae-e1c25ba1a117" name="IsUnsafe" value="false">
+                      <elementDefinition Id="866d1188-f0f7-4f67-afd6-26ba26d9a51a" />
+                    </propertyInstance>
+                    <elementDefinition Id="9fa7daf5-3e1f-4c40-b26c-f323f5cceb45" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="2feddc8e-51d4-4748-b803-399fc5fd8ab6">
+                    <propertyInstance Id="4f81f847-e21f-4ab4-84fa-5d40910a0695" name="Inheritance" value="none">
+                      <elementDefinition Id="33030167-6afc-4801-9cda-39b53ac13982" />
+                    </propertyInstance>
+                    <elementDefinition Id="0c229ad7-0089-4fa7-9dca-8918ee56658a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b39fdadf-801c-4532-b2d6-07287f3ef7f2">
+                    <propertyInstance Id="452f9ba4-bfab-443d-bf50-a906158ff66c" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="cf035309-c065-4449-9ff4-10d6b16684ad" />
+                    </propertyInstance>
+                    <elementDefinition Id="c8c6812a-f583-4bcd-ab04-ae379c7b826f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="28d2abf2-3668-41e4-92d5-4e648723cc90">
+                    <propertyInstance Id="156f6bca-a063-4779-8c02-15c05369fb58" name="Set" value="public">
+                      <elementDefinition Id="4abc413b-6eb6-4f0c-977d-3bd8acd4c8b6" />
+                    </propertyInstance>
+                    <elementDefinition Id="6f96b090-b455-4964-b873-1fda52781e37" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="6f433ae0-276b-43d0-b56e-503902d3734d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="04a90ca9-db9d-42ae-9de7-c8ced5e3326d" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="2c99eebe-5dc6-425c-b972-d084cf999b9e" name="ShoppingListItem" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="67cf53a5-e3a3-4090-88a1-3612f867d5b4" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingListItem Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)])" tag="ViewCode">
+                <elementDefinition Id="7224aaf1-d511-4226-9c83-91b88555a08a" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="a800e15a-7f2d-4b10-a95a-73ad092b180b" name="method" profile="CSharpProfile">
+                <elementDefinition Id="74fee66e-8d27-4192-a2c7-b37d04d12720" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="0c6f4801-340d-4778-af81-9ead2e1ae277">
+                    <propertyInstance Id="57a190d9-9502-44b7-9953-6c4b0fa20568" name="ClrAttributes">
+                      <elementDefinition Id="5f326a82-4c25-456e-966c-07cfd7a2c1af" />
+                    </propertyInstance>
+                    <elementDefinition Id="07b968f5-3b15-41ed-9f07-4eb00f49ac9f" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="66ad135c-826f-4552-a5a7-c78d5e519a2b">
+                    <propertyInstance Id="b74d2359-9c4e-4849-94cc-65dc114efb35" name="IsPartial" value="false">
+                      <elementDefinition Id="4b525b58-a6c1-4b53-976c-03193fe99eb8" />
+                    </propertyInstance>
+                    <elementDefinition Id="dab761eb-cd16-4dcd-a12a-fc21f9c5ebf5" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="9d081768-57e6-47e3-92ad-6f4489c0374e">
+                    <propertyInstance Id="ae37522c-03b7-40c7-9791-e9c50217b76e" name="IsUnsafe" value="false">
+                      <elementDefinition Id="1f88e1e7-8baa-4818-9894-17eb319a8051" />
+                    </propertyInstance>
+                    <elementDefinition Id="c95418a8-7e3c-44a6-8d97-f580a26aab7b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="989acad9-4e70-4143-8481-9afa0bf76965">
+                    <propertyInstance Id="f403905e-7813-4e1b-a69f-7b17eb7d4579" name="Inheritance" value="none">
+                      <elementDefinition Id="d6bfbef8-7358-411c-90c1-4e7557812b46" />
+                    </propertyInstance>
+                    <elementDefinition Id="cf54fcc5-3ca7-4a10-ad1c-02594ba71928" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="07b3823f-5fdb-423b-8d60-6262e4cc2411">
+                    <propertyInstance Id="752913ac-acc7-409e-8174-0e480c3f6065" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="e96b7f36-0774-4fbf-b0d6-84ae907400e2" />
+                    </propertyInstance>
+                    <elementDefinition Id="27b4c5a2-4150-4122-af4e-5aca27e12d29" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="37cddcf6-a9c3-4cdf-920f-18b7a2b1e334">
+                    <propertyInstance Id="f1dbc4b7-c3ac-481f-9646-6e254a36ff9b" name="params" value="false">
+                      <elementDefinition Id="8be18639-c75e-4c95-b326-ed8e26328d21" />
+                    </propertyInstance>
+                    <elementDefinition Id="208d9a7c-9765-4f9a-99ba-3b279dc19705" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="220c790b-9cb8-4bd0-948a-c594e72476ad" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c1a031a2-58f8-4bb4-b193-c4302fd9eb6d" name="name" direction="In">
+                  <referencesInternal>
+                    <reference Id="bbf35acb-620b-4f4b-ae54-cebfc21226ae" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingListItem Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dname" tag="ViewCode">
+                      <elementDefinition Id="caea2022-e47c-4fa8-b7ab-3b00c3373d9d" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="eecfddc6-9450-4fff-b060-43e7d715c51d" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="04a90ca9-db9d-42ae-9de7-c8ced5e3326d" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f0493647-da4c-4452-bb64-082e0432f597" name="amountAndMeasure" direction="In">
+                  <referencesInternal>
+                    <reference Id="9dad6781-48bd-4f6d-ad79-bcd1781e9513" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAlmin%2FDocuments%2FGitHub%2FShoppingListWPApp%2FShoppingListWPApp%2Fbin%2FDebug%2FShoppingListWPApp.exe Namespace%3DShoppingListWPApp.Models Type%3DShoppingListItem Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FWindowsPhoneApp%2Fv8.1%2FSystem.Runtime.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3DamountAndMeasure" tag="ViewCode">
+                      <elementDefinition Id="a87f70fe-9d1e-4e84-85f7-5fb425ebc4d9" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="3ec30f27-0905-4b60-9d13-af79f4a9f8df" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="04a90ca9-db9d-42ae-9de7-c8ced5e3326d" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="98cf75fe-c9f5-4157-b778-6e19a08397c8" name="ShoppingListModelingProject">
+    <elementDefinition Id="f545b2da-75ed-4ebf-8351-ed6be7c384db" />
+  </package>
+</logicalClassDesignerModel>

@@ -407,4 +407,11 @@
     <value>Set Map Style</value>
     <comment>Label of secondary Appbarbutton for changing map style</comment>
   </data>
+  <data name="AccessDeniedTitle" xml:space="preserve">
+    <value>Access denied</value>
+  </data>
+  <data name="RegisterBackgroundTaskError" xml:space="preserve">
+    <value>This application is denied of the background task!</value>
+    <comment>Displays dialog with this text, when the registration of a background task is denied.</comment>
+  </data>
 </root>

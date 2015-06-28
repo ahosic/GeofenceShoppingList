@@ -219,7 +219,9 @@ namespace ShoppingListWPApp.Common
             {
                 case BackgroundAccessStatus.Unspecified:
                 case BackgroundAccessStatus.Denied:
-                    await dialogService.ShowMessage("This application is denied of the background task!", "Access denied");
+                    await dialogService.ShowMessage(
+                        ResourceLoader.GetForCurrentView().GetString("RegisterBackgroundTaskError"),
+                        ResourceLoader.GetForCurrentView().GetString("AccessDeniedTitle"));
                     break;
             }
         }

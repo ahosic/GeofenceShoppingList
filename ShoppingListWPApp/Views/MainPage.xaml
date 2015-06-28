@@ -174,7 +174,7 @@
                             <StackPanel Background="{ThemeResource MainAppColor}">
                                 <TextBlock x:Uid="AppBarFlyoutFindAddressHeader" Style="{ThemeResource MessageDialogTitleStyle}" Foreground="White" Margin="24,17,24,12"/>
                                 <TextBlock x:Uid="AppBarFlyoutFindAddressTextBoxAddress" x:Name="TbxAddressHeader" Foreground="White" Margin="24,0,24,6" Style="{ThemeResource TitleTextBlockStyle}" />
-                                <TextBox x:Uid="AppBarFlyoutFindAddressTextBoxAddress" x:Name="TbxAddress" InputScope="Search" RequestedTheme="Dark" Margin="24,0,24,12" KeyDown="TbxAddress_KeyDown"/>
+                                <TextBox x:Name="TbxAddress" InputScope="Search" RequestedTheme="Dark" Margin="24,0,24,12" KeyDown="TbxAddress_KeyDown"/>
                                 <Grid HorizontalAlignment="Stretch" Margin="24,0,24,12" RequestedTheme="Dark">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="*"/>

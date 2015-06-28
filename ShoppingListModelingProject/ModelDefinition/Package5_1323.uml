@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="f4d1efb2-7d94-478b-973b-126b5369276e"
+  name="Geolocation"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="1f6ba2e1-2502-46d6-8a54-57acf21c8f24"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DWindows.Devices.Geolocation"
+      tag="ViewCode" />
+  </referencesInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="8b20d0dc-60fa-402d-a6f5-c6c5ea3048f1">
+      <profileInstance
+        Id="59708d5d-ff80-4240-be91-c5009efecd2b"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="db9d7080-a4dd-44f1-864e-f53acad19584"
+        name="BasicGeoposition"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="faf73f62-2e82-4e52-b179-3f3cdee615b3"
+            handle="viewcode://./CodeSchema_Struct?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FWindows Phone Kits%2F8.1%2FReferences%2FCommonConfiguration%2FNeutral%2FWindows.winmd&quot; Namespace%3DWindows.Devices.Geolocation Type%3DBasicGeoposition"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="96269d3c-ecf2-4592-95db-8ee3ba8f297e"
+            name="struct"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3fac5bf8-bef5-49b2-b472-47084679ee6b">
+                <propertyInstance
+                  Id="e9780222-0520-46f9-9c47-176bee9d6f41"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="15eb46b6-4891-4ec0-8698-89e943c33a6a">
+                <propertyInstance
+                  Id="db09e766-4011-47d4-8f0e-cd97ed1f0f65"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="19fd485a-e8a2-4b0e-bfc0-8ae388a46204">
+                <propertyInstance
+                  Id="eca88bd5-8ed5-4760-8b11-097784ff504b"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="07fa0c11-3efc-44ec-87a0-a96b5147e667">
+                <propertyInstance
+                  Id="e6f3421c-e787-474e-a130-de52c3b17caa"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

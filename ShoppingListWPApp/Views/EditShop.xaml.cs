@@ -376,11 +376,22 @@ namespace ShoppingListWPApp.Views
                         selectedLocation.Address.CountryCode);
 
                     // Clear all MapIcons of the MapControl
-                    Map.MapElements.Clear();
+                    Map.Children.Clear();
 
-                    // Add MapIcon with the found location to the MapControl
-                    MapIcon icon = new MapIcon { Location = FinderResult.Locations.First().Point };
-                    Map.MapElements.Add(icon);
+                    // Create pushpin
+                    Ellipse pushpin = new Ellipse
+                    {
+                        Fill = new SolidColorBrush(Color.FromArgb(255, 27, 161, 226)),
+                        Stroke = new SolidColorBrush(Colors.White),
+                        StrokeThickness = 2,
+                        Width = 20,
+                        Height = 20,
+                    };
+
+                    // Add Pin to MapControl
+                    MapControl.SetLocation(pushpin, FinderResult.Locations.First().Point);
+                    MapControl.SetNormalizedAnchorPoint(pushpin, new Point(0.5, 0.5));
+                    Map.Children.Add(pushpin);
 
                     // Center found location on the MapControl
                     Map.Center = FinderResult.Locations.First().Point;
