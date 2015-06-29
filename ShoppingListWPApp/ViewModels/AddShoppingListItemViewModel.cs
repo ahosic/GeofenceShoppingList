@@ -97,7 +97,6 @@ namespace ShoppingListWPApp.ViewModels
         /// <summary>
         /// Removes a <c>ShoppingListItem</c>-Object from the <c>Items</c>-Collection.
         /// </summary>
-        /// <param name="shoppingListItem">The <c>ShoppingListItem</c>-Object that should be removed from the Collection.</param>
         private void DeleteItem()
         {
             Items.Remove(ShoppingListItem);
@@ -110,28 +109,6 @@ namespace ShoppingListWPApp.ViewModels
 
             ShoppingListItem = null;
         }
-
-        ///// <summary>
-        ///// After opening a dialog and asking for confirmation it removes the selected <c>ShoppingListItem</c>-Object out of the <c>Items</c>-Collection.
-        ///// </summary>
-        //private async void GoToDeleteShoppingListItem()
-        //{
-        //    // Show dialog
-        //    bool result = await dialogService.ShowMessage(
-        //        ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListItemDialogContent"),
-        //        ResourceLoader.GetForCurrentView().GetString("DeleteShoppingListItemDialogTitle"),
-        //        ResourceLoader.GetForCurrentView().GetString("YesText"),
-        //        ResourceLoader.GetForCurrentView().GetString("NoText"),
-        //        null);
-
-        //    // Check, if user pressed the "Proceed-Button"
-        //    if (result)
-        //    {
-        //        // Delete selected ShoppingListItem object
-        //        DeleteItem(ShoppingListItem);
-
-        //    }
-        //}
 
         #endregion
 
