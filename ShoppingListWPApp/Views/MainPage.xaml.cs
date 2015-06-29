@@ -239,9 +239,10 @@ namespace ShoppingListWPApp.Views
             {
                 // Check, if Location-Pushpin is null else remove it and create a new one  
                 if (myLocationPushPin == null)
-                {        
+                {
                     CreateMyLocationPushPin();
-                }else
+                }
+                else
                 {
                     // Remove the old Location-Pushpin
                     Map.Children.Remove(myLocationPushPin);
@@ -254,11 +255,11 @@ namespace ShoppingListWPApp.Views
                     ResourceLoader.GetForCurrentView().GetString("GPSError"),
                     ResourceLoader.GetForCurrentView().GetString("ErrorTitle")).ShowAsync();
             }
-        
+
         }
 
         /// <summary>
-        /// Gets the current location of the device and centers the current position on the <c>MapControl</c> with a Pushpin.
+        /// Creates a pushpin for the device's current location and adds it to the <c>MapControl</c>.
         /// </summary>
         private async void CreateMyLocationPushPin()
         {
@@ -305,7 +306,7 @@ namespace ShoppingListWPApp.Views
             Map.Center = position.Coordinate.Point;
             Map.DesiredPitch = 0;
             await Map.TrySetViewAsync(position.Coordinate.Point, 15);
-               
+
         }
 
         /// <summary>

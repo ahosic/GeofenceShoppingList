@@ -118,35 +118,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Address.Header" xml:space="preserve">
-    <value>Address</value>
+    <value>Adresa</value>
     <comment>Address of the Shop (View: AddShop)</comment>
   </data>
   <data name="AddShopPageTitle.Text" xml:space="preserve">
-    <value>add a shop</value>
+    <value>stvori trgovinu</value>
     <comment>Page Title (View: AddShop)</comment>
   </data>
   <data name="AppBarButtonAdd.Label" xml:space="preserve">
-    <value>add</value>
+    <value>stvori</value>
     <comment>Primary AppBarButton for Adding Shopping Lists (View: MainPage)</comment>
   </data>
   <data name="AppBarButtonAddFlyoutList.Text" xml:space="preserve">
-    <value>Add a Shopping List</value>
+    <value>Stvori popis</value>
     <comment>MenuFlyoutItem for Add-AppBarButton (View: MainPage)</comment>
   </data>
   <data name="AppBarButtonAddFlyoutShop.Text" xml:space="preserve">
-    <value>Add a Shop</value>
+    <value>Stvori trgovinu</value>
     <comment>MenuFlyoutItem for Add-AppBarButton (View: MainPage)</comment>
   </data>
   <data name="AppBarButtonCancel.Label" xml:space="preserve">
-    <value>cancel</value>
+    <value>odustani</value>
     <comment>Primary AppBarButton for canceling the creation of a shop (View: AddShop)</comment>
   </data>
   <data name="AppBarButtonDone.Label" xml:space="preserve">
-    <value>done</value>
+    <value>spremi</value>
     <comment>Primary AppBarButton for creating a shop (View: AddShop)</comment>
   </data>
   <data name="AppBarButtonFind.Label" xml:space="preserve">
-    <value>find</value>
+    <value>traži</value>
     <comment>Primary AppBarButton for Finding Shopping Lists (View: MainPage)</comment>
   </data>
   <data name="ApplicationTitle.Text" xml:space="preserve">
@@ -154,15 +154,15 @@
     <comment>Application Title</comment>
   </data>
   <data name="PivotItemLists.Header" xml:space="preserve">
-    <value>lists</value>
+    <value>popisi</value>
     <comment>Header of the Lists-PivotItem (View: MainPage)</comment>
   </data>
   <data name="PivotItemMap.Header" xml:space="preserve">
-    <value>map</value>
+    <value>karta</value>
     <comment>Header of the Maps-PivotItem (View: MainPage)</comment>
   </data>
   <data name="PivotItemShops.Header" xml:space="preserve">
-    <value>shops</value>
+    <value>trgovine</value>
     <comment>Header of the Shops-PivotItem (View: MainPage)</comment>
   </data>
   <data name="PivotMain.Title" xml:space="preserve">
@@ -170,244 +170,244 @@
     <comment>Title of the Application (View: MainPage)</comment>
   </data>
   <data name="ShopName.Header" xml:space="preserve">
-    <value>Name</value>
+    <value>Naziv</value>
     <comment>Name of Shop (View: AddShop)</comment>
   </data>
   <data name="GeoFenceShopRadius.Header" xml:space="preserve">
-    <value>Radius of Notification</value>
+    <value>Radijus geoograde</value>
     <comment>Header of Radius Slider (View: AddShop)</comment>
   </data>
   <data name="GeoFenceShopRadiusUnit" xml:space="preserve">
-    <value>mi</value>
+    <value>km</value>
     <comment>Unit for the Radius for the Geofence of a shop (View: AddShop)</comment>
   </data>
   <data name="CancelText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Odustani</value>
     <comment>Cancel-Button for the Cancel-Dialog (View: AddShop)</comment>
   </data>
   <data name="AddShopCancelDialogButtonProceed" xml:space="preserve">
-    <value>Proceed</value>
+    <value>Nastavi</value>
     <comment>Proceed-Button for the Cancel-Dialog (View: AddShop)</comment>
   </data>
   <data name="AddShopCancelDialogText" xml:space="preserve">
-    <value>You have unsaved data. If you proceed, all input data will be lost. Proceed?</value>
+    <value>Postoje nespremljene promjene. Ako nastavite sve vaše promjene će biti odbačene. Nastavi?</value>
     <comment>Text that is displayed in a dialog, when the user clicks on "Cancel". (View: AddShop)</comment>
   </data>
   <data name="WarningTitle" xml:space="preserve">
-    <value>Warning</value>
+    <value>Upozorenje</value>
     <comment>Title for Cancel-Dialog (View: AddShop)</comment>
   </data>
   <data name="AddShopFindAddressDialogNotFoundText" xml:space="preserve">
-    <value>Maybe the address is wrong or invalid?</value>
+    <value>Možda je adresa netočna ili nevažeća?</value>
     <comment>Text of a dialog that is displayed, when an address can't be found (View: AddShop)</comment>
   </data>
   <data name="AddShopFindAddressDialogNotFoundTitle" xml:space="preserve">
-    <value>No results found!</value>
+    <value>Nema rezultata!</value>
     <comment>Title of a dialog that is displayed, when an address can't be found (View: AddShop)</comment>
   </data>
   <data name="AppBarFlyoutButtonCancel.Content" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Odustani</value>
     <comment>Cancel-Button of Find-Address-Flyout (View: AddShop)</comment>
   </data>
   <data name="AppBarFlyoutButtonFind.Content" xml:space="preserve">
-    <value>Find</value>
+    <value>Traži</value>
     <comment>Find-Button of Find-Address-Flyout (View: AddShop)</comment>
   </data>
   <data name="AppBarFlyoutFindAddressHeader.Text" xml:space="preserve">
-    <value>Find Address</value>
+    <value>Pronađi adresu</value>
     <comment>Header of Find-Address-Flyout (View: AddShop)</comment>
   </data>
   <data name="AppBarFlyoutFindAddressTextBoxAddress.Text" xml:space="preserve">
-    <value>Address</value>
+    <value>Adresa</value>
     <comment>Header of TextBox of Find-Address-Flyout (View: AddShop)</comment>
   </data>
   <data name="AppBarButtonSecondaryFindMe.Label" xml:space="preserve">
-    <value>Where am I?</value>
+    <value>Gdje sam ja?</value>
     <comment>Secondary Appbar-Button for locating device on map using GPS (View: AddShop)</comment>
   </data>
   <data name="AppBarButtonFindAddress.Label" xml:space="preserve">
-    <value>Find Address</value>
+    <value>Pronađi adresu</value>
     <comment>Secondary Appbar-Button for finding addresses on the map (View: AddShop)</comment>
   </data>
   <data name="AppBarButtonFindMe.Label" xml:space="preserve">
-    <value>me</value>
+    <value>ja</value>
     <comment>Appbar-Button for locating device on map using GPS (View: MainPage)</comment>
   </data>
   <data name="MainPageMenuFlyOutItemShopDelete.Text" xml:space="preserve">
-    <value>Delete</value>
+    <value>Ukloni</value>
     <comment>Text for the MenuFlyoutItem that is displayed while holding a shop (View: MainPage)</comment>
   </data>
   <data name="MainPageMenuFlyOutItemShopDetails.Text" xml:space="preserve">
-    <value>Details</value>
+    <value>Pojedinosti</value>
     <comment>Text for the MenuFlyoutItem that is displayed while holding a shop (View: MainPage)</comment>
   </data>
   <data name="MainPageMenuFlyOutItemShopEdit.Text" xml:space="preserve">
-    <value>Edit</value>
+    <value>Uredi</value>
     <comment>Text for the MenuFlyoutItem that is displayed while holding a shop (View: MainPage)</comment>
   </data>
   <data name="ShopListRadius.Text" xml:space="preserve">
-    <value>RADIUS</value>
+    <value>RADIJUS</value>
     <comment>Radius-Label for the Shops-List (View: MainPage)</comment>
   </data>
   <data name="StatusBarSearchingAddress" xml:space="preserve">
-    <value>Finding Address ...</value>
+    <value>Pretraživanje adrese ...</value>
     <comment>Text that is displayed in the Statusbar while trying to find an address of the device (View: AddShop, EditShop, MainPage)</comment>
   </data>
   <data name="DeleteShopDialogContent" xml:space="preserve">
-    <value>Are you sure you want to delete this shop?</value>
+    <value>Jeste li sigurni da želite ukloniti ovu trgovinu?</value>
     <comment>Text that is displayed when someone wants to delete a shop (View: MainPage)</comment>
   </data>
   <data name="DeleteShopDialogTitle" xml:space="preserve">
-    <value>Delete Shop</value>
+    <value>Ukloni trgovinu</value>
     <comment>Title that is displayed when someone wants to delete a shop (View: MainPage)</comment>
   </data>
   <data name="EditShopPageTitle.Text" xml:space="preserve">
-    <value>edit shop</value>
+    <value>uredi trgovinu</value>
     <comment>Page Title (View: EditShop)</comment>
   </data>
   <data name="DetailsShopDelete.Label" xml:space="preserve">
-    <value>delete</value>
+    <value>ukloni</value>
     <comment>Delete Shop-Label (View: DetailsShop)</comment>
   </data>
   <data name="DetailsShopEdit.Label" xml:space="preserve">
-    <value>edit</value>
+    <value>uredi</value>
     <comment>Edit Shop-Label (View: DetailsShop)</comment>
   </data>
   <data name="DetailsShopHeaderAddress.Text" xml:space="preserve">
-    <value>Address</value>
+    <value>Adresa</value>
     <comment>Header of Address-Field (View: DetailsShop)</comment>
   </data>
   <data name="DetailsShopHeaderRadius.Text" xml:space="preserve">
-    <value>Radius of Notification</value>
+    <value>Radijus geoograde</value>
     <comment>Header of Radius-Field (View: DetailsShop)</comment>
   </data>
   <data name="DetailsShopHeaderShoppingLists.Text" xml:space="preserve">
-    <value>Shopping Lists</value>
+    <value>Popisi</value>
     <comment>Header of Shopping Lists-ListView (View: DetailsShop)</comment>
   </data>
   <data name="AddShoppingListPageTitle.Text" xml:space="preserve">
-    <value>add a list</value>
+    <value>stvori popis</value>
     <comment>Page Title (View: AddShoppingList)</comment>
   </data>
   <data name="ShoppingListName.Header" xml:space="preserve">
-    <value>Name</value>
+    <value>Naziv</value>
     <comment>Name of ShoppingList (View AddShoppingList)</comment>
   </data>
   <data name="AppBarFlyoutAddItemAmountAndMeasure.Text" xml:space="preserve">
-    <value>Amount and Measure</value>
+    <value>Količina i jedinica</value>
   </data>
   <data name="AppBarFlyoutAddItemHeader.Text" xml:space="preserve">
-    <value>Add Item</value>
+    <value>Dodaj artikl</value>
     <comment>Header of Flyout AddItem</comment>
   </data>
   <data name="AppBarFlyoutAddItemName.Text" xml:space="preserve">
-    <value>Text</value>
+    <value>Tekst</value>
   </data>
   <data name="AppBarFlyoutButtonAdd.Content" xml:space="preserve">
-    <value>Add</value>
+    <value>Dodaj</value>
     <comment>Add-Button of Add-Item-Flyout (View: AddShoppingListItem)</comment>
   </data>
   <data name="DeleteShoppingListDialogContent" xml:space="preserve">
-    <value>Are you sure you want to delete this shoppinglist?</value>
+    <value>Jeste li sigurni da želite ukloniti ovaj popis?</value>
   </data>
   <data name="DeleteShoppingListDialogTitle" xml:space="preserve">
-    <value>Delete Shoppinglist</value>
+    <value>Ukloni popis</value>
   </data>
   <data name="NoText" xml:space="preserve">
-    <value>No</value>
+    <value>Ne</value>
   </data>
   <data name="AddShopDialogContent" xml:space="preserve">
-    <value>Add a shop to continue!</value>
+    <value>Stvorite trgovinu kako bi nastavili!</value>
   </data>
   <data name="AddShopDialogTitle" xml:space="preserve">
-    <value>Add a Shop</value>
+    <value>Stvori trgovinu</value>
   </data>
   <data name="AddShoppingListValidationErrorContent" xml:space="preserve">
-    <value>You have to provide all required information in order to create a shopping list!</value>
+    <value>Morate navesti sve potrebne podatke kako bi stvorili popis za kupovinu!</value>
     <comment>Content of dialog that is shown, if the provided data is invalid (View: AddShoppingList)</comment>
   </data>
   <data name="SavingErrorContent" xml:space="preserve">
-    <value>An error occurred while saving data.</value>
+    <value>Pogreška pri spremanju podataka.</value>
     <comment>Content of dialog that is displayed, when an error occures while saving data.</comment>
   </data>
   <data name="ShoppingListItems.Text" xml:space="preserve">
-    <value>Items</value>
+    <value>Artikli</value>
     <comment>Items-Count Label for the ShoppingList-List (View:MainPage, DetailsShopPage)</comment>
   </data>
   <data name="ErrorTitle" xml:space="preserve">
-    <value>Error</value>
+    <value>Pogreška</value>
     <comment>Title of e.g. Dialogs, when an error occures.</comment>
   </data>
   <data name="FindAddressError" xml:space="preserve">
-    <value>An Error occurred while retrieving the address. Check your network connection.</value>
+    <value>Pogreška u dohvaćanju adrese. Provjerite mrežnu vezu.</value>
     <comment>Text of Dialog that is displayed, when an error occures while retrieving an address. (View: AddShop, EditShop, MainPage)</comment>
   </data>
   <data name="GetLocationByAddressError" xml:space="preserve">
-    <value>An Error occurred while finding the address. Check your network connection.</value>
+    <value>Pogreška pri pretraživanju adrese. Provjerite mrežnu vezu.</value>
     <comment>Text of Dialog that is displayed, when an error occures while finding an address. (View: AddShop, EditShop, MainPage)</comment>
   </data>
   <data name="GPSError" xml:space="preserve">
-    <value>An Error occurred while trying to locate your position. Check your location settings.</value>
+    <value>Pogreška pri lociranju vaše trenutne pozicije. Provjerite vaše postavke za usluge lokacije.</value>
     <comment>Text of Dialog that is displayed, when an error occures while trying to locate the device. (View: AddShop, EditShop, MainPage)</comment>
   </data>
   <data name="YesText" xml:space="preserve">
-    <value>Yes</value>
+    <value>Da</value>
   </data>
   <data name="StatusBarGettingLocation" xml:space="preserve">
-    <value>Getting location ...</value>
+    <value>Lociranje pozicije ...</value>
     <comment>Text that is displayed in the Statusbar while trying to get the location of the device (View: AddShop, EditShop, MainPage)</comment>
   </data>
   <data name="GPSStatusError" xml:space="preserve">
-    <value>Location is disabled on your device. To enable location, go to Settings and select location.</value>
+    <value>Usluge lokacije su onemogućena na vašem uređaju. Možete ih omogućiti u "Postavke".</value>
     <comment>Text of Dialog that is displayed, when the Status of Location service of the device changes.</comment>
   </data>
   <data name="ComboBoxItemHeader.Header" xml:space="preserve">
-    <value>Choose a shop</value>
+    <value>Izaberi trgovinu</value>
   </data>
   <data name="EditShoppingListPageTitle.Text" xml:space="preserve">
-    <value>edit list</value>
+    <value>uredi popis</value>
   </data>
   <data name="AppBarFlyoutMapStyleTitle.Text" xml:space="preserve">
-    <value>Set Map style</value>
+    <value>Promijeni vrstu karte</value>
     <comment>Title of Flyout used for setting the Map style (View: MainPage, AddShop, EditShop, DetailsShop)</comment>
   </data>
   <data name="MapStyleAerial" xml:space="preserve">
-    <value>Aerial</value>
+    <value>Satelitska karta</value>
     <comment>Item of MapStyle-Combobox (View: MainPage, AddShop, EditShop, DetailsShop)</comment>
   </data>
   <data name="MapStyleAerialWithRoads" xml:space="preserve">
-    <value>Aerial with Roads</value>
+    <value>Satelitska karta sa cestama</value>
     <comment>Item of MapStyle-Combobox (View: MainPage, AddShop, EditShop, DetailsShop)</comment>
   </data>
   <data name="MapStyleNone" xml:space="preserve">
-    <value>None</value>
+    <value>Nijedna</value>
     <comment>Item of MapStyle-Combobox (View: MainPage, AddShop, EditShop, DetailsShop)</comment>
   </data>
   <data name="MapStyleRoads" xml:space="preserve">
-    <value>Roads</value>
+    <value>Geografska karta</value>
     <comment>Item of MapStyle-Combobox (View: MainPage, AddShop, EditShop, DetailsShop)</comment>
   </data>
   <data name="MapStyleStandard" xml:space="preserve">
-    <value>Standard (Roads)</value>
+    <value>Standard (Geografska karta)</value>
     <comment>Item of MapStyle-Combobox (View: MainPage, AddShop, EditShop, DetailsShop)</comment>
   </data>
   <data name="MapStyleTerrain" xml:space="preserve">
-    <value>Terrain</value>
+    <value>Topografska karta</value>
     <comment>Item of MapStyle-Combobox (View: MainPage, AddShop, EditShop, DetailsShop)</comment>
   </data>
   <data name="AppBarButtonMapStyle.Label" xml:space="preserve">
-    <value>map style</value>
+    <value>vrste karata</value>
     <comment>Label of AppBar-Button for changing map style</comment>
   </data>
   <data name="AppBarButtonSecondaryMapStyle.Label" xml:space="preserve">
-    <value>Set Map Style</value>
+    <value>Promijeni vrstu karte</value>
     <comment>Label of secondary Appbarbutton for changing map style</comment>
   </data>
   <data name="AccessDeniedTitle" xml:space="preserve">
-    <value>Access denied</value>
+    <value>Pristup odbijen</value>
   </data>
   <data name="RegisterBackgroundTaskError" xml:space="preserve">
-    <value>This application is denied of the background task!</value>
+    <value>Za ovu aplikaciju izvršenje zadataka u pozadini nije dozvoljeno!</value>
     <comment>Displays dialog with this text, when the registration of a background task is denied.</comment>
   </data>
 </root>
