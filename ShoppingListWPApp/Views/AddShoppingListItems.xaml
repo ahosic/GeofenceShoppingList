@@ -72,7 +72,7 @@
     <Page.BottomAppBar>
         <CommandBar Background="{StaticResource MainAppColor}" Foreground="White">
             <CommandBar.PrimaryCommands>
-                <AppBarButton x:Uid="AppBarButtonAdd" x:Name="AbtnAddShListItem" Icon="Add">
+                <AppBarButton x:Uid="AppBarButtonAddItem" x:Name="AbtnAddShListItem" Icon="Add">
                     <AppBarButton.Flyout>
                         <Flyout>
                             <StackPanel Background="{ThemeResource MainAppColor}">

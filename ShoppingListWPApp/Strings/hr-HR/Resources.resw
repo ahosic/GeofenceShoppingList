@@ -410,4 +410,7 @@
     <value>Za ovu aplikaciju izvršenje zadataka u pozadini nije dozvoljeno!</value>
     <comment>Displays dialog with this text, when the registration of a background task is denied.</comment>
   </data>
+  <data name="AppBarButtonAddItem.Label" xml:space="preserve">
+    <value>dodaj</value>
+  </data>
 </root>
