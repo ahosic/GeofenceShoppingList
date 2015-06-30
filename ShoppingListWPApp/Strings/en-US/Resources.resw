@@ -414,15 +414,15 @@
     <value>add</value>
   </data>
   <data name="MainPageMenuFlyOutItemShoppingListDelete.Text" xml:space="preserve">
-    <value>delete</value>
+    <value>Delete</value>
     <comment>Text for the MenuFlyoutItem that is displayed while holding a shoppinglist (View: MainPage)</comment>
   </data>
   <data name="MainPageMenuFlyOutItemShoppingListEdit.Text" xml:space="preserve">
-    <value>edit</value>
+    <value>Edit</value>
     <comment>Text for the MenuFlyoutItem that is displayed while holding a shoppinglist (View: MainPage)</comment>
   </data>
   <data name="MainPageMenuFlyOutItemShoppingListItemDelete.Text" xml:space="preserve">
-    <value>delete</value>
+    <value>Delete</value>
     <comment>Text for the MenuFlyoutItem that is displayed while holding a shoppinglistitem (View: AddShoppingListItems)</comment>
   </data>
 </root>

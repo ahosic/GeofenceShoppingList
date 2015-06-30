@@ -413,4 +413,13 @@
   <data name="AppBarButtonAddItem.Label" xml:space="preserve">
     <value>dodaj</value>
   </data>
+  <data name="MainPageMenuFlyOutItemShoppingListDelete.Text" xml:space="preserve">
+    <value>Ukloni</value>
+  </data>
+  <data name="MainPageMenuFlyOutItemShoppingListEdit.Text" xml:space="preserve">
+    <value>Uredi</value>
+  </data>
+  <data name="MainPageMenuFlyOutItemShoppingListItemDelete.Text" xml:space="preserve">
+    <value>Ukloni</value>
+  </data>
 </root>
