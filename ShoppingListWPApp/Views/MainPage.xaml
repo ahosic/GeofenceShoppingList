@@ -66,8 +66,8 @@
                                 </StackPanel>
                                 <FlyoutBase.AttachedFlyout>
                                     <MenuFlyout>
-                                        <MenuFlyoutItem Text="Edit" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding EditShoppingListCommand}"/>
-                                        <MenuFlyoutItem Text="Delete" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding DeleteShoppingListCommand}"/>
+                                        <MenuFlyoutItem x:Uid="MainPageMenuFlyOutItemShoppingListEdit" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding EditShoppingListCommand}"/>
+                                        <MenuFlyoutItem x:Uid="MainPageMenuFlyOutItemShoppingListDelete" DataContext="{Binding Source={StaticResource Locator}, Path=MainPage}" Command="{Binding DeleteShoppingListCommand}"/>
                                     </MenuFlyout>
                                 </FlyoutBase.AttachedFlyout>
                             </Grid>

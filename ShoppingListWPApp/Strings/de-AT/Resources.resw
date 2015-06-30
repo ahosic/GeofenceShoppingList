@@ -413,4 +413,16 @@
   <data name="AppBarButtonAddItem.Label" xml:space="preserve">
     <value>neu</value>
   </data>
+  <data name="MainPageMenuFlyOutItemShoppingListDelete.Text" xml:space="preserve">
+    <value>Entfernen</value>
+    <comment>Text for the MenuFlyoutItem that is displayed while holding a shoppinglist (View: MainPage)</comment>
+  </data>
+  <data name="MainPageMenuFlyOutItemShoppingListEdit.Text" xml:space="preserve">
+    <value>Bearbeiten</value>
+    <comment>Text for the MenuFlyoutItem that is displayed while holding a shoppinglist (View: MainPage)</comment>
+  </data>
+  <data name="MainPageMenuFlyOutItemShoppingListItemDelete.Text" xml:space="preserve">
+    <value>Entfernen</value>
+    <comment>Text for the MenuFlyoutItem that is displayed while holding a shoppinglistitem (View: AddShoppingListItems)</comment>
+  </data>
 </root>

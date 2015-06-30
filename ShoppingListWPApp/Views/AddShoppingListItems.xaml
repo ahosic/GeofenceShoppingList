@@ -58,7 +58,7 @@
                                 <TextBlock x:Name="TxbAmountAndMeasureItemsList" Text="{Binding AmountAndMeasure}" Grid.Column="1" Margin="12,0,0,0" Foreground="{StaticResource MainAppColor}"  Style="{ThemeResource ListViewItemTextBlockStyle}" FontSize="{ThemeResource TextStyleLargeFontSize}" HorizontalAlignment="Right" VerticalAlignment="Center" />
                                 <FlyoutBase.AttachedFlyout>
                                     <MenuFlyout>
-                                        <MenuFlyoutItem Text="Delete" DataContext="{Binding Source={StaticResource Locator}, Path=AddShoppingListItem}" Command="{Binding DeleteItemCommand}"/>
+                                        <MenuFlyoutItem x:Uid="MainPageMenuFlyOutItemShoppingListItemDelete" DataContext="{Binding Source={StaticResource Locator}, Path=AddShoppingListItem}" Command="{Binding DeleteItemCommand}"/>
                                     </MenuFlyout>
                                 </FlyoutBase.AttachedFlyout>
                             </Grid>
